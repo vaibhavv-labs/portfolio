@@ -70,11 +70,9 @@ export default function setSplitText() {
         duration: 0.8,
         ease: "power2.inOut",
         y: 0,
-        rotate: 0,
         stagger: 0.03,
       }
     );
   });
-
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
 }
+

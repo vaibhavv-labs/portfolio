@@ -28,6 +28,10 @@
   font-weight: 600;
   line-height: 36px;
   letter-spacing: 1px;
+  color: #ffffff;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 20;
 }
 
 @media only screen and (min-width: 600px) {

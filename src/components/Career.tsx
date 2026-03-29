@@ -15,43 +15,25 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Software Intern (Python & ML)</h4>
+                <h5>R3 SYSTEMS INDIA PRIVATE LIMITED</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>Jan 2026</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Worked on real-world datasets to build and evaluate machine learning models. Developed a Heart Disease Prediction System using Logistic Regression. Performed data preprocessing, feature selection, and model evaluation, and deployed the model using Streamlit.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>B.E. in AI & Data Science</h4>
+                <h5>SNJB College of Engineering</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>Present</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
-              </div>
-              <h3>NOW</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Currently in 3rd Year. Focused on solving real-world problems using data-driven approaches. Building a strong foundation in Machine Learning, Regression, Classification, and Data Visualization.
             </p>
           </div>
         </div>
