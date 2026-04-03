@@ -38,9 +38,7 @@
   gap: 50px;
   justify-content: start;
 }
-.work-flex .work-box:nth-child(even) {
-  flex-direction: column-reverse;
-}
+
 .work-flex::before,
 .work-flex::after {
   content: "";

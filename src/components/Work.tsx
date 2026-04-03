@@ -64,7 +64,20 @@ const Work = () => {
               category: "Machine Learning Web App",
               tools: "Python, Pandas, NumPy, Scikit-learn, Streamlit",
               link: "https://heart-disease-prediction-vaibhav.streamlit.app/",
-              github: "https://github.com/vaibhavv-labs/Heart-Disease-Prediction.git"
+              github: "https://github.com/vaibhavv-labs/Heart-Disease-Prediction.git",
+              images: ["/images/project1.png", "/images/project2.png"],
+              imageAlts: ["Heart Disease Prediction Part 1", "Heart Disease Prediction Part 2"],
+              liveLabel: "Live App"
+            },
+            {
+              name: "SentimentIQ – NLP-Based Social Media Sentiment Analysis Dashboard",
+              category: "AI / NLP Web App",
+              tools: "Python, PyTorch, HuggingFace Transformers, Streamlit, Plotly, YouTube Data API v3, Pandas",
+              link: "https://sentimentiq-dashboard-njiprgwlcchwkuemvrqwn4.streamlit.app/",
+              github: "https://github.com/vaibhavv-labs/sentimentiq-dashboard",
+              images: ["/images/sentimentiq1.png"],
+              imageAlts: ["SentimentIQ Dashboard Preview"],
+              liveLabel: "Live Demo"
             }
           ].map((project, index) => (
             <div className="work-box" key={index}>
@@ -80,13 +93,14 @@ const Work = () => {
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
                 <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', zIndex: 10, position: 'relative' }}>
-                  <a href={project.link} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: '#fff', border: '1px solid #fff', padding: '0.6rem 1.2rem', borderRadius: '4px', fontSize: '1rem' }} data-cursor="disable">Live App</a>
+                  <a href={project.link} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: '#fff', border: '1px solid #fff', padding: '0.6rem 1.2rem', borderRadius: '4px', fontSize: '1rem' }} data-cursor="disable">{project.liveLabel}</a>
                   <a href={project.github} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: '#fff', border: '1px solid #fff', padding: '0.6rem 1.2rem', borderRadius: '4px', fontSize: '1rem' }} data-cursor="disable">GitHub</a>
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, padding: '1rem' }}>
-                <WorkImage image="/images/project1.png" alt="Heart Disease Prediction Part 1" link={project.link} />
-                <WorkImage image="/images/project2.png" alt="Heart Disease Prediction Part 2" link={project.github} />
+                {project.images.map((img, i) => (
+                  <WorkImage key={i} image={img} alt={project.imageAlts[i]} link={i === 0 ? project.link : project.github} />
+                ))}
               </div>
             </div>
           ))}
