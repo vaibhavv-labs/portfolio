@@ -78,6 +78,16 @@ const Work = () => {
               images: ["/images/sentimentiq1.png"],
               imageAlts: ["SentimentIQ Dashboard Preview"],
               liveLabel: "Live Demo"
+            },
+            {
+              name: "FaceID Attendance System",
+              category: "Computer Vision Web App",
+              tools: "Python, OpenCV, Streamlit, NumPy, Pandas. Real-time face recognition attendance system. Auto-detects faces via webcam, marks attendance instantly, and exports CSV.",
+              link: "https://drive.google.com/file/d/1g-efKzypo2mCdXtwn3UwqALjecAiyyw-/view?usp=drive_link",
+              github: "https://github.com/vaibhavv-labs/face-attendance-system",
+              images: ["/images/demo.png"],
+              imageAlts: ["FaceID Attendance System Demo"],
+              liveLabel: "Demo Video"
             }
           ].map((project, index) => (
             <div className="work-box" key={index}>
