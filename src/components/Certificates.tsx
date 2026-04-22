@@ -2,6 +2,15 @@ import "./styles/Certificates.css";
 
 const certificates = [
   {
+    name: "Fundamentals of Remote Sensing",
+    issuer: "NASA (ARSET – Applied Remote Sensing Training Program)",
+    date: "Apr 2026",
+    category: "Remote Sensing",
+    icon: "🛰️",
+    link: "https://drive.google.com/file/d/1p4lfLOlTB47v1pL_CcOUxV0OuI0HPkdu/view",
+    description: "Completed NASA ARSET training covering satellite data analysis, Earth observation, and real-world applications of geospatial data.",
+  },
+  {
     name: "GenAI Powered Data Analytics Job Simulation",
     issuer: "Forage × TATA",
     date: "Apr 2026",
