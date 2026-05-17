@@ -128,6 +128,16 @@ export function setCharTimeline(
         },
       });
       tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+
+      const tlMobileHide = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top bottom",
+          end: "top 40%",
+          scrub: true,
+        },
+      });
+      tlMobileHide.to(".character-model", { autoAlpha: 0, duration: 1 }, 0);
     }
   }
 }
