@@ -59,7 +59,7 @@ const WhatIDo = () => {
             </svg>
           </div>
           <div
-            className="what-content what-noTouch"
+            className="what-content glass-card what-noTouch"
             ref={(el) => setRef(el, 0)}
           >
             <div className="what-border1">
@@ -107,7 +107,7 @@ const WhatIDo = () => {
             </div>
           </div>
           <div
-            className="what-content what-noTouch"
+            className="what-content glass-card what-noTouch"
             ref={(el) => setRef(el, 1)}
           >
             <div className="what-border1">

@@ -8,49 +8,52 @@ gsap.registerPlugin(useGSAP);
 
 const Work = () => {
   useGSAP(() => {
-  let translateX: number = 0;
+    let mm = gsap.matchMedia();
 
-  function setTranslateX() {
-    const box = document.getElementsByClassName("work-box");
-    const rectLeft = document
-      .querySelector(".work-container")!
-      .getBoundingClientRect().left;
-    const rect = box[0].getBoundingClientRect();
-    const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-    let padding: number =
-      parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-    
-    // Fix: If there are too few projects, animation ends up negative and crashes the site.
-    if (translateX < 0) {
-      translateX = 0;
-    }
-  }
+    mm.add("(min-width: 1025px)", () => {
+      let translateX: number = 0;
 
-  setTranslateX();
+      function setTranslateX() {
+        const box = document.getElementsByClassName("work-box");
+        if (!box.length) return;
+        const rectLeft = document
+          .querySelector(".work-container")!
+          .getBoundingClientRect().left;
+        const rect = box[0].getBoundingClientRect();
+        const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+        let padding: number =
+          parseInt(window.getComputedStyle(box[0]).padding) / 2;
+        translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+        
+        if (translateX < 0) {
+          translateX = 0;
+        }
+      }
 
-  let timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".work-section",
-      start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
-      scrub: true,
-      pin: true,
-      id: "work",
-    },
-  });
+      setTranslateX();
 
-  timeline.to(".work-flex", {
-    x: -translateX,
-    ease: "none",
-  });
+      let timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".work-section",
+          start: "top top",
+          end: `+=${translateX}`, // Use actual scroll width
+          scrub: true,
+          pin: true,
+          id: "work",
+        },
+      });
 
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
-  };
-}, []);
+      timeline.to(".work-flex", {
+        x: -translateX,
+        ease: "none",
+      });
+
+      return () => {
+        timeline.kill();
+        ScrollTrigger.getById("work")?.kill();
+      };
+    });
+  }, []);
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -65,8 +68,8 @@ const Work = () => {
               tools: "Python, Pandas, NumPy, Scikit-learn, Streamlit",
               link: "https://heart-disease-prediction-vaibhav.streamlit.app/",
               github: "https://github.com/vaibhavv-labs/Heart-Disease-Prediction.git",
-              images: ["/images/project1.png", "/images/project2.png"],
-              imageAlts: ["Heart Disease Prediction Part 1", "Heart Disease Prediction Part 2"],
+              images: ["/images/project1_heart.png"],
+              imageAlts: ["Heart Disease Prediction 3D Graphic"],
               liveLabel: "Live App"
             },
             {
@@ -75,8 +78,8 @@ const Work = () => {
               tools: "Python, PyTorch, HuggingFace Transformers, Streamlit, Plotly, YouTube Data API v3, Pandas",
               link: "https://sentimentiq-dashboard-njiprgwlcchwkuemvrqwn4.streamlit.app/",
               github: "https://github.com/vaibhavv-labs/sentimentiq-dashboard",
-              images: ["/images/sentimentiq1.png"],
-              imageAlts: ["SentimentIQ Dashboard Preview"],
+              images: ["/images/project2_sentiment.png"],
+              imageAlts: ["SentimentIQ AI Brain 3D Graphic"],
               liveLabel: "Live Demo"
             },
             {
@@ -85,12 +88,12 @@ const Work = () => {
               tools: "Python, OpenCV, Streamlit, NumPy, Pandas. Real-time face recognition attendance system. Auto-detects faces via webcam, marks attendance instantly, and exports CSV.",
               link: "https://drive.google.com/file/d/1g-efKzypo2mCdXtwn3UwqALjecAiyyw-/view?usp=drive_link",
               github: "https://github.com/vaibhavv-labs/face-attendance-system",
-              images: ["/images/faceid.png"],
-              imageAlts: ["FaceID Attendance System Demo"],
+              images: ["/images/project3_faceid.png"],
+              imageAlts: ["FaceID Attendance 3D Graphic"],
               liveLabel: "Demo Video"
             }
           ].map((project, index) => (
-            <div className="work-box" key={index}>
+            <div className="work-box glass-card" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>

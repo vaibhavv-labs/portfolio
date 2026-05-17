@@ -10,7 +10,7 @@ import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import Certificates from "./Certificates";
 import setSplitText from "./utils/splitText";
-import TechStack2D from "./TechStack2D";
+import TechStack from "./TechStack";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
@@ -34,14 +34,14 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
+      {children}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Landing />
             <About />
             <WhatIDo />
-            <TechStack2D />
+            <TechStack />
             <Career />
             <Work />
             <Certificates />

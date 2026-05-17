@@ -20,8 +20,23 @@
   -moz-user-select: none;
   --accentColor: #c2a4ff;
   --backgroundColor: #0b080c;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
   --vh: 100vh;
   --vh: 100svh;
+}
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 h1,
 h2,
@@ -101,14 +116,16 @@ body {
 }
 
 .techstack h2 {
-  font-size: 80px;
+  font-size: clamp(40px, 6vw, 80px);
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 120px;
+  top: clamp(80px, 10vh, 120px);
   left: 0;
   font-weight: 400;
   text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {

@@ -11,22 +11,69 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const skillsData = [
+  { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", color: "#3776AB" },
+  { name: "NumPy", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg", color: "#013243" },
+  { name: "Pandas", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg", color: "#150458" },
+  { name: "Jupyter", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg", color: "#F37626" },
+  { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", color: "#F05032" },
+  { name: "GitHub", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg", color: "#181717" },
+  { name: "ScikitLearn", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg", color: "#F7931E" },
+  { name: "PyTorch", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg", color: "#EE4C2C" },
+  { name: "TensorFlow", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg", color: "#FF6F00" },
+  { name: "MongoDB", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", color: "#47A248" },
+  { name: "MySQL", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", color: "#4479A1" },
+  { name: "Matplotlib", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg", color: "#ffffff" }
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+
+const createSkillTexture = (skill: typeof skillsData[0]) => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 512;
+  canvas.height = 512;
+  const ctx = canvas.getContext("2d");
+  
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+
+  if (ctx) {
+    // Fill background with white so transparent logos don't turn black
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, 512, 512);
+
+    // Colorful border
+    ctx.strokeStyle = skill.color;
+    ctx.lineWidth = 30;
+    ctx.strokeRect(15, 15, 482, 482);
+
+    // Draw text (Skill Name)
+    ctx.fillStyle = "#1e1e1e"; // Dark text for readability
+    ctx.font = "bold 55px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(skill.name, 256, 420);
+
+    // Load original logo image
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.onload = () => {
+      // Draw image in upper-center
+      const size = 260;
+      const xOffset = (512 - size) / 2;
+      const yOffset = 80;
+      ctx.drawImage(img, xOffset, yOffset, size, size);
+      tex.needsUpdate = true; // Tell ThreeJS the canvas changed
+    };
+    img.src = skill.url;
+  }
+  
+  return tex;
+};
+
+const textures = skillsData.map(createSkillTexture);
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = [...Array(15)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
