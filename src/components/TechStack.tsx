@@ -115,10 +115,10 @@ function SphereGeo({
 
   return (
     <RigidBody
-      linearDamping={0.75}
-      angularDamping={0.15}
+      linearDamping={4}
+      angularDamping={2}
       friction={0.2}
-      position={[r(20), r(20) - 25, r(20) - 10]}
+      position={[r(8), r(8) - 10, r(8) - 5]}
       ref={api}
       colliders={false}
     >
