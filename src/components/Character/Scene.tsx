@@ -100,8 +100,20 @@ const Scene = () => {
       // Render loop — runs always to keep animations smooth.
       // GSAP handles hiding the character via autoAlpha when scrolled away.
       let rafId: number;
+      const canvasEl = canvasDiv.current;
       const animate = () => {
         rafId = requestAnimationFrame(animate);
+
+        const delta = clock.getDelta();
+        if (mixer) {
+          mixer.update(delta);
+        }
+
+        // Skip expensive GPU render when character is hidden by GSAP autoAlpha
+        const style = canvasEl.parentElement?.style;
+        if (style && (style.visibility === "hidden" || style.opacity === "0")) {
+          return;
+        }
 
         if (headBone) {
           handleHeadRotation(
@@ -113,10 +125,6 @@ const Scene = () => {
             THREE.MathUtils.lerp
           );
           light.setPointLight(screenLight);
-        }
-        const delta = clock.getDelta();
-        if (mixer) {
-          mixer.update(delta);
         }
         renderer.render(scene, camera);
       };
