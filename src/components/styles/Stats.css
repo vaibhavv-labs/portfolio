@@ -1,0 +1,115 @@
+/* ===== STATS SECTION ===== */
+.stats-section {
+  position: relative;
+  padding: 80px 0;
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: auto;
+}
+
+.stats-container {
+  width: 100%;
+}
+
+.stats-title {
+  font-size: clamp(36px, 6vw, 70px);
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 60px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(194, 164, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(194, 164, 255, 0.12), 0 0 20px rgba(194, 164, 255, 0.06);
+}
+
+.stat-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 8px rgba(194, 164, 255, 0.4));
+}
+
+.stat-number {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 30%, #c2a4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: 400;
+  color: #adacac;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.stat-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(194, 164, 255, 0.15), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stat-card:hover .stat-glow {
+  opacity: 1;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .stats-section {
+    padding: 60px 0;
+  }
+  .stats-title {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .stat-card {
+    padding: 28px 14px;
+  }
+  .stats-section {
+    padding: 40px 0;
+  }
+}

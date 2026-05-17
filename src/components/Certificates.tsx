@@ -56,9 +56,9 @@ const Certificates = () => {
   return (
     <div className="certificates-section" id="certificates">
       <div className="section-container">
-        <div className="certificates-header">
+        <div className="certificates-header reveal-up">
           <h2>
-            My <span>Certificates</span>
+            My <span className="gradient-text">Certificates</span>
           </h2>
           <p className="certificates-subtitle">
             Verified achievements &amp; learning milestones

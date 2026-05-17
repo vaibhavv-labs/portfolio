@@ -1,0 +1,78 @@
+/* ===== FUN FACTS MARQUEE SECTION ===== */
+.funfacts-section {
+  position: relative;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.funfacts-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194, 164, 255, 0.3), transparent);
+}
+
+.funfacts-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194, 164, 255, 0.3), transparent);
+}
+
+.funfacts-marquee {
+  padding: 12px 0;
+}
+
+.funfacts-marquee-reverse {
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+.funfact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.funfact-emoji {
+  font-size: 22px;
+  filter: drop-shadow(0 0 6px rgba(194, 164, 255, 0.3));
+}
+
+.funfact-text {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 500;
+  color: #eae5ec;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.funfact-item-alt .funfact-text {
+  color: #adacac;
+  font-weight: 300;
+}
+
+.funfact-dot {
+  font-size: 20px;
+  color: var(--accentColor);
+  margin-left: 8px;
+  opacity: 0.5;
+}
+
+/* ── Responsive ── */
+@media only screen and (max-width: 768px) {
+  .funfacts-section {
+    padding: 40px 0;
+  }
+  .funfact-text {
+    letter-spacing: 2px;
+  }
+}
