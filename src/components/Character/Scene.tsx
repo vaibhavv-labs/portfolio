@@ -79,14 +79,8 @@ const Scene = () => {
       const onMouseMove = (event: MouseEvent) => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
       };
-      let debounce: number | undefined;
-      const onTouchStart = (event: TouchEvent) => {
-        const element = event.target as HTMLElement;
-        debounce = setTimeout(() => {
-          element?.addEventListener("touchmove", (e: TouchEvent) =>
-            handleTouchMove(e, (x, y) => (mouse = { x, y }))
-          );
-        }, 200);
+      const onTouchMove = (e: TouchEvent) => {
+        handleTouchMove(e, (x, y) => (mouse = { x, y }));
       };
 
       const onTouchEnd = () => {
@@ -96,13 +90,11 @@ const Scene = () => {
         });
       };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
+      document.addEventListener("mousemove", onMouseMove, { passive: true });
       const landingDiv = document.getElementById("landingDiv");
       if (landingDiv) {
-        landingDiv.addEventListener("touchstart", onTouchStart);
-        landingDiv.addEventListener("touchend", onTouchEnd);
+        landingDiv.addEventListener("touchmove", onTouchMove, { passive: true });
+        landingDiv.addEventListener("touchend", onTouchEnd, { passive: true });
       }
       const animate = () => {
         requestAnimationFrame(animate);
@@ -125,7 +117,6 @@ const Scene = () => {
       };
       animate();
       return () => {
-        clearTimeout(debounce);
         scene.clear();
         renderer.dispose();
         window.removeEventListener("resize", () =>
@@ -136,7 +127,7 @@ const Scene = () => {
         }
         if (landingDiv) {
           document.removeEventListener("mousemove", onMouseMove);
-          landingDiv.removeEventListener("touchstart", onTouchStart);
+          landingDiv.removeEventListener("touchmove", onTouchMove);
           landingDiv.removeEventListener("touchend", onTouchEnd);
         }
       };
