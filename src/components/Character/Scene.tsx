@@ -32,7 +32,7 @@ const Scene = () => {
         antialias: true,
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
@@ -98,6 +98,12 @@ const Scene = () => {
       }
       const animate = () => {
         requestAnimationFrame(animate);
+        
+        // Performance optimization: skip rendering if the character is completely hidden
+        if (canvasDiv.current && canvasDiv.current.style.visibility === "hidden") {
+          return;
+        }
+
         if (headBone) {
           handleHeadRotation(
             headBone,
