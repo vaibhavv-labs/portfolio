@@ -96,13 +96,12 @@ const Scene = () => {
         landingDiv.addEventListener("touchmove", onTouchMove, { passive: true });
         landingDiv.addEventListener("touchend", onTouchEnd, { passive: true });
       }
+
+      // Render loop — runs always to keep animations smooth.
+      // GSAP handles hiding the character via autoAlpha when scrolled away.
+      let rafId: number;
       const animate = () => {
-        requestAnimationFrame(animate);
-        
-        // Performance optimization: skip rendering if the character is completely hidden
-        if (canvasDiv.current && canvasDiv.current.style.visibility === "hidden") {
-          return;
-        }
+        rafId = requestAnimationFrame(animate);
 
         if (headBone) {
           handleHeadRotation(
@@ -123,6 +122,7 @@ const Scene = () => {
       };
       animate();
       return () => {
+        cancelAnimationFrame(rafId);
         scene.clear();
         renderer.dispose();
         window.removeEventListener("resize", () =>

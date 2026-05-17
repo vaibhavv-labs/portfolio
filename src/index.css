@@ -32,11 +32,13 @@ html, body {
 
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: var(--glass-border);
   border-radius: 16px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  transform: translateZ(0);
 }
 h1,
 h2,
@@ -181,6 +183,8 @@ body {
   background: rgba(194, 164, 255, 0.4);
   border-radius: 50%;
   animation: floatUp linear infinite;
+  will-change: transform, opacity;
+  contain: strict;
 }
 
 .particle:nth-child(odd) {

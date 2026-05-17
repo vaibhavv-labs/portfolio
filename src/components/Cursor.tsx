@@ -2,27 +2,39 @@ import { useEffect, useRef } from "react";
 import "./styles/Cursor.css";
 import gsap from "gsap";
 
+const isTouchDevice = () =>
+  "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    // Skip cursor entirely on touch/mobile devices
+    if (isTouchDevice()) return;
+
     let hover = false;
     const cursor = cursorRef.current!;
     const mousePos = { x: 0, y: 0 };
     const cursorPos = { x: 0, y: 0 };
-    document.addEventListener("mousemove", (e) => {
+    let rafId: number;
+
+    const onMouseMove = (e: MouseEvent) => {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
-    });
-    requestAnimationFrame(function loop() {
+    };
+    document.addEventListener("mousemove", onMouseMove, { passive: true });
+
+    const loop = () => {
       if (!hover) {
         const delay = 6;
         cursorPos.x += (mousePos.x - cursorPos.x) / delay;
         cursorPos.y += (mousePos.y - cursorPos.y) / delay;
-        gsap.to(cursor, { x: cursorPos.x, y: cursorPos.y, duration: 0.1 });
-        // cursor.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
+        // Direct style.transform is faster than gsap.to() per frame
+        cursor.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
       }
-      requestAnimationFrame(loop);
-    });
+      rafId = requestAnimationFrame(loop);
+    };
+    rafId = requestAnimationFrame(loop);
+
     document.querySelectorAll("[data-cursor]").forEach((item) => {
       const element = item as HTMLElement;
       element.addEventListener("mouseover", (e: MouseEvent) => {
@@ -33,7 +45,6 @@ const Cursor = () => {
           cursor.classList.add("cursor-icons");
 
           gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.1 });
-          //   cursor.style.transform = `translate(${rect.left}px,${rect.top}px)`;
           cursor.style.setProperty("--cursorH", `${rect.height}px`);
           hover = true;
         }
@@ -46,8 +57,15 @@ const Cursor = () => {
         hover = false;
       });
     });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      document.removeEventListener("mousemove", onMouseMove);
+    };
   }, []);
 
+  // Don't render cursor div on touch devices
+  if (isTouchDevice()) return null;
   return <div className="cursor-main" ref={cursorRef}></div>;
 };
 

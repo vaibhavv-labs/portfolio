@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
@@ -93,6 +93,7 @@ function SphereGeo({
   isActive,
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
+  const { invalidate } = useThree();
 
   useFrame((_state, delta) => {
     if (!isActive) return;
@@ -109,6 +110,7 @@ function SphereGeo({
       );
 
     api.current?.applyImpulse(impulse, true);
+    invalidate();
   });
 
   return (
@@ -145,6 +147,7 @@ type PointerProps = {
 
 function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   const ref = useRef<RapierRigidBody>(null);
+  const { invalidate } = useThree();
 
   useFrame(({ pointer, viewport }) => {
     if (!isActive) return;
@@ -157,6 +160,7 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
       0.2
     );
     ref.current?.setNextKinematicTranslation(targetVec);
+    invalidate();
   });
 
   return (
@@ -173,31 +177,25 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Use IntersectionObserver for better performance than scroll listener.
+  // rootMargin delays activation so character model fades out first.
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
-    };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
-    });
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsActive(entry.isIntersecting);
+      },
+      { threshold: 0.1, rootMargin: "-100px 0px 0px 0px" }
+    );
+    observer.observe(el);
+
+    return () => observer.disconnect();
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -214,7 +212,7 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
+    <div className="techstack" ref={sectionRef}>
       <h2> My Techstack</h2>
 
       <Canvas
@@ -223,6 +221,7 @@ const TechStack = () => {
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
+        frameloop={isActive ? "always" : "never"}
       >
         <ambientLight intensity={1} />
         <spotLight
@@ -259,3 +258,4 @@ const TechStack = () => {
 };
 
 export default TechStack;
+

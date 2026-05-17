@@ -41,6 +41,8 @@
   filter: blur(80px);
   z-index: 0;
   opacity: 0.6;
+  will-change: transform;
+  contain: layout style;
 }
 
 .landing-circle1 {

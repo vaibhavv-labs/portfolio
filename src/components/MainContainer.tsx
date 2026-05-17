@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Particles = () => (
   <div className="particles-bg" aria-hidden="true">
-    {Array.from({ length: 12 }).map((_, i) => (
+    {Array.from({ length: 8 }).map((_, i) => (
       <div className="particle" key={i} />
     ))}
   </div>
@@ -32,16 +32,21 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   );
 
   useEffect(() => {
+    let resizeTimer: ReturnType<typeof setTimeout>;
     const resizeHandler = () => {
-      setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        setSplitText();
+        setIsDesktopView(window.innerWidth > 1024);
+      }, 150);
     };
-    resizeHandler();
+    setSplitText();
     window.addEventListener("resize", resizeHandler);
     return () => {
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   // Scroll-reveal animations
   useEffect(() => {
