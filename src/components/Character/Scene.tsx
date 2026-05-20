@@ -16,16 +16,21 @@ import { setProgress } from "../Loading";
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef(new THREE.Scene());
   const { setLoading } = useLoading();
 
   const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
+      // Remove any leftover canvas from a previous mount (StrictMode double-mount)
+      const existingCanvas = canvasDiv.current.querySelector("canvas");
+      if (existingCanvas) {
+        canvasDiv.current.removeChild(existingCanvas);
+      }
+
+      const scene = new THREE.Scene();
       let rect = canvasDiv.current.getBoundingClientRect();
       let container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
-      const scene = sceneRef.current;
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -55,15 +60,23 @@ const Scene = () => {
 
       loadCharacter().then((gltf) => {
         if (gltf) {
+          let character = gltf.scene;
+          // Hide character until intro animation is applied to avoid T-pose flash
+          character.visible = false;
+          scene.add(character);
+
           const animations = setAnimations(gltf);
           hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
           mixer = animations.mixer;
-          let character = gltf.scene;
           setChar(character);
-          scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
           
+          // Tick the mixer once so the intro animation pose is applied,
+          // then reveal the character — no T-pose flash.
+          mixer.update(0);
+          character.visible = true;
+
           light.turnOnLights();
           animations.startIntro();
           
@@ -100,20 +113,8 @@ const Scene = () => {
       // Render loop — runs always to keep animations smooth.
       // GSAP handles hiding the character via autoAlpha when scrolled away.
       let rafId: number;
-      const canvasEl = canvasDiv.current;
       const animate = () => {
         rafId = requestAnimationFrame(animate);
-
-        const delta = clock.getDelta();
-        if (mixer) {
-          mixer.update(delta);
-        }
-
-        // Skip expensive GPU render when character is hidden by GSAP autoAlpha
-        const style = canvasEl.parentElement?.style;
-        if (style && (style.visibility === "hidden" || style.opacity === "0")) {
-          return;
-        }
 
         if (headBone) {
           handleHeadRotation(
@@ -126,6 +127,10 @@ const Scene = () => {
           );
           light.setPointLight(screenLight);
         }
+        const delta = clock.getDelta();
+        if (mixer) {
+          mixer.update(delta);
+        }
         renderer.render(scene, camera);
       };
       animate();
@@ -133,14 +138,12 @@ const Scene = () => {
         cancelAnimationFrame(rafId);
         scene.clear();
         renderer.dispose();
-        window.removeEventListener("resize", () =>
-          handleResize(renderer, camera, canvasDiv, character!)
-        );
-        if (canvasDiv.current) {
+        // Remove the canvas element to prevent duplicates on re-mount
+        if (canvasDiv.current && renderer.domElement.parentNode === canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
+        document.removeEventListener("mousemove", onMouseMove);
         if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
           landingDiv.removeEventListener("touchmove", onTouchMove);
           landingDiv.removeEventListener("touchend", onTouchEnd);
         }

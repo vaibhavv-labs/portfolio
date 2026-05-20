@@ -63,6 +63,16 @@ const Work = () => {
         <div className="work-flex">
           {[
             {
+              name: "CodeSentinel AI",
+              category: "AI/ML · Cybersecurity · Full Stack",
+              tools: "Next.js, Flask, Python, CodeBERT, Gemini AI, PostgreSQL, Vercel, HuggingFace. AI-Powered Code Vulnerability Detection & Auto-Remediation — 89% Accuracy · 8 Vulnerability Types · Fine-tuned CodeBERT",
+              link: "https://codesentinel-app.vercel.app",
+              github: "https://github.com/vaibhavv-labs/CodeSentinel-AI",
+              images: ["/images/project_codesentinel.png"],
+              imageAlts: ["CodeSentinel AI Dashboard"],
+              liveLabel: "Live Demo"
+            },
+            {
               name: "Heart Disease Prediction System",
               category: "Machine Learning Web App",
               tools: "Python, Pandas, NumPy, Scikit-learn, Streamlit",
