@@ -10,21 +10,11 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Intersection observer to track active section
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id], footer[id]");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -40,79 +30,41 @@ const Navbar = () => {
   }, []);
 
   const scrollTo = (href: string) => {
-    setMobileOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <>
-      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-        <div className="navbar-container">
-          <a
-            href="#home"
-            className="navbar-logo"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("#home");
-            }}
-          >
-            <span className="gradient-text">
-              {personalInfo.firstName.charAt(0)}
-            </span>
-            {personalInfo.firstName.slice(1).toLowerCase()}
-          </a>
-          <div className="navbar-links">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                className={`nav-link ${activeSection === item.href.slice(1) ? "active" : ""}`}
-                onClick={() => scrollTo(item.href)}
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="nav-divider" />
-            <a href="/resume.pdf" target="_blank" className="nav-resume">
-              Resume
-            </a>
-          </div>
-          <button
-            className="nav-mobile-btn"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          >
-            ☰
-          </button>
-        </div>
-      </nav>
-      <div className={`nav-mobile-menu ${mobileOpen ? "open" : ""}`}>
-        <button
-          className="nav-mobile-close"
-          onClick={() => setMobileOpen(false)}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
-        {navItems.map((item) => (
-          <button
-            key={item.href}
-            className="nav-mobile-link"
-            onClick={() => scrollTo(item.href)}
-          >
-            {item.label}
-          </button>
-        ))}
+    <nav className="navbar">
+      <div className="nav-pill">
         <a
-          href="/resume.pdf"
-          target="_blank"
-          className="nav-resume"
-          onClick={() => setMobileOpen(false)}
+          href="#home"
+          style={{ padding: '0.5rem 1rem', fontWeight: 800, fontSize: '0.9rem', color: 'black' }}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("#home");
+          }}
         >
+          {personalInfo.firstName}
+        </a>
+        
+        <div style={{ display: 'flex', borderLeft: '1px solid rgba(0,0,0,0.1)', paddingLeft: '0.5rem', marginLeft: '0.2rem' }}>
+          {navItems.slice(1).map((item) => (
+            <button
+              key={item.href}
+              className={`nav-link ${activeSection === item.href.slice(1) ? "nav-link-active" : ""}`}
+              onClick={() => scrollTo(item.href)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        
+        <a href="/resume.pdf" target="_blank" className="nav-btn" style={{ marginLeft: '0.5rem' }}>
           Resume
         </a>
       </div>
-    </>
+    </nav>
   );
 };
 
