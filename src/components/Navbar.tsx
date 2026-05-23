@@ -1,65 +1,117 @@
-import { useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HoverLinks from "./HoverLinks";
-import { gsap } from "gsap";
-import "./styles/Navbar.css";
+"use client";
+import { useState, useEffect } from "react";
+import { personalInfo } from "@/data/portfolio-data";
 
-gsap.registerPlugin(ScrollTrigger);
+const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let sectionId = elem.getAttribute("data-href");
-          if (sectionId) {
-            let section = document.querySelector(sectionId);
-            if (section) {
-              section.scrollIntoView({ behavior: "smooth" });
-            }
-          }
-        }
-      });
-    });
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
+  // Intersection observer to track active section
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-80px 0px 0px 0px" }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = (href: string) => {
+    setMobileOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <div className="header">
-        {/* Logo removed per request */}
-        <a
-          href="mailto:vaibhavbhoyate976@gmail.com"
-          className="navbar-connect"
-          data-cursor="disable"
+      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
+        <div className="navbar-container">
+          <a
+            href="#home"
+            className="navbar-logo"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("#home");
+            }}
+          >
+            <span className="gradient-text">
+              {personalInfo.firstName.charAt(0)}
+            </span>
+            {personalInfo.firstName.slice(1).toLowerCase()}
+          </a>
+          <div className="navbar-links">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                className={`nav-link ${activeSection === item.href.slice(1) ? "active" : ""}`}
+                onClick={() => scrollTo(item.href)}
+              >
+                {item.label}
+              </button>
+            ))}
+            <div className="nav-divider" />
+            <a href="/resume.pdf" target="_blank" className="nav-resume">
+              Resume
+            </a>
+          </div>
+          <button
+            className="nav-mobile-btn"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+      <div className={`nav-mobile-menu ${mobileOpen ? "open" : ""}`}>
+        <button
+          className="nav-mobile-close"
+          onClick={() => setMobileOpen(false)}
+          aria-label="Close menu"
         >
-          vaibhavbhoyate976@gmail.com
+          ✕
+        </button>
+        {navItems.map((item) => (
+          <button
+            key={item.href}
+            className="nav-mobile-link"
+            onClick={() => scrollTo(item.href)}
+          >
+            {item.label}
+          </button>
+        ))}
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          className="nav-resume"
+          onClick={() => setMobileOpen(false)}
+        >
+          Resume
         </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
-        </ul>
       </div>
-
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
-      <div className="nav-fade"></div>
     </>
   );
 };

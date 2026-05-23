@@ -1,54 +1,47 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
-import "./styles/Contact.css";
+import { personalInfo, socialLinks } from "@/data/portfolio-data";
+import ScrollReveal from "./ScrollReveal";
 
 const Contact = () => {
   return (
-    <div className="contact-section section-container" id="contact">
-      <div className="contact-container">
-        <h3>Contact</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Email</h4>
-            <p>
-              <a href="mailto:vaibhavbhoyate976@gmail.com" data-cursor="disable">
-                vaibhavbhoyate976@gmail.com
+    <section id="contact" className="section contact">
+      <div className="section-container">
+        <ScrollReveal>
+          <div className="section-badge"><span className="section-badge-dot" /><span>Get in Touch</span></div>
+          <h2 className="section-title">Let&apos;s <span className="gradient-text">Connect.</span></h2>
+        </ScrollReveal>
+        <div className="contact-grid">
+          <ScrollReveal delay={0.1}>
+            <div>
+              <h4 className="contact-label">Email</h4>
+              <a href={`mailto:${personalInfo.email}`} className="contact-link">{personalInfo.email}</a>
+              <h4 className="contact-label" style={{ marginTop: '24px' }}>Location</h4>
+              <p className="contact-location">{personalInfo.location}</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <div>
+              <h4 className="contact-label">Social</h4>
+              <a href={socialLinks.github} target="_blank" rel="noreferrer" className="social-link">
+                Github <span className="social-arrow">↗</span>
               </a>
-            </p>
-            <h4>Location</h4>
-            <p style={{ marginTop: '0.5rem', opacity: 0.8, fontSize: '1.2vw' }}>
-              Chandwad, Maharashtra
-            </p>
-          </div>
-          <div className="contact-box">
-            <h4>Social</h4>
-            <a
-              href="https://github.com/vaibhavv-labs"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Github <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Linkedin <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Vaibhav Bhoyate</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2026
-            </h5>
-          </div>
+              <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="social-link">
+                LinkedIn <span className="social-arrow">↗</span>
+              </a>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.3}>
+            <div>
+              <h4 className="contact-label">Status</h4>
+              <p className="contact-location" style={{ color: 'var(--accent-glow)' }}>{personalInfo.status}</p>
+            </div>
+          </ScrollReveal>
+        </div>
+        <div className="contact-footer">
+          <h2>Designed and Developed <br />by <span>{personalInfo.name}</span></h2>
+          <h5>© 2026</h5>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
