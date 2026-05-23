@@ -1,17 +1,17 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&size=30&pause=1000&color=00CFFF&center=true&vCenter=true&width=700&lines=Vaibhav+Bhoyate+%E2%80%94+Portfolio+%F0%9F%8C%90;React+%7C+Three.js+%7C+GSAP+%7C+WebGL;AI+%26+Data+Science+%7C+Frontend+Dev;Built+to+Impress+%F0%9F%9A%80" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&size=30&pause=1000&color=4F46E5&center=true&vCenter=true&width=700&lines=Vaibhav+Bhoyate+%E2%80%94+Portfolio+%F0%9F%8C%90;Next.js+15+%7C+TypeScript+%7C+Premium+Design;AI+%26+Data+Science+%7C+Full+Stack+Dev;Built+to+Impress+%F0%9F%9A%80" alt="Typing SVG" />
 
 <br/>
 
-![React](https://img.shields.io/badge/React-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-WebGL-000000?style=for-the-badge&logo=three.js&logoColor=white)
-![GSAP](https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 <br/>
 
-> 🌐 **A personal portfolio showcasing AI & ML projects — built with React, Three.js 3D graphics, and GSAP scroll animations.**
+> 🌐 **A highly premium, 200/200 tier personal portfolio showcasing AI & ML projects — built with Next.js 15, sleek minimalist design, and sophisticated glassmorphism animations.**
 
 <br/>
 
@@ -19,15 +19,13 @@
 
 <br/>
 
-![Header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=120&section=header&text=Developer+Portfolio&fontSize=32&fontColor=ffffff&animation=fadeIn&desc=React+%7C+Three.js+%7C+GSAP+%7C+WebGL&descSize=15&descAlignY=78)
-
 </div>
 
 ---
 
 ## 💡 About This Portfolio
 
-This portfolio was built to showcase real-world ML and AI projects in a visually striking way. Rather than a plain static page, it features 3D WebGL animations, smooth GSAP scroll effects, and a clean modern layout — all deployed via Vercel for instant global access.
+This portfolio was completely re-architected to showcase real-world ML and AI projects in an incredibly premium and sophisticated way. Featuring a sleek, minimalist high-tech aesthetic, glass-like glows, and silky smooth animations. Deployed via Vercel for instant global access and unmatched speed.
 
 ---
 
@@ -35,32 +33,31 @@ This portfolio was built to showcase real-world ML and AI projects in a visually
 
 | Feature | Description |
 |---|---|
-| 🎮 **Three.js 3D Scene** | Interactive WebGL background with 3D objects |
-| 🎨 **GSAP Animations** | Smooth scroll-triggered reveal animations |
-| ⚡ **TypeScript** | Fully typed React components for reliability |
-| 📱 **Responsive Design** | Works perfectly on mobile, tablet, and desktop |
+| ⚡ **Next.js 15 App Router** | Blazing fast performance and modern routing |
+| 💎 **200/200 Premium Design** | Monochromatic elegance with subtle glassmorphic glows |
+| 🎮 **Interactive UI** | Custom cursor follower, magnetic hover states, and staggered reveals |
+| 📱 **Fully Responsive** | Carefully crafted breakpoints for mobile, tablet, and desktop |
 | 🚀 **Vercel Deployed** | Zero-config deployment with instant CDN |
-| 🌙 **Dark Theme** | Clean dark aesthetic throughout |
+| 🎨 **Custom Vanilla CSS** | Over 2,000+ lines of hand-crafted CSS magic |
 
 ---
 
 ## 🚀 Featured Projects Inside
 
 ```
-🧠  SentimentIQ         ─── NLP Sentiment Analysis (DistilBERT, 82% accuracy)
-❤️   Heart Disease       ─── ML Risk Prediction (Logistic Regression, 82% accuracy)
-🎯  FaceID Attendance   ─── Real-Time Face Recognition (OpenCV LBPH)
+🧠  CodeSentinel AI     ─── AI-Powered Code Vulnerability Detection (CodeBERT, Gemini AI)
+❤️   Heart Disease       ─── ML Risk Prediction (Logistic Regression)
+📊  SentimentIQ         ─── NLP Social Media Sentiment Dashboard (PyTorch, Streamlit)
+🎯  FaceID Attendance   ─── Real-Time Face Recognition (OpenCV, Pandas)
 ```
 
 ---
 
 ## 🛠️ Tech Stack
 
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Three.js](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
@@ -72,21 +69,14 @@ This portfolio was built to showcase real-world ML and AI projects in a visually
 portfolio/
 │
 ├── src/
-│   ├── components/      # 🧩  React components
-│   ├── scenes/          # 🎮  Three.js 3D scenes
-│   ├── animations/      # 🎨  GSAP animation configs
-│   └── pages/           # 📄  Page layouts
+│   ├── app/             # 🌐  Next.js App Router (layout, pages, globals.css)
+│   ├── components/      # 🧩  React Server/Client components
+│   └── data/            # 📊  Portfolio content (Projects, Skills, Certs)
 │
-├── public/              # 🌐  Static assets
+├── public/              # 🖼️  Static assets, Resume, Images
 ├── package.json         # 📦  Dependencies
 └── README.md            # 📄  Documentation
 ```
-
----
-
-## 📸 Preview
-
-![Portfolio Preview](https://raw.githubusercontent.com/vaibhavv-labs/portfolio/main/portfolio.png)
 
 ---
 
@@ -107,21 +97,13 @@ npm install
 ```bash
 npm run dev
 ```
+Navigate to `http://localhost:3000`
 
 ### 4. Build for production
 ```bash
 npm run build
+npm start
 ```
-
----
-
-## 🗺️ Roadmap
-
-- [ ] 🌙 Light / Dark mode toggle
-- [ ] 📬 Working contact form with EmailJS
-- [ ] 🧪 More project case study pages
-- [ ] 🌍 i18n multi-language support
-- [ ] 📊 Live GitHub stats widget
 
 ---
 
@@ -140,9 +122,5 @@ npm run build
 This project is open for learning and inspiration. If you use any part of the code, please give proper credit. ⭐
 
 <div align="center">
-
 ⭐ **Star this repo if you liked it!** ⭐
-
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&height=100&section=footer)
-
 </div>
