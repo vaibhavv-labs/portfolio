@@ -27,7 +27,13 @@ const Projects = () => {
                       <p className="project-category">{project.category}</p>
                     </div>
                   </div>
-                  <p className="project-desc">{project.description}</p>
+                  <div className="project-desc">
+                    <ul style={{ paddingLeft: '20px', margin: 0, display: 'flex', flexDirection: 'column', gap: '6px', listStyleType: 'disc' }}>
+                      {Array.isArray(project.description) 
+                        ? project.description.map((point, idx) => <li key={idx}>{point}</li>)
+                        : <li>{project.description}</li>}
+                    </ul>
+                  </div>
                   <div className="project-tech">
                     {project.tech.map((t) => <span key={t} className="tag">{t}</span>)}
                   </div>

@@ -61,7 +61,11 @@ export const projects = [
   {
     name: "CodeSentinel AI",
     category: "AI/ML · Cybersecurity",
-    description: "An AI-driven code analysis tool that detects software vulnerabilities and suggests auto-remediation. Fine-tuned a CodeBERT model to achieve 89% accuracy across 8 distinct vulnerability classes. Built an interactive interface to analyze uploaded code in real-time.",
+    description: [
+      "AI-driven code analysis tool for detecting software vulnerabilities.",
+      "Fine-tuned CodeBERT model achieving 89% accuracy across 8 vulnerability classes.",
+      "Features an interactive real-time interface for analyzing uploaded code."
+    ],
     tools: "Next.js, Flask, Python, CodeBERT, Gemini AI, PostgreSQL, Vercel, HuggingFace",
     tech: ["Next.js", "Flask", "CodeBERT", "Gemini AI"],
     liveLink: "https://codesentinel-app.vercel.app",
@@ -71,7 +75,11 @@ export const projects = [
   {
     name: "Heart Disease Prediction System",
     category: "Machine Learning Web App",
-    description: "A predictive healthcare application that estimates heart disease risk using patient vitals. Implemented Logistic Regression and comprehensive data preprocessing on clinical datasets. Deployed a responsive, real-time user interface utilizing Streamlit.",
+    description: [
+      "Predictive healthcare application estimating heart disease risk from patient vitals.",
+      "Implemented Logistic Regression and comprehensive data preprocessing pipelines.",
+      "Deployed a responsive, real-time user interface utilizing Streamlit."
+    ],
     tools: "Python, Pandas, NumPy, Scikit-learn, Streamlit",
     tech: ["Python", "Scikit-learn", "Streamlit", "Pandas"],
     liveLink: "https://heart-disease-prediction-vaibhav.streamlit.app/",
@@ -81,7 +89,11 @@ export const projects = [
   {
     name: "SentimentIQ",
     category: "AI / NLP Web App",
-    description: "An NLP-powered dashboard designed to perform sentiment analysis on live social media data. Integrated the YouTube Data API to fetch real-time comments, utilizing HuggingFace Transformers for sentiment classification and Plotly for interactive data visualization.",
+    description: [
+      "NLP-powered dashboard for performing sentiment analysis on live social media data.",
+      "Integrated YouTube Data API to fetch and analyze real-time comments.",
+      "Utilized HuggingFace Transformers for classification and Plotly for visualization."
+    ],
     tools: "Python, PyTorch, HuggingFace Transformers, Streamlit, Plotly, YouTube Data API v3, Pandas",
     tech: ["PyTorch", "HuggingFace", "Streamlit"],
     liveLink: "https://sentimentiq-dashboard-njiprgwlcchwkuemvrqwn4.streamlit.app/",
@@ -91,7 +103,11 @@ export const projects = [
   {
     name: "FaceID Attendance System",
     category: "Computer Vision Web App",
-    description: "A computer vision application that automates attendance tracking through real-time facial recognition. Engineered a pipeline using OpenCV to detect and verify faces via webcam, instantly logging attendance records and exporting data to CSV format.",
+    description: [
+      "Computer vision application automating attendance tracking via facial recognition.",
+      "Engineered an OpenCV pipeline to detect and verify faces in real-time via webcam.",
+      "Instantly logs attendance records and exports formatted data to CSV."
+    ],
     tools: "Python, OpenCV, Streamlit, NumPy, Pandas",
     tech: ["Python", "OpenCV", "Streamlit", "NumPy"],
     liveLink: "https://drive.google.com/file/d/1g-efKzypo2mCdXtwn3UwqALjecAiyyw-/view?usp=drive_link",
