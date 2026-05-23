@@ -4,7 +4,7 @@ export const personalInfo = {
   lastName: "BHOYATE",
   role: "AI & Data Science Engineer",
   tagline: "Architecting Scalable AI Solutions and Predictive Models",
-  bio: "AI & Data Science Engineering student specializing in machine learning, NLP, and full-stack deployment. Passionate about translating complex data into actionable insights and building intelligent systems using Python, Scikit-Learn, and Next.js.",
+  bio: "AI & Data Science Engineering student specializing in machine learning, NLP, and model deployment. Passionate about translating complex data into actionable insights and building intelligent systems using Python, Scikit-Learn, and PyTorch.",
   location: "Chandwad, Maharashtra, India",
   education: "B.E. in AI & Data Science",
   educationFull: "Bachelor of Engineering in Artificial Intelligence & Data Science",
@@ -60,8 +60,8 @@ export const skills = [
 export const projects = [
   {
     name: "CodeSentinel AI",
-    category: "AI/ML · Cybersecurity · Full Stack",
-    description: "An AI-driven code analysis tool that detects software vulnerabilities and suggests auto-remediation. Fine-tuned a CodeBERT model to achieve 89% accuracy across 8 distinct vulnerability classes. Built a full-stack interface to analyze uploaded code in real-time.",
+    category: "AI/ML · Cybersecurity",
+    description: "An AI-driven code analysis tool that detects software vulnerabilities and suggests auto-remediation. Fine-tuned a CodeBERT model to achieve 89% accuracy across 8 distinct vulnerability classes. Built an interactive interface to analyze uploaded code in real-time.",
     tools: "Next.js, Flask, Python, CodeBERT, Gemini AI, PostgreSQL, Vercel, HuggingFace",
     tech: ["Next.js", "Flask", "CodeBERT", "Gemini AI"],
     liveLink: "https://codesentinel-app.vercel.app",
