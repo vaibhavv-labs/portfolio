@@ -26,8 +26,3 @@ dist-ssr
 
 backup/
 .env
-
-# Next.js
-.next
-out
-build

@@ -3,42 +3,45 @@ import ScrollReveal from "./ScrollReveal";
 
 const Contact = () => {
   return (
-    <footer id="contact" className="footer">
-      <div className="container">
+    <section id="contact" className="section contact">
+      <div className="section-container">
         <ScrollReveal>
-          <h2 className="footer-title">Let&apos;s Connect</h2>
+          <div className="section-badge"><span className="section-badge-dot" /><span>Get in Touch</span></div>
+          <h2 className="section-title">Let&apos;s <span className="gradient-text">Connect.</span></h2>
         </ScrollReveal>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', textAlign: 'left', marginTop: '4rem', paddingBottom: '4rem', borderBottom: '1px solid var(--border-dark)' }}>
+        <div className="contact-grid">
           <ScrollReveal delay={0.1}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-gray)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Location</p>
-              <p style={{ fontSize: '1.25rem', fontWeight: 500 }}>{personalInfo.location}</p>
+              <h4 className="contact-label">Email</h4>
+              <a href={`mailto:${personalInfo.email}`} className="contact-link">{personalInfo.email}</a>
+              <h4 className="contact-label" style={{ marginTop: '24px' }}>Location</h4>
+              <p className="contact-location">{personalInfo.location}</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-gray)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Contact</p>
-              <a href={`mailto:${personalInfo.email}`} style={{ fontSize: '1.25rem', fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px' }}>{personalInfo.email}</a>
+              <h4 className="contact-label">Social</h4>
+              <a href={socialLinks.github} target="_blank" rel="noreferrer" className="social-link">
+                Github <span className="social-arrow">↗</span>
+              </a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="social-link">
+                LinkedIn <span className="social-arrow">↗</span>
+              </a>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-gray)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Social</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <a href={socialLinks.github} target="_blank" rel="noreferrer" className="hover-link" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }}>GitHub ↗</a>
-                <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="hover-link" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }}>LinkedIn ↗</a>
-              </div>
+              <h4 className="contact-label">Status</h4>
+              <p className="contact-location" style={{ color: 'var(--accent-glow)' }}>{personalInfo.status}</p>
             </div>
           </ScrollReveal>
         </div>
-        
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-gray)' }}>Designed and Developed by <strong style={{ color: 'white' }}>{personalInfo.name}</strong></p>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-gray)' }}>© 2026 All Rights Reserved</p>
+        <div className="contact-footer">
+          <h2>Designed and Developed <br />by <span>{personalInfo.name}</span></h2>
+          <h5>© 2026</h5>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 

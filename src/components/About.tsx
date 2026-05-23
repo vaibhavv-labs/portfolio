@@ -4,77 +4,102 @@ import ScrollReveal from "./ScrollReveal";
 
 const About = () => {
   return (
-    <section id="about" className="section-white">
-      <div className="container">
+    <section id="about" className="section about">
+      {/* Aurora blob background */}
+      <div className="aurora-blob" style={{ width: 600, height: 600, background: 'var(--aurora-1)', top: '-20%', left: '-10%' }} />
+
+      <div className="section-container">
         <ScrollReveal>
-          <div className="badge mb-4">
-            <span className="pulse-dot"></span>
-            About Me
+          <div className="section-badge">
+            <span className="section-badge-dot" />
+            <span>About Me</span>
           </div>
           <h2 className="section-title">
-            Architecting <span className="font-serif-italic">intelligent systems</span><br />that feel designed.
+            Architecting <span className="gradient-text">intelligent systems</span><br />that feel designed.
           </h2>
         </ScrollReveal>
 
-        <div className="bento-grid mt-10">
-          <div className="col-span-12 lg:col-span-8">
+        <div className="about-grid">
+          {/* Left column: Bio + Philosophy */}
+          <div className="about-text">
             <ScrollReveal delay={0.1}>
-              <div className="bento-card h-full">
-                <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: 'var(--text-black)' }}>
-                  I&apos;m <strong style={{ fontWeight: 800 }}>{personalInfo.name}</strong>.{" "}
-                  {personalInfo.bio}
-                </p>
-                
-                <h3 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-gray)', marginTop: '3rem', marginBottom: '1.5rem' }}>Core Philosophy</h3>
-                
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-                  {philosophyCards.map((card) => (
-                    <div key={card.number} style={{ padding: '1rem', border: '1px solid var(--border-light)', borderRadius: '1rem' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 800 }}>{card.title}</span>
-                        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'rgba(0,0,0,0.1)' }}>{card.number}</span>
-                      </div>
-                      <p style={{ fontSize: '0.85rem', color: 'var(--text-black-muted)' }}>{card.description}</p>
+              <p className="about-bio">
+                I&apos;m <span className="about-bio-highlight">{personalInfo.name}</span>.{" "}
+                {personalInfo.bio}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <h3 style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-muted)', marginBottom: '12px' }}>// Core Philosophy</h3>
+              <div className="philosophy-grid">
+                {philosophyCards.map((card) => (
+                  <div key={card.number} className="philosophy-card glass-card">
+                    <div className="philosophy-card-header">
+                      <div className="philosophy-card-number">{card.number}</div>
+                      <span className="philosophy-card-title">{card.title}</span>
                     </div>
-                  ))}
-                </div>
+                    <p className="philosophy-card-desc">{card.description}</p>
+                  </div>
+                ))}
               </div>
             </ScrollReveal>
           </div>
 
-          <div className="col-span-12 lg:col-span-4" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {/* Right column: Profile + Role cards */}
+          <div className="about-cards">
             <ScrollReveal delay={0.2}>
-              <div className="bento-card h-full bento-card-dark" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-white-muted)', marginBottom: '1.5rem' }}>Profile</p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="profile-card glass-card glass-card-hover">
+                <div className="profile-card-header">
+                  <span className="profile-card-dot" />
+                  <span className="profile-card-label">Profile</span>
+                </div>
+                <div className="profile-grid">
                   <div>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-white-muted)' }}>Base</p>
-                    <p style={{ fontWeight: 600 }}>India</p>
+                    <p className="profile-item-label">Base</p>
+                    <p className="profile-item-value">India</p>
                   </div>
                   <div>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-white-muted)' }}>Edu</p>
-                    <p style={{ fontWeight: 600 }}>AI & DS</p>
+                    <p className="profile-item-label">Edu</p>
+                    <p className="profile-item-value">AI &amp; DS</p>
                   </div>
                   <div>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-white-muted)' }}>Status</p>
-                    <p style={{ fontWeight: 600 }}>{personalInfo.status}</p>
+                    <p className="profile-item-label">Status</p>
+                    <p className="profile-item-value">{personalInfo.status}</p>
                   </div>
                   <div>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-white-muted)' }}>Stack</p>
-                    <p style={{ fontWeight: 600 }}>Python/Next</p>
+                    <p className="profile-item-label">Stack</p>
+                    <p className="profile-item-value">{personalInfo.stack}</p>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="bento-card h-full" style={{ flex: 1 }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>AI/ML Engineer</h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-black-muted)', marginBottom: '1rem' }}>Python / PyTorch / LLMs</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  <span className="pill-tag">Python</span>
-                  <span className="pill-tag">PyTorch</span>
-                  <span className="pill-tag">LLMs</span>
+              <div className="role-card glass-card glass-card-hover">
+                <div className="role-card-glow" style={{ background: 'var(--aurora-2)' }} />
+                <div className="role-card-content">
+                  <h3 className="role-card-title">AI/ML <br /><span className="role-card-title-muted">Engineer</span></h3>
+                  <p className="role-card-subtitle">Python / PyTorch / LLMs</p>
+                  <div className="role-card-tags">
+                    <span className="tag">Python</span>
+                    <span className="tag">PyTorch</span>
+                    <span className="tag">LLMs</span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.4}>
+              <div className="role-card glass-card glass-card-hover">
+                <div className="role-card-glow" style={{ background: 'var(--aurora-1)' }} />
+                <div className="role-card-content">
+                  <h3 className="role-card-title">Data <br /><span className="role-card-title-muted">Scientist</span></h3>
+                  <p className="role-card-subtitle">Analytics &amp; Visualization</p>
+                  <div className="role-card-tags">
+                    <span className="tag">Pandas</span>
+                    <span className="tag">Scikit-learn</span>
+                    <span className="tag">Plotly</span>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
