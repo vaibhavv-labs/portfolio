@@ -2,15 +2,15 @@ export const personalInfo = {
   name: "Vaibhav Bhoyate",
   firstName: "VAIBHAV",
   lastName: "BHOYATE",
-  role: "AI Engineer & Data Scientist",
-  tagline: "Building Intelligent Systems with Data-Driven Precision",
-  bio: "AI & Data Science student with hands-on experience in building and deploying machine learning models. Focused on solving real-world problems using data-driven approaches and continuously improving technical and problem-solving skills.",
+  role: "AI & Data Science Engineer",
+  tagline: "Architecting Scalable AI Solutions and Predictive Models",
+  bio: "AI & Data Science Engineering student specializing in machine learning, NLP, and full-stack deployment. Passionate about translating complex data into actionable insights and building intelligent systems using Python, Scikit-Learn, and Next.js.",
   location: "Chandwad, Maharashtra, India",
   education: "B.E. in AI & Data Science",
   educationFull: "Bachelor of Engineering in Artificial Intelligence & Data Science",
   college: "SNJB College of Engineering",
   status: "Open to Work",
-  stack: "Python / ML / Next.js",
+  stack: "Python / ML / Data Science",
   email: "vaibhavbhoyate976@gmail.com",
 };
 
@@ -21,32 +21,39 @@ export const socialLinks = {
 
 export const skills = [
   {
-    category: "Machine Learning & AI",
-    icon: "🧠",
-    description: "Building and deploying predictive models using regression, classification, and deep learning techniques.",
+    category: "Programming Languages",
+    icon: "💻",
+    description: "Core programming languages for data manipulation, algorithmic development, and database querying.",
     level: "Advanced",
-    tools: ["Python", "PyTorch", "Scikit-learn", "HuggingFace", "LLMs", "RAG", "CodeBERT", "Gemini AI"]
+    tools: ["Python", "SQL"]
+  },
+  {
+    category: "AI & Machine Learning",
+    icon: "🧠",
+    description: "Developing and deploying intelligent models, natural language processing, and feature engineering.",
+    level: "Advanced",
+    tools: ["Machine Learning", "NLP", "Generative AI", "LLMs", "Scikit-Learn", "Feature Engineering", "Model Deployment"]
   },
   {
     category: "Data Science & Analytics",
     icon: "📊",
-    description: "Performing data preprocessing, exploratory analysis, and building end-to-end data pipelines.",
+    description: "Extracting insights through rigorous statistical analysis, data processing, and visual storytelling.",
     level: "Advanced",
-    tools: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "EDA"]
+    tools: ["Data Analysis", "Data Visualization", "Statistics", "NumPy", "Pandas", "Matplotlib", "Seaborn"]
   },
   {
-    category: "Databases",
-    icon: "🗄️",
-    description: "Designing and querying relational and NoSQL databases for scalable data management.",
+    category: "Frameworks & Tools",
+    icon: "🛠️",
+    description: "Utilizing modern frameworks and version control systems for scalable application development.",
     level: "Intermediate",
-    tools: ["MongoDB", "MySQL"]
+    tools: ["Streamlit", "MongoDB", "Git", "GitHub"]
   },
   {
-    category: "Web Development & Deployment",
-    icon: "🌐",
-    description: "Building full-stack applications with modern frameworks and deploying to the cloud.",
-    level: "Intermediate",
-    tools: ["Next.js", "React", "Flask", "Streamlit", "Vercel", "Git", "GitHub", "Google Cloud"]
+    category: "Currently Exploring",
+    icon: "🚀",
+    description: "Continuously expanding technical horizons by researching advanced architectures and geospatial data.",
+    level: "Learning",
+    tools: ["Transformers", "BERT", "Hyperparameter Tuning", "Remote Sensing", "Earth Observation"]
   }
 ];
 
@@ -54,7 +61,7 @@ export const projects = [
   {
     name: "CodeSentinel AI",
     category: "AI/ML · Cybersecurity · Full Stack",
-    description: "AI-Powered Code Vulnerability Detection & Auto-Remediation — 89% Accuracy · 8 Vulnerability Types · Fine-tuned CodeBERT",
+    description: "An AI-driven code analysis tool that detects software vulnerabilities and suggests auto-remediation. Fine-tuned a CodeBERT model to achieve 89% accuracy across 8 distinct vulnerability classes. Built a full-stack interface to analyze uploaded code in real-time.",
     tools: "Next.js, Flask, Python, CodeBERT, Gemini AI, PostgreSQL, Vercel, HuggingFace",
     tech: ["Next.js", "Flask", "CodeBERT", "Gemini AI"],
     liveLink: "https://codesentinel-app.vercel.app",
@@ -64,7 +71,7 @@ export const projects = [
   {
     name: "Heart Disease Prediction System",
     category: "Machine Learning Web App",
-    description: "Predicts heart disease using Logistic Regression on healthcare datasets with real-time Streamlit interface.",
+    description: "A predictive healthcare application that estimates heart disease risk using patient vitals. Implemented Logistic Regression and comprehensive data preprocessing on clinical datasets. Deployed a responsive, real-time user interface utilizing Streamlit.",
     tools: "Python, Pandas, NumPy, Scikit-learn, Streamlit",
     tech: ["Python", "Scikit-learn", "Streamlit", "Pandas"],
     liveLink: "https://heart-disease-prediction-vaibhav.streamlit.app/",
@@ -74,7 +81,7 @@ export const projects = [
   {
     name: "SentimentIQ",
     category: "AI / NLP Web App",
-    description: "NLP-Based Social Media Sentiment Analysis Dashboard with real-time YouTube comment analysis and interactive visualizations.",
+    description: "An NLP-powered dashboard designed to perform sentiment analysis on live social media data. Integrated the YouTube Data API to fetch real-time comments, utilizing HuggingFace Transformers for sentiment classification and Plotly for interactive data visualization.",
     tools: "Python, PyTorch, HuggingFace Transformers, Streamlit, Plotly, YouTube Data API v3, Pandas",
     tech: ["PyTorch", "HuggingFace", "Streamlit"],
     liveLink: "https://sentimentiq-dashboard-njiprgwlcchwkuemvrqwn4.streamlit.app/",
@@ -84,7 +91,7 @@ export const projects = [
   {
     name: "FaceID Attendance System",
     category: "Computer Vision Web App",
-    description: "Real-time face recognition attendance system. Auto-detects faces via webcam, marks attendance instantly, and exports CSV.",
+    description: "A computer vision application that automates attendance tracking through real-time facial recognition. Engineered a pipeline using OpenCV to detect and verify faces via webcam, instantly logging attendance records and exporting data to CSV format.",
     tools: "Python, OpenCV, Streamlit, NumPy, Pandas",
     tech: ["Python", "OpenCV", "Streamlit", "NumPy"],
     liveLink: "https://drive.google.com/file/d/1g-efKzypo2mCdXtwn3UwqALjecAiyyw-/view?usp=drive_link",
@@ -95,17 +102,17 @@ export const projects = [
 
 export const experience = [
   {
-    role: "Software Intern (Python & ML)",
-    company: "R3 SYSTEMS INDIA PRIVATE LIMITED",
-    date: "Jan 2026",
-    description: "Worked on real-world datasets to build and evaluate machine learning models. Developed a Heart Disease Prediction System using Logistic Regression. Performed data preprocessing, feature selection, and model evaluation, and deployed the model using Streamlit.",
-    current: false
+    role: "Machine Learning Intern",
+    company: "R3 Systems India Private Limited",
+    date: "Jan 2026 - Present",
+    description: "Engineered and evaluated predictive machine learning models using real-world datasets. Developed an end-to-end Heart Disease Prediction System utilizing Logistic Regression. Conducted data preprocessing, robust feature selection, and deployed the interactive model interface using Streamlit.",
+    current: true
   },
   {
-    role: "B.E. in AI & Data Science",
+    role: "B.E. in Artificial Intelligence & Data Science",
     company: "SNJB College of Engineering",
-    date: "Present",
-    description: "Currently in 3rd Year. Focused on solving real-world problems using data-driven approaches. Building a strong foundation in Machine Learning, Regression, Classification, and Data Visualization.",
+    date: "Expected 2027",
+    description: "Junior year student with a rigorous focus on AI algorithms, data structures, and statistical modeling. Building a comprehensive foundation in deep learning, regression analysis, natural language processing, and scalable data visualization techniques.",
     current: true
   }
 ];
