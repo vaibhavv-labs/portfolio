@@ -455,3 +455,15 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   line-height: 0.9;
   margin-bottom: 2rem;
 }
+
+/* ============================================
+   HOVER UTILITIES
+   ============================================ */
+.hover-link:hover {
+  color: var(--text-gray) !important;
+}
+
+.section-light .hover-link:hover {
+  color: var(--text-black) !important;
+}
+

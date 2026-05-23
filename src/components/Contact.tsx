@@ -26,8 +26,8 @@ const Contact = () => {
             <div>
               <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-gray)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem' }}>Social</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <a href={socialLinks.github} target="_blank" rel="noreferrer" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#a3a3a3'} onMouseOut={(e) => e.currentTarget.style.color = '#fff'}>GitHub ↗</a>
-                <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#a3a3a3'} onMouseOut={(e) => e.currentTarget.style.color = '#fff'}>LinkedIn ↗</a>
+                <a href={socialLinks.github} target="_blank" rel="noreferrer" className="hover-link" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }}>GitHub ↗</a>
+                <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="hover-link" style={{ fontSize: '1.25rem', fontWeight: 500, transition: 'color 0.2s' }}>LinkedIn ↗</a>
               </div>
             </div>
           </ScrollReveal>

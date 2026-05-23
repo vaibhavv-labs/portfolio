@@ -39,7 +39,7 @@ const Projects = () => {
                     <a href={project.liveLink} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', borderBottom: '1px solid black', paddingBottom: '0.2rem' }}>
                       {project.liveLabel} ↗
                     </a>
-                    <a href={project.githubLink} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-gray)', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'black'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-gray)'}>
+                    <a href={project.githubLink} target="_blank" rel="noreferrer" className="hover-link" style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-gray)', transition: 'color 0.2s' }}>
                       GitHub ↗
                     </a>
                   </div>
