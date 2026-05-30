@@ -1,11 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { personalInfo } from "@/data/portfolio-data";
+import MagneticButton from "./MagneticButton";
 
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -22,7 +24,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Intersection observer to track active section
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
@@ -73,9 +74,9 @@ const Navbar = () => {
               </button>
             ))}
             <div className="nav-divider" />
-            <a href="/resume.pdf" target="_blank" className="nav-resume">
+            <MagneticButton href="/resume.pdf" target="_blank" className="nav-resume">
               Resume
-            </a>
+            </MagneticButton>
           </div>
           <button
             className="nav-mobile-btn"
@@ -107,6 +108,7 @@ const Navbar = () => {
           href="/resume.pdf"
           target="_blank"
           className="nav-resume"
+          style={{ marginTop: '20px', padding: '12px 32px', fontSize: '1.1rem' }}
           onClick={() => setMobileOpen(false)}
         >
           Resume

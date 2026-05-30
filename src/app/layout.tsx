@@ -1,60 +1,38 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import CustomCursor from "@/components/CustomCursor";
+import ParticleField from "@/components/ParticleField";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
+
 export const metadata: Metadata = {
-  title: "Vaibhav Bhoyate — AI Engineer & Data Scientist",
-  description:
-    "Portfolio of Vaibhav Bhoyate — AI & Data Science student building intelligent systems with Machine Learning, Deep Learning, and modern web technologies.",
+  title: "Vaibhav Bhoyate | AI & Data Science Engineer",
+  description: "Portfolio of Vaibhav Bhoyate — AI & Data Science Engineer specializing in machine learning, NLP, and intelligent systems. Building scalable AI solutions.",
+  keywords: ["AI Engineer", "Data Science", "Machine Learning", "Portfolio", "Vaibhav Bhoyate"],
   authors: [{ name: "Vaibhav Bhoyate" }],
-  keywords: [
-    "Vaibhav Bhoyate",
-    "AI Engineer",
-    "Data Scientist",
-    "Machine Learning",
-    "Python Developer",
-    "Portfolio",
-    "Next.js",
-    "SNJB College",
-    "ML Engineer India",
-  ],
-  creator: "Vaibhav Bhoyate",
-  robots: "index, follow",
+  icons: { icon: "/favicon.ico" },
   openGraph: {
-    title: "Vaibhav Bhoyate | AI Engineer & Data Scientist",
-    description:
-      "AI & Data Science student building intelligent systems with ML, DL, and modern web technologies.",
-    url: "https://vaibhav-portfolio.vercel.app",
-    siteName: "Vaibhav Bhoyate",
+    title: "Vaibhav Bhoyate | AI & Data Science Engineer",
+    description: "AI & Data Science Engineer building intelligent systems",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vaibhav Bhoyate | AI Engineer & Data Scientist",
-    description:
-      "AI & Data Science student building intelligent systems with ML, DL, and modern web technologies.",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body>
+        <CustomCursor />
+        <ParticleField />
+        <Navbar />
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

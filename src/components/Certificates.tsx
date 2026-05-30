@@ -9,29 +9,29 @@ const Certificates = () => {
         <ScrollReveal>
           <div className="section-badge"><span className="section-badge-dot" /><span>Achievements</span></div>
           <h2 className="section-title">My <span className="gradient-text">Certificates.</span></h2>
-          <p className="section-subtitle">Verified achievements &amp; learning milestones from top platforms.</p>
+          <p className="section-subtitle">Verified credentials demonstrating expertise across various domains of AI and Data Science.</p>
         </ScrollReveal>
+
         <div className="certificates-grid">
           {certificates.map((cert, i) => (
-            <ScrollReveal key={i} delay={i * 0.08}>
+            <ScrollReveal key={i} delay={i * 0.1}>
               <div className="cert-card glass-card glass-card-hover">
                 <div className="cert-card-top">
                   <span className="cert-icon">{cert.icon}</span>
                   <span className="cert-verified">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M10 3L4.5 8.5 2 6" stroke="#7bda8a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    Verified
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified
                   </span>
                 </div>
                 <span className="cert-category">{cert.category}</span>
-                <p className="cert-name">{cert.name}</p>
+                <h3 className="cert-name">{cert.name}</h3>
                 <div className="cert-meta">
-                  <p className="cert-issuer">{cert.issuer}</p>
-                  <p className="cert-date">{cert.date}</p>
+                  <span className="cert-issuer">{cert.issuer}</span>
+                  <span className="cert-date">{cert.date}</span>
                 </div>
                 <hr className="cert-divider" />
                 <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link">
-                  View Certificate
-                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  View Certificate 
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </div>
             </ScrollReveal>

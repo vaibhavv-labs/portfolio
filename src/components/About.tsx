@@ -5,7 +5,6 @@ import ScrollReveal from "./ScrollReveal";
 const About = () => {
   return (
     <section id="about" className="section about">
-      {/* Aurora blob background */}
       <div className="aurora-blob" style={{ width: 600, height: 600, background: 'var(--aurora-1)', top: '-20%', left: '-10%' }} />
 
       <div className="section-container">
@@ -20,7 +19,6 @@ const About = () => {
         </ScrollReveal>
 
         <div className="about-grid">
-          {/* Left column: Bio + Philosophy */}
           <div className="about-text">
             <ScrollReveal delay={0.1}>
               <p className="about-bio">
@@ -45,7 +43,6 @@ const About = () => {
             </ScrollReveal>
           </div>
 
-          {/* Right column: Profile + Role cards */}
           <div className="about-cards">
             <ScrollReveal delay={0.2}>
               <div className="profile-card glass-card glass-card-hover">

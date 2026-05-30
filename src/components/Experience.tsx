@@ -10,14 +10,15 @@ const Experience = () => {
           <div className="section-badge"><span className="section-badge-dot" /><span>Career &amp; Education</span></div>
           <h2 className="section-title">My <span className="gradient-text">Journey.</span></h2>
         </ScrollReveal>
+
         <div className="experience-timeline">
           {experience.map((exp, i) => (
-            <ScrollReveal key={i} delay={i * 0.15}>
+            <ScrollReveal key={i} delay={i * 0.1}>
               <div className="timeline-item">
-                <div className={`timeline-dot ${exp.current ? 'timeline-dot-active' : ''}`} />
-                <span className="timeline-date">{exp.date}</span>
+                <div className={`timeline-dot ${i === 0 ? 'timeline-dot-active' : ''}`} />
+                <div className="timeline-date">{exp.date}</div>
                 <h3 className="timeline-role">{exp.role}</h3>
-                <p className="timeline-company">{exp.company}</p>
+                <div className="timeline-company">{exp.company}</div>
                 <p className="timeline-desc">{exp.description}</p>
               </div>
             </ScrollReveal>
