@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { personalInfo } from "@/data/portfolio-data";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";

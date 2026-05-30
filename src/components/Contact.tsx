@@ -43,9 +43,6 @@ const Contact = () => {
                   <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="social-link">
                     LinkedIn <span className="social-arrow">↗</span>
                   </a>
-                  <a href={socialLinks.twitter} target="_blank" rel="noreferrer" className="social-link">
-                    Twitter/X <span className="social-arrow">↗</span>
-                  </a>
                 </div>
               </div>
             </ScrollReveal>
