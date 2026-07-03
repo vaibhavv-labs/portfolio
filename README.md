@@ -53,6 +53,7 @@ space-portfolio/
     |-- icon1.png
     |-- icon2.png
     |-- layout.tsx
+    |-- page_original.tsx
     |-- page.tsx
   |- components/
     |-- main/
@@ -69,11 +70,13 @@ space-portfolio/
   |- .gitignore
   |- eslint.config.mjs
   |- netlify.toml
+  |- next-env.d.ts
   |- next.config.js
   |- package-lock.json
   |- package.json
   |- postcss.config.js
   |- tailwind.config.ts
+  |- temp.html
   |- tsconfig.json
 ```
 <!--- FOLDER_STRUCTURE_END --->
