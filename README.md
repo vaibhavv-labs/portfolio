@@ -23,7 +23,6 @@
 
 - [Folder Structure](#bangbang-folder-structure)
 - [Getting Started](#toolbox-getting-started)
-- [Screenshots](#camera-screenshots)
 - [Tech Stack](#gear-tech-stack)
 - [Stats](#wrench-stats)
 - [Contribute](#raised_hands-contribute)
@@ -87,16 +86,6 @@ space-portfolio/
 3. Open terminal in root directory. Run `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
 
 4. Now app is fully configured 👍 and you can start using this app using `npm run dev` or `yarn dev`.
-
-## :camera: Screenshots:
-
-![AI & Data Science Engineer Profile](/.github/images/img1.png "AI & Data Science Engineer Profile")
-
-![Showcase your Tech Stack](/.github/images/img2.png "Showcase your Tech Stack")
-
-![Built with AI & Web Tech](/.github/images/img3.png "Built with AI & Web Tech")
-
-![Showcase your ML projects](/.github/images/img4.png "Showcase your ML projects")
 
 ## :gear: Tech Stack
 
