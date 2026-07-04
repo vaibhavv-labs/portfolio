@@ -12,7 +12,7 @@ import {
 
 export const HeroDiagram = () => {
   return (
-    <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center scale-75 md:scale-100">
+    <div className="relative w-[650px] h-[650px] flex items-center justify-center scale-75 md:scale-100">
       {/* Center Node */}
       <div className="w-24 h-24 rounded-full bg-[#0d0d2b]/80 border border-purple-500/50 flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.4)] z-20 backdrop-blur-md">
         <span className="text-4xl animate-pulse">🧠</span>

@@ -2,13 +2,13 @@
 
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 import {
   slideInFromLeft,
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
+import { HeroDiagram } from "./hero-diagram";
 
 export const HeroContent = () => {
   return (
@@ -69,19 +69,12 @@ export const HeroContent = () => {
         </div>
       </div>
 
-      {/* Right: Decorative SVG — hidden on mobile */}
+      {/* Right: Interactive Diagram — hidden on mobile */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="hidden md:flex w-full h-full justify-center items-center"
       >
-        <Image
-          src="/hero-bg.svg"
-          alt="AI work icons"
-          height={650}
-          width={650}
-          draggable={false}
-          className="select-none"
-        />
+        <HeroDiagram />
       </motion.div>
     </motion.div>
   );
