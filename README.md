@@ -90,13 +90,13 @@ space-portfolio/
 
 ## :camera: Screenshots:
 
-![Modern UI/UX](/.github/images/img1.png "Modern UI/UX")
+![AI & Data Science Engineer Profile](/.github/images/img1.png "AI & Data Science Engineer Profile")
 
-![Showcase your skills](/.github/images/img2.png "Showcase your skills")
+![Showcase your Tech Stack](/.github/images/img2.png "Showcase your Tech Stack")
 
-![Built with Typescript](/.github/images/img3.png "Built with Typescript")
+![Built with AI & Web Tech](/.github/images/img3.png "Built with AI & Web Tech")
 
-![Showcase your projects](/.github/images/img4.png "Showcase your projects")
+![Showcase your ML projects](/.github/images/img4.png "Showcase your ML projects")
 
 ## :gear: Tech Stack
 
