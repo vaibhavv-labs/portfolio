@@ -11,7 +11,7 @@ export const Encryption = () => {
       <div className="absolute w-auto h-auto top-0 z-[5]">
         <motion.div
           variants={slideInFromTop}
-          className="text-[40px] font-medium text-center text-gray-200 mt-[20px]"
+          className="text-2xl sm:text-3xl md:text-[40px] font-medium text-center text-gray-200 mt-[20px] px-4"
         >
           Precision-Trained{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">

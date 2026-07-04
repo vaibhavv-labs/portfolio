@@ -40,8 +40,8 @@ export const SkillDataProvider = ({
       transition={{ delay: index * animationDelay }}
     >
       <div className="flex flex-col items-center justify-center gap-2 group cursor-pointer hover:scale-110 transition-transform">
-        <Icon className="h-16 w-16 transition-colors duration-300" style={{ color }} />
-        <span className="text-gray-400 text-xs font-semibold mt-1">{name}</span>
+        <Icon className="h-10 w-10 sm:h-14 sm:w-14 md:h-16 md:w-16 transition-colors duration-300" style={{ color }} />
+        <span className="text-gray-400 text-[10px] sm:text-xs font-semibold mt-1">{name}</span>
       </div>
     </motion.div>
   );
