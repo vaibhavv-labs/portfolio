@@ -15,22 +15,22 @@ export const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+      className="flex flex-col md:flex-row items-center justify-center px-6 sm:px-10 md:px-20 mt-24 md:mt-40 w-full z-[20] gap-8 md:gap-0"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+      <div className="h-full w-full flex flex-col gap-4 md:gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
-          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]]"
+          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">
+          <h1 className="Welcome-text text-[12px] sm:text-[13px]">
             AI & Machine Learning Portfolio
           </h1>
         </motion.div>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-5xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-6 text-3xl sm:text-4xl md:text-5xl font-bold text-white max-w-full md:max-w-[600px] w-auto h-auto"
         >
           <span>
             AI &{" "}
@@ -43,7 +43,7 @@ export const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-base text-gray-400 my-5 max-w-[600px]"
+          className="text-sm sm:text-base text-gray-400 my-3 md:my-5 max-w-full md:max-w-[600px]"
         >
           I&apos;m an AI & Data Science Engineering student building intelligent systems with Machine Learning and NLP.
         </motion.p>
@@ -52,7 +52,7 @@ export const HeroContent = () => {
           <motion.a
             variants={slideInFromLeft(1)}
             href="#projects"
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] px-4"
+            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg w-full sm:w-auto sm:max-w-[200px] px-4"
           >
             View Projects
           </motion.a>
@@ -61,7 +61,7 @@ export const HeroContent = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2 px-4 text-center text-white cursor-pointer rounded-lg border border-[#7042f8] hover:bg-[#7042f820] transition max-w-[200px]"
+            className="py-2 px-4 text-center text-white cursor-pointer rounded-lg border border-[#7042f8] hover:bg-[#7042f820] transition w-full sm:w-auto sm:max-w-[200px]"
           >
             View Resume
           </motion.a>
@@ -70,7 +70,7 @@ export const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="hidden md:flex w-full h-full justify-center items-center"
       >
         <Image
           src="/hero-bg.svg"

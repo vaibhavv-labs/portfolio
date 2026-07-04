@@ -43,22 +43,22 @@ export const Encryption = () => {
         </div>
         
         {/* Stat Counters */}
-        <div className="flex flex-row gap-8 md:gap-16 mt-6 z-[20]">
+        <div className="flex flex-row flex-wrap justify-center gap-6 md:gap-16 mt-6 z-[20] px-4">
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-white">4+</span>
-            <span className="text-gray-400 text-xs md:text-sm mt-2">Projects Built</span>
+            <span className="text-2xl md:text-5xl font-bold text-white">4+</span>
+            <span className="text-gray-400 text-xs mt-2">Projects Built</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-white">6+</span>
-            <span className="text-gray-400 text-xs md:text-sm mt-2">Certifications Earned</span>
+            <span className="text-2xl md:text-5xl font-bold text-white">6+</span>
+            <span className="text-gray-400 text-xs mt-2">Certifications</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-white">14+</span>
-            <span className="text-gray-400 text-xs md:text-sm mt-2">Technologies Used</span>
+            <span className="text-2xl md:text-5xl font-bold text-white">14+</span>
+            <span className="text-gray-400 text-xs mt-2">Technologies</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-bold text-white">50+</span>
-            <span className="text-gray-400 text-xs md:text-sm mt-2">Contributions</span>
+            <span className="text-2xl md:text-5xl font-bold text-white">50+</span>
+            <span className="text-gray-400 text-xs mt-2">Contributions</span>
           </div>
         </div>
       </div>
