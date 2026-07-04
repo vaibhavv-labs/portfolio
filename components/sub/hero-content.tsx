@@ -25,7 +25,7 @@ export const HeroContent = () => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[11px] sm:text-[13px]">
-            AI &amp; Machine Learning Portfolio
+            Transforming Data into Intelligence
           </h1>
         </motion.div>
 
