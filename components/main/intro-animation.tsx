@@ -4,10 +4,10 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // --- CONFIGURATION CONSTANTS ---
-const WARP_START_S = 0.3;
-const WARP_FULL_S = 1.8;
-const FADE_START_S = 2.8;
-const FADE_DURATION_S = 0.4;
+const WARP_START_S = 0.5;
+const WARP_FULL_S = 3.0;
+const FADE_START_S = 5.5;
+const FADE_DURATION_S = 0.8;
 const THEME_BG = "#030014";
 const COLORS = ["#a855f7", "#6366f1", "#38bdf8", "#ec4899", "#ffffff"];
 
@@ -178,9 +178,9 @@ export function IntroAnimation() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: [0, 1, 0] }}
             transition={{ 
-              times: [0, 0.2, 1], // hits full opacity around 1.8s, fades by 3.2s
-              duration: 1.7, 
-              delay: 1.5, 
+              times: [0, 0.2, 1], // hits full opacity quickly, slowly fades by the end
+              duration: 3.0, 
+              delay: 2.5, 
               ease: "easeInOut" 
             }}
             className="absolute z-10 flex justify-center items-center w-[300px] h-[300px] md:w-[600px] md:h-[600px] mt-10 md:mt-20"
@@ -208,7 +208,7 @@ export function IntroAnimation() {
             <motion.h1
               initial={{ opacity: 0, y: 10, filter: "blur(5px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, delay: 2.2, ease: "easeOut" }}
+              transition={{ duration: 1.2, delay: 3.2, ease: "easeOut" }}
               className="text-white text-2xl md:text-5xl lg:text-6xl font-light tracking-[0.5em] md:tracking-[0.8em] uppercase text-center ml-[0.5em]"
             >
               Vaibhav
@@ -217,7 +217,7 @@ export function IntroAnimation() {
             <motion.h1
               initial={{ opacity: 0, y: 10, filter: "blur(5px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, delay: 2.4, ease: "easeOut" }}
+              transition={{ duration: 1.2, delay: 3.5, ease: "easeOut" }}
               className="text-white/60 text-xl md:text-3xl lg:text-4xl font-light tracking-[0.5em] md:tracking-[0.8em] uppercase text-center mt-4 ml-[0.5em]"
             >
               Bhoyate
@@ -226,7 +226,7 @@ export function IntroAnimation() {
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 2.8, ease: "easeOut" }}
+              transition={{ duration: 1.0, delay: 4.0, ease: "easeOut" }}
               className="mt-6 md:mt-10 text-xs md:text-base font-medium tracking-[0.3em] uppercase text-center bg-clip-text text-transparent bg-gradient-to-r from-[#a855f7] via-[#6366f1] to-[#38bdf8]"
             >
               AI & Data Science Engineer
