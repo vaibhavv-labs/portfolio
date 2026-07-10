@@ -66,3 +66,66 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ─── 3D Orbiting Rings (About Photo) ─── */
+.ring-3d-1 {
+  animation: ringRotate1 10s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes ringRotate1 {
+  from { transform: rotateX(75deg) rotateZ(0deg); }
+  to   { transform: rotateX(75deg) rotateZ(360deg); }
+}
+
+.ring-3d-2 {
+  animation: ringRotate2 14s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes ringRotate2 {
+  from { transform: rotateX(75deg) rotateY(60deg) rotateZ(0deg); }
+  to   { transform: rotateX(75deg) rotateY(60deg) rotateZ(-360deg); }
+}
+
+.ring-3d-3 {
+  animation: ringRotate3 18s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes ringRotate3 {
+  from { transform: rotateX(75deg) rotateY(-40deg) rotateZ(0deg); }
+  to   { transform: rotateX(75deg) rotateY(-40deg) rotateZ(360deg); }
+}
+
+/* ─── Spinning Gradient Border ─── */
+.photo-gradient-spin {
+  background: conic-gradient(from 0deg, #7042f8, #00d8ff, #a855f7, #06b6d4, #7042f8);
+  animation: gradientSpin 4s linear infinite;
+  border-radius: 50%;
+}
+@keyframes gradientSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Holographic Shimmer ─── */
+.photo-shimmer {
+  overflow: hidden;
+  border-radius: 50%;
+}
+.photo-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(112, 66, 248, 0.08) 40%,
+    rgba(0, 216, 255, 0.10) 50%,
+    rgba(112, 66, 248, 0.08) 60%,
+    transparent 80%
+  );
+  animation: shimmerSweep 3.5s ease-in-out infinite;
+}
+@keyframes shimmerSweep {
+  0%, 100% { transform: translateX(-120%); }
+  50%      { transform: translateX(120%); }
+}

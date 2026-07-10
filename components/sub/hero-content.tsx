@@ -46,7 +46,7 @@ export const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-sm sm:text-base text-gray-400 my-2 md:my-5 max-w-full md:max-w-[600px]"
         >
-          I&apos;m an AI &amp; Data Science Engineering student building intelligent systems with Machine Learning and NLP.
+          Transforming complex data into scalable, production-ready intelligent systems.
         </motion.p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">

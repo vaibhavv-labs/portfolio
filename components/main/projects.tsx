@@ -3,13 +3,16 @@
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/sub/project-card";
 import { PROJECTS } from "@/constants";
+import { CosmicRing } from "./cosmic-ring";
 
 export const Projects = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col items-center justify-center py-20 px-6"
+      className="relative flex flex-col items-center justify-center py-20 px-6 overflow-hidden"
     >
+      {/* Cosmic Ring Portal Background */}
+      <CosmicRing />
       {/* Section heading */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

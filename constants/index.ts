@@ -162,7 +162,7 @@ export const FOOTER_DATA = [
 
 export const NAV_LINKS = [
   {
-    title: "About me",
+    title: "About",
     link: "#about-me",
   },
   {
@@ -172,6 +172,10 @@ export const NAV_LINKS = [
   {
     title: "Projects",
     link: "#projects",
+  },
+  {
+    title: "Experience",
+    link: "#experience",
   },
   {
     title: "Contact",
