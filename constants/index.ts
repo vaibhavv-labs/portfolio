@@ -93,7 +93,7 @@ export const PROJECTS = [
     title: "SentimentIQ",
     description: "NLP dashboard for sentiment analysis on live social media data, YouTube Data API integration, HuggingFace Transformers + Plotly.",
     image: "/projects/sentimentiq.png",
-    link: "https://sentimentiq-dashboard-njiprgwlcchwkuemvrqwn4.streamlit.app/",
+    link: "https://sentimentiq-dashboard.onrender.com",
     github: "https://github.com/vaibhavv-labs/sentimentiq-dashboard",
     stack: ["PyTorch", "HuggingFace", "Streamlit"]
   },
