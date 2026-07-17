@@ -223,7 +223,7 @@ export const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-[998] w-[350px] max-w-[calc(100vw-2rem)] h-[480px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
+            className="fixed bottom-24 right-6 z-[998] w-[350px] max-w-[calc(100vw-2rem)] h-[420px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
             style={{
               background: "linear-gradient(180deg, rgba(13,9,37,0.97) 0%, rgba(3,0,20,0.98) 100%)",
               backdropFilter: "blur(20px)",
