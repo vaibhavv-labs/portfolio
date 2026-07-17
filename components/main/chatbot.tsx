@@ -14,19 +14,19 @@ interface Message {
 const PREDEFINED_QA = [
   {
     q: "What are your skills?",
-    a: "I specialize in AI & ML with Python, PyTorch, and Scikit-Learn. On the frontend, I build with React, Next.js, and Tailwind CSS. I also have experience with Flask, MongoDB, and deploying ML models!"
+    a: "I specialize in AI & Data Science with Python, PyTorch, and Scikit-Learn. I also build full-stack apps using React, Next.js, and Tailwind CSS."
   },
   {
-    q: "What services do you offer?",
-    a: "I can help with building end-to-end Machine Learning pipelines, fine-tuning LLMs, creating Full-Stack AI web applications, and performing Data Analysis & Visualization."
+    q: "Tell me about CodeSentinel AI",
+    a: "CodeSentinel AI is my project that uses CodeBERT for automated vulnerability detection in source code, combining AI with cybersecurity!"
   },
   {
-    q: "Book a meeting",
-    a: "You can book a meeting with me by reaching out via email at vaibhavbhoyate976@gmail.com or messaging me on WhatsApp at +91 8830269849."
+    q: "What is your experience?",
+    a: "I'm currently an AI & Data Science engineering student (Class of 2027) and I've worked as a Python/ML Intern at R3 Systems."
   },
   {
     q: "How can I contact you?",
-    a: "You can reach out to me via email at vaibhavbhoyate976@gmail.com, WhatsApp me at +91 8830269849, or connect with me on LinkedIn!"
+    a: "You can reach me via email at vaibhavbhoyate976@gmail.com, WhatsApp at +91 8830269849, or find me on GitHub @vaibhavv-labs!"
   }
 ];
 
