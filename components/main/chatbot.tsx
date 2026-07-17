@@ -33,21 +33,27 @@ const PREDEFINED_QA = [
 /* ─── Icons ─── */
 const BotIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Antennas */}
-    <path d="M2 11V7M22 11V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    {/* Antenna */}
+    <circle cx="12" cy="2.5" r="1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M12 4v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     
     {/* Ears */}
-    <rect x="0.5" y="10" width="2" height="4" rx="1" fill="currentColor" />
-    <rect x="21.5" y="10" width="2" height="4" rx="1" fill="currentColor" />
+    <path d="M5 10.5a3.5 3.5 0 0 0 0 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M19 10.5a3.5 3.5 0 0 1 0 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     
-    {/* Main Chat Bubble with Face Cutout */}
-    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.48 2 2 6.03 2 11c0 1.64.47 3.14 1.28 4.42L2 21l5.58-1.28C8.86 20.53 10.36 21 12 21c5.52 0 10-4.03 10-9s-4.48-9-10-9zM9 8A3.5 3.5 0 0 0 5.5 11.5A3.5 3.5 0 0 0 9 15h6a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 15 8H9z" fill="currentColor" />
+    {/* Head */}
+    <rect x="5" y="7" width="14" height="14" rx="4.5" stroke="currentColor" strokeWidth="2" fill="none" />
     
-    {/* Happy Eyes (^ ^) */}
-    <path d="M7.5 11.5A1.5 1.5 0 0 0 10.5 11.5M13.5 11.5A1.5 1.5 0 0 0 16.5 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    {/* Eyes */}
+    <circle cx="9" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none" />
     
-    {/* Happy Mouth (u) */}
-    <path d="M11 12.5A1 1 0 0 1 13 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    {/* Cheeks */}
+    <circle cx="7.5" cy="15.5" r="1" fill="#ff8a8a" stroke="none" />
+    <circle cx="16.5" cy="15.5" r="1" fill="#ff8a8a" stroke="none" />
+    
+    {/* Mouth */}
+    <path d="M11 15.5a1 1 0 0 0 2 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
