@@ -32,11 +32,18 @@ const PREDEFINED_QA = [
 
 /* ─── Icons ─── */
 const BotIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-    <path d="M8 12h.01" />
-    <path d="M12 12h.01" />
-    <path d="M16 12h.01" />
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2v2" strokeWidth="2" />
+    <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none" />
+    {/* Robot Head Body */}
+    <path d="M4 12.5C4 7.80558 7.58172 4 12 4C16.4183 4 20 7.80558 20 12.5V15C20 18.3137 17.3137 21 14 21H10C6.68629 21 4 18.3137 4 15V12.5Z" />
+    {/* Visor Outline */}
+    <rect x="6" y="9" width="12" height="6" rx="3" />
+    {/* Cute Dot Eyes */}
+    <circle cx="9.5" cy="12" r="1.2" fill="currentColor" stroke="none" />
+    <circle cx="14.5" cy="12" r="1.2" fill="currentColor" stroke="none" />
+    {/* Little Smile */}
+    <path d="M10.5 17.5C10.5 17.5 11.25 18.5 12 18.5C12.75 18.5 13.5 17.5 13.5 17.5" />
   </svg>
 );
 
