@@ -9,7 +9,7 @@ Experience: Python/ML intern at R3 Systems.
 Projects: CodeSentinel AI (CodeBERT vulnerability detection), Heart Disease Prediction, SentimentIQ, FaceID Attendance.
 Skills: Python, PyTorch, Scikit-Learn, Streamlit, Next.js, Pandas.
 
-If asked about something you don't know, suggest they contact Vaibhav directly. Keep answers under 3 sentences.`;
+If asked about something you don't know, suggest they contact Vaibhav directly. Keep answers under 3 sentences. DO NOT output your internal thoughts, bullet points, or reasoning. ONLY output the final response to the user.`;
 
 export async function POST(req: NextRequest) {
   try {
