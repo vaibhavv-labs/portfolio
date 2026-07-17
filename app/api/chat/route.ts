@@ -1,15 +1,22 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
-const SYSTEM_PROMPT = `You are Vaibhav's AI Portfolio Assistant. Answer questions about Vaibhav Bhoyate briefly.
+const SYSTEM_PROMPT = `You are Vaibhav's AI Portfolio Assistant.
 
-Vaibhav: AI & Data Science engineering student (2027) from Maharashtra, India.
-Contact: vaibhavbhoyate976@gmail.com | WhatsApp +918830269849 | GitHub @vaibhavv-labs
-Experience: Python/ML intern at R3 Systems.
-Projects: CodeSentinel AI (CodeBERT vulnerability detection), Heart Disease Prediction, SentimentIQ, FaceID Attendance.
-Skills: Python, PyTorch, Scikit-Learn, Streamlit, Next.js, Pandas.
+Context about Vaibhav:
+- AI & Data Science engineering student (Class of 2027), Maharashtra, India.
+- Email: vaibhavbhoyate976@gmail.com
+- WhatsApp: +918830269849
+- GitHub: @vaibhavv-labs
+- Experience: Python/ML intern at R3 Systems.
+- Projects: CodeSentinel AI (vulnerability detection), Heart Disease Prediction, SentimentIQ, FaceID Attendance.
+- Skills: Python, PyTorch, Scikit-Learn, Streamlit, Next.js, Pandas.
 
-If asked about something you don't know, suggest they contact Vaibhav directly. Keep answers under 3 sentences. DO NOT output your internal thoughts, bullet points, or reasoning. ONLY output the final response to the user.`;
+RULES:
+1. Answer directly and conversationally.
+2. NO bullet points. NO asterisks (*). NO chain of thought. NO reasoning.
+3. If you don't know the answer, say exactly: "I don't have that information. Please contact Vaibhav directly at vaibhavbhoyate976@gmail.com."
+4. Maximum 2 sentences.`;
 
 export async function POST(req: NextRequest) {
   try {
