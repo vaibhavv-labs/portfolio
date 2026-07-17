@@ -256,7 +256,7 @@ export const Chatbot = () => {
               {/* Initial Welcome Message (Always at top) */}
               <div className="flex justify-start">
                 <div className="max-w-[85%] px-4 py-3 text-[13px] leading-relaxed bg-[#7042f815] border border-[#7042f830] text-gray-300 rounded-2xl rounded-tl-sm shadow-[0_0_15px_rgba(112,66,248,0.05)]">
-                  Hi, I&apos;m Vaibhav&apos;s assistant. Ask me about his skills, projects, experience, or services — or say you&apos;d like to book a meeting.
+                  Hi! 👋 I&apos;m Vaibhav&apos;s personal AI assistant. Curious about his AI projects, coding skills, or background? Feel free to ask me anything!
                 </div>
               </div>
 
