@@ -32,18 +32,22 @@ const PREDEFINED_QA = [
 
 /* ─── Icons ─── */
 const BotIcon = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2v2" strokeWidth="2" />
-    <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none" />
-    {/* Robot Head Body */}
-    <path d="M4 12.5C4 7.80558 7.58172 4 12 4C16.4183 4 20 7.80558 20 12.5V15C20 18.3137 17.3137 21 14 21H10C6.68629 21 4 18.3137 4 15V12.5Z" />
-    {/* Visor Outline */}
-    <rect x="6" y="9" width="12" height="6" rx="3" />
-    {/* Cute Dot Eyes */}
-    <circle cx="9.5" cy="12" r="1.2" fill="currentColor" stroke="none" />
-    <circle cx="14.5" cy="12" r="1.2" fill="currentColor" stroke="none" />
-    {/* Little Smile */}
-    <path d="M10.5 17.5C10.5 17.5 11.25 18.5 12 18.5C12.75 18.5 13.5 17.5 13.5 17.5" />
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Antennas */}
+    <path d="M2 11V7M22 11V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    
+    {/* Ears */}
+    <rect x="0.5" y="10" width="2" height="4" rx="1" fill="currentColor" />
+    <rect x="21.5" y="10" width="2" height="4" rx="1" fill="currentColor" />
+    
+    {/* Main Chat Bubble with Face Cutout */}
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.48 2 2 6.03 2 11c0 1.64.47 3.14 1.28 4.42L2 21l5.58-1.28C8.86 20.53 10.36 21 12 21c5.52 0 10-4.03 10-9s-4.48-9-10-9zM9 8A3.5 3.5 0 0 0 5.5 11.5A3.5 3.5 0 0 0 9 15h6a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 15 8H9z" fill="currentColor" />
+    
+    {/* Happy Eyes (^ ^) */}
+    <path d="M7.5 11.5A1.5 1.5 0 0 0 10.5 11.5M13.5 11.5A1.5 1.5 0 0 0 16.5 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    
+    {/* Happy Mouth (u) */}
+    <path d="M11 12.5A1 1 0 0 1 13 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
