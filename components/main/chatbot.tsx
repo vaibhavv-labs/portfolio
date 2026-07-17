@@ -223,7 +223,7 @@ export const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-[998] w-[370px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
+            className="fixed bottom-24 right-6 z-[998] w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
             style={{
               background: "linear-gradient(180deg, rgba(13,9,37,0.97) 0%, rgba(3,0,20,0.98) 100%)",
               backdropFilter: "blur(20px)",
@@ -292,12 +292,12 @@ export const Chatbot = () => {
               )}
 
               {/* Suggestion chips (Pinned at bottom of messages) */}
-              <div className="flex flex-wrap gap-2 pt-2 mt-auto">
+              <div className="flex flex-wrap gap-1.5 pt-2 mt-auto">
                 {PREDEFINED_QA.map((qa) => (
                   <button
                     key={qa.q}
                     onClick={() => sendMessage(qa.q)}
-                    className="text-[13px] font-medium px-4 py-2 rounded-full border border-[#7042f840] bg-[#7042f810] text-purple-300 hover:bg-[#7042f825] hover:border-purple-500/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(112,66,248,0.15)]"
+                    className="text-xs font-medium px-3.5 py-1.5 rounded-full border border-[#7042f840] bg-[#7042f810] text-purple-300 hover:bg-[#7042f825] hover:border-purple-500/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(112,66,248,0.15)]"
                   >
                     {qa.q}
                   </button>
@@ -308,12 +308,12 @@ export const Chatbot = () => {
             </div>
 
             {/* ── Input ── */}
-            <div className="shrink-0 border-t border-[#7042f820] bg-[#0d0925]/95 backdrop-blur-md">
+            <div className="shrink-0 border-t border-[#7042f820] bg-transparent">
               <form
                 onSubmit={handleSubmit}
-                className="px-4 py-4"
+                className="px-4 py-4 flex items-center gap-3"
               >
-                <div className="flex items-center gap-2 bg-[#1a1040]/60 border border-[#7042f830] rounded-xl px-4 py-2 focus-within:border-purple-500/50 focus-within:shadow-[0_0_15px_rgba(112,66,248,0.1)] transition-all duration-300">
+                <div className="flex-1 flex items-center bg-[#1a1040]/60 border border-[#7042f830] rounded-full px-4 py-2.5 focus-within:border-purple-500/50 focus-within:shadow-[0_0_15px_rgba(112,66,248,0.1)] transition-all duration-300">
                   <input
                     ref={inputRef}
                     type="text"
@@ -321,17 +321,17 @@ export const Chatbot = () => {
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Ask a question..."
                     disabled={isLoading}
-                    className="flex-1 bg-transparent text-sm text-white placeholder-gray-500 outline-none disabled:opacity-50"
+                    className="w-full bg-transparent text-sm text-white placeholder-gray-500 outline-none disabled:opacity-50"
                   />
-                  <button
-                    type="submit"
-                    disabled={!input.trim() || isLoading}
-                    className="w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-r from-purple-600 to-cyan-500 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:shadow-[0_0_15px_rgba(112,66,248,0.3)] transition-all duration-200"
-                    aria-label="Send message"
-                  >
-                    <SendIcon />
-                  </button>
                 </div>
+                <button
+                  type="submit"
+                  disabled={!input.trim() || isLoading}
+                  className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-cyan-500 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:shadow-[0_0_15px_rgba(112,66,248,0.3)] transition-all duration-200"
+                  aria-label="Send message"
+                >
+                  <SendIcon />
+                </button>
               </form>
             </div>
           </motion.div>
