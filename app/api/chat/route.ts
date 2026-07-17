@@ -43,8 +43,9 @@ export async function POST(req: NextRequest) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
+    // Use gemini-1.5-flash-8b, which is fast and does not force chain-of-thought output.
     const model = genAI.getGenerativeModel({
-      model: "gemma-4-26b-a4b-it",
+      model: "gemini-1.5-flash-8b",
       systemInstruction: SYSTEM_PROMPT,
     });
 
