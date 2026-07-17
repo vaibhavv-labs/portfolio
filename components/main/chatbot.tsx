@@ -17,8 +17,8 @@ const PREDEFINED_QA = [
     a: "I specialize in AI & Data Science with Python, PyTorch, and Scikit-Learn. I also build full-stack apps using React, Next.js, and Tailwind CSS."
   },
   {
-    q: "Tell me about CodeSentinel AI",
-    a: "CodeSentinel AI is my project that uses CodeBERT for automated vulnerability detection in source code, combining AI with cybersecurity!"
+    q: "What projects have you worked on?",
+    a: "I've built several projects including CodeSentinel AI (vulnerability detection), a Heart Disease Prediction model, SentimentIQ, and a FaceID Attendance system!"
   },
   {
     q: "What is your experience?",
