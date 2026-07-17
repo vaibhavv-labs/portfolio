@@ -17,7 +17,7 @@ const PREDEFINED_QA = [
     a: "I specialize in AI & Data Science with Python, PyTorch, and Scikit-Learn. I also build full-stack apps using React, Next.js, and Tailwind CSS."
   },
   {
-    q: "What projects have you worked on?",
+    q: "What are your projects?",
     a: "I've built several projects including CodeSentinel AI (vulnerability detection), a Heart Disease Prediction model, SentimentIQ, and a FaceID Attendance system!"
   },
   {
@@ -223,7 +223,7 @@ export const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-[998] w-[320px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
+            className="fixed bottom-24 right-6 z-[998] w-[370px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
             style={{
               background: "linear-gradient(180deg, rgba(13,9,37,0.97) 0%, rgba(3,0,20,0.98) 100%)",
               backdropFilter: "blur(20px)",
@@ -236,7 +236,7 @@ export const Chatbot = () => {
                 <BotIcon />
               </div>
               <div className="relative">
-                <h3 className="text-white font-bold text-sm leading-tight">
+                <h3 className="text-white font-bold text-[13px] leading-tight">
                   Ask about Vaibhav
                 </h3>
                 <span className="text-[11px] font-semibold uppercase tracking-widest text-purple-400">
@@ -256,7 +256,7 @@ export const Chatbot = () => {
               
               {/* Initial Welcome Message (Always at top) */}
               <div className="flex justify-start">
-                <div className="max-w-[85%] px-4 py-3 text-sm leading-relaxed bg-[#7042f815] border border-[#7042f830] text-gray-300 rounded-2xl rounded-tl-sm shadow-[0_0_15px_rgba(112,66,248,0.05)]">
+                <div className="max-w-[85%] px-4 py-3 text-[13px] leading-relaxed bg-[#7042f815] border border-[#7042f830] text-gray-300 rounded-2xl rounded-tl-sm shadow-[0_0_15px_rgba(112,66,248,0.05)]">
                   Hi, I&apos;m Vaibhav&apos;s assistant. Ask me about his skills, projects, experience, or services — or say you&apos;d like to book a meeting.
                 </div>
               </div>
@@ -271,7 +271,7 @@ export const Chatbot = () => {
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed ${
+                    className={`max-w-[85%] px-4 py-3 text-[13px] leading-relaxed ${
                       msg.role === "user"
                         ? "bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl rounded-br-sm shadow-[0_4px_15px_rgba(112,66,248,0.25)]"
                         : "bg-[#7042f812] border border-[#7042f825] text-gray-300 rounded-2xl rounded-tl-sm shadow-[0_0_15px_rgba(112,66,248,0.05)]"
@@ -292,12 +292,12 @@ export const Chatbot = () => {
               )}
 
               {/* Suggestion chips (Pinned at bottom of messages) */}
-              <div className="flex flex-wrap gap-1.5 pt-2 mt-auto">
+              <div className="grid grid-cols-2 gap-1.5 pt-2 mt-auto">
                 {PREDEFINED_QA.map((qa) => (
                   <button
                     key={qa.q}
                     onClick={() => sendMessage(qa.q)}
-                    className="text-[10px] font-medium px-3 py-1.5 rounded-full border border-[#7042f840] bg-[#7042f810] text-purple-300 hover:bg-[#7042f825] hover:border-purple-500/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(112,66,248,0.15)]"
+                    className="text-[11px] font-medium px-2 py-1.5 rounded-full border border-[#7042f840] bg-[#7042f810] text-purple-300 hover:bg-[#7042f825] hover:border-purple-500/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(112,66,248,0.15)] whitespace-nowrap overflow-hidden text-ellipsis"
                   >
                     {qa.q}
                   </button>
