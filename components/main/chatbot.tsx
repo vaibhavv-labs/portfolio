@@ -223,7 +223,7 @@ export const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-[998] w-[370px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
+            className="fixed bottom-24 right-6 z-[998] w-[350px] max-w-[calc(100vw-2rem)] h-[480px] max-h-[calc(100vh-8rem)] rounded-2xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(112,66,248,0.15)] border border-[#7042f830]"
             style={{
               background: "linear-gradient(180deg, rgba(13,9,37,0.97) 0%, rgba(3,0,20,0.98) 100%)",
               backdropFilter: "blur(20px)",
@@ -291,8 +291,13 @@ export const Chatbot = () => {
                 </div>
               )}
 
-              {/* Suggestion chips (Pinned at bottom of messages) */}
-              <div className="grid grid-cols-2 gap-1.5 pt-2 mt-auto">
+
+              <div ref={messagesEndRef} className="h-1" />
+            </div>
+
+            {/* ── Fixed Chips & Input ── */}
+            <div className="shrink-0 border-t border-[#7042f820] bg-transparent">
+              <div className="grid grid-cols-2 gap-1.5 px-4 pt-3 pb-1">
                 {PREDEFINED_QA.map((qa) => (
                   <button
                     key={qa.q}
@@ -303,15 +308,9 @@ export const Chatbot = () => {
                   </button>
                 ))}
               </div>
-
-              <div ref={messagesEndRef} className="h-1" />
-            </div>
-
-            {/* ── Input ── */}
-            <div className="shrink-0 border-t border-[#7042f820] bg-transparent">
               <form
                 onSubmit={handleSubmit}
-                className="px-4 py-3 flex items-center gap-2.5"
+                className="px-4 pb-4 pt-2 flex items-center gap-2.5"
               >
                 <div className="flex-1 flex items-center bg-[#1a1040]/60 border border-[#7042f830] rounded-full px-3.5 py-2 focus-within:border-purple-500/50 focus-within:shadow-[0_0_15px_rgba(112,66,248,0.1)] transition-all duration-300">
                   <input
