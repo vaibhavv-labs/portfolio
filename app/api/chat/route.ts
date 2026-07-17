@@ -43,9 +43,8 @@ export async function POST(req: NextRequest) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    // Use gemini-1.5-flash-8b, which is fast and does not force chain-of-thought output.
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash-8b",
+      model: "gemma-4-26b-a4b-it",
       systemInstruction: SYSTEM_PROMPT,
     });
 
@@ -59,9 +58,31 @@ export async function POST(req: NextRequest) {
 
     const lastMessage = messages[messages.length - 1].content;
     const result = await chat.sendMessage(lastMessage);
-    const response = result.response.text();
+    
+    // Parse the response
+    let responseText = result.response.text();
+    
+    // 1. If it outputs Final Result:, just take everything after it
+    if (responseText.includes("Final Result:")) {
+      responseText = responseText.split("Final Result:").pop()?.trim() || responseText;
+    } else {
+      // 2. Otherwise, extract the last actual line since CoT models usually end with the answer
+      const lines = responseText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      if (lines.length > 0) {
+        responseText = lines[lines.length - 1];
+      }
+    }
 
-    return NextResponse.json({ response });
+    // 3. Strip any leading asterisks, bullet markers, or random quotes from the final line
+    responseText = responseText.replace(/^\*+/g, '').replace(/"/g, '').trim();
+
+    // 4. Fix inference bug where the model repeats the exact same string twice consecutively without spaces
+    const halfLen = Math.floor(responseText.length / 2);
+    if (halfLen > 10 && responseText.substring(0, halfLen).trim() === responseText.substring(halfLen).trim()) {
+      responseText = responseText.substring(0, halfLen).trim();
+    }
+
+    return NextResponse.json({ response: responseText });
   } catch (error) {
     console.error("Chat API error:", error);
     return NextResponse.json(
