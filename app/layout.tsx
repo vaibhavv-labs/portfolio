@@ -6,6 +6,7 @@ import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
 import { IntroAnimation } from "@/components/main/intro-animation";
+import { Chatbot } from "@/components/main/chatbot";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Navbar />
         {children}
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );
