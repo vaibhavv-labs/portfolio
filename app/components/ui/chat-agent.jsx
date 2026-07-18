@@ -59,7 +59,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
       setMessages((prev) => [...prev, { role: 'bot', text: data.text }]);
     } catch (error) {
       console.error("Chat Agent Error:", error.message);
-      setMessages((prev) => [...prev, { role: 'bot', text: "Sorry, I'm having trouble connecting to my brain right now! Please email Vaibhav directly." }]);
+      setMessages((prev) => [...prev, { role: 'bot', text: `System Error: ${error.message}` }]);
     } finally {
       setIsLoading(false);
     }
