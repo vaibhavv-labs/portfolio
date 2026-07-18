@@ -51,60 +51,41 @@ If the user asks a question unrelated to Vaibhav or his work, politely redirect 
 If you don't know the answer based on the context, say "I don't have that specific information, but you can email Vaibhav directly at vaibhavbhoyate976@gmail.com."
 `;
 
+export const runtime = 'edge';
+
 export async function POST(req) {
   try {
     const { messages } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json(
-        { error: "Messages array is required." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Messages array is required." }, { status: 400 });
     }
     
-    // Initialize inside the handler to prevent Vercel caching undefined env variables
     const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
     if (!apiKey) {
-      console.error("Missing Gemini API Key in Vercel Environment Variables");
-      return NextResponse.json(
-        { error: "Server Configuration Error: Missing API Key" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Missing GEMINI_API_KEY in Vercel." }, { status: 500 });
     }
+
     const genAI = new GoogleGenerativeAI(apiKey);
-
-    // Convert frontend messages to Gemini format
-    let formattedHistory = messages.map((m) => ({
-      role: m.role === "user" ? "user" : "model",
-      parts: [{ text: m.text }],
-    }));
-
-    // The last message is what we actually send as the new prompt
-    const lastMessage = formattedHistory.pop();
-
-    // Gemini requires the history to start with a 'user' message.
-    // Strip any leading 'model' messages (like the initial greeting).
-    while (formattedHistory.length > 0 && formattedHistory[0].role === "model") {
-      formattedHistory.shift();
-    }
-
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
       systemInstruction: VAIBHAV_CONTEXT,
     });
 
-    const chat = model.startChat({
-      history: formattedHistory,
-    });
+    // Instead of startChat which crashes on Vercel if roles aren't perfectly alternating,
+    // we compile the conversation into a single robust prompt context.
+    const conversation = messages.map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.text}`).join('\n\n');
+    const finalPrompt = `Here is the conversation history:\n\n${conversation}\n\nContinue the conversation as the Assistant. Keep it short, friendly, and natural.`;
 
-    const result = await chat.sendMessage(lastMessage.parts[0].text);
+    const result = await model.generateContent(finalPrompt);
     const responseText = result.response.text();
 
     return NextResponse.json({ text: responseText });
   } catch (error) {
     console.error("Gemini API Error:", error);
+    // Return the EXACT error message so the frontend can display it in the network tab
     return NextResponse.json(
-      { error: "Failed to generate response." },
+      { error: `API Error: ${error.message || "Unknown"}` },
       { status: 500 }
     );
   }

@@ -49,12 +49,16 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
         body: JSON.stringify({ messages: newMessages }),
       });
 
-      if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
+
+      if (!res.ok) {
+        console.error("Backend Error:", data.error);
+        throw new Error(data.error || "Failed to fetch");
+      }
       
       setMessages((prev) => [...prev, { role: 'bot', text: data.text }]);
     } catch (error) {
-      console.error(error);
+      console.error("Chat Agent Error:", error.message);
       setMessages((prev) => [...prev, { role: 'bot', text: "Sorry, I'm having trouble connecting to my brain right now! Please email Vaibhav directly." }]);
     } finally {
       setIsLoading(false);
