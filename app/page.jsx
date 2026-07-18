@@ -359,7 +359,7 @@ const Portfolio = () => {
                 <span className="text-gray-400">India</span>
               </h3>
               <p className={`${isDarkMode ? 'text-gray-400' : 'text-neutral-600'} text-[12px] md:text-[13px] uppercase font-semibold tracking-[0.25em]`}>
-                19.9975° N, 73.7898° E
+                20°16'38.2"N 74°14'52.5"E
               </p>
             </div>
           </div>
