@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
 
 const VAIBHAV_CONTEXT = `
 You are an AI Assistant integrated into the portfolio website of Vaibhav Bhoyate, an AI & ML Engineer.
@@ -61,6 +61,17 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+    
+    // Initialize inside the handler to prevent Vercel caching undefined env variables
+    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+    if (!apiKey) {
+      console.error("Missing Gemini API Key in Vercel Environment Variables");
+      return NextResponse.json(
+        { error: "Server Configuration Error: Missing API Key" },
+        { status: 500 }
+      );
+    }
+    const genAI = new GoogleGenerativeAI(apiKey);
 
     // Convert frontend messages to Gemini format
     let formattedHistory = messages.map((m) => ({
