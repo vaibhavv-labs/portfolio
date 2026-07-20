@@ -1,59 +1,53 @@
-# Abdalla Elsiddig — Senior Engineering Portfolio
+# Vaibhav's AI & ML Portfolio
 
-A professional portfolio built to demonstrate senior-level experience across AI, robotics, IoT, embedded systems, and full-stack web development.
+A highly interactive, sleek, and modern personal portfolio showcasing my journey in Artificial Intelligence, Machine Learning, and Data Science. Built from the ground up with a focus on premium aesthetics and dynamic user experiences, featuring an embedded AI assistant powered by Google's Gemini.
 
-This repository is designed for technical reviewers, hiring managers, and education community members who want to understand the work behind the engineer.
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Google_Gemini-2.5_Flash-4285F4?style=for-the-badge)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## What this project shows
+## ✨ Key Features
 
-- Real engineering leadership through robotics systems, AI-enabled computer vision, and automation
-- A clean, modern portfolio interface with strong visual hierarchy, an animated 3D background, and full responsive (mobile-first) design
-- A rule-based FAQ chat agent that answers visitor questions and routes them to booking
-- A live availability calendar and a services request flow, so visitors can book time or request work directly
-- A dedicated certificate gallery for verified learning artifacts and credentials
+- **Embedded AI Assistant**: A custom-trained chat agent powered by `gemini-2.5-flash` that can answer questions about my skills, background, and projects in real-time.
+- **Premium UI/UX**: Designed with sleek dark-mode aesthetics, custom scrollbars, micro-animations, and frosted glassmorphism elements.
+- **Projects Showcase**: Detailed sections for my featured projects including *Logic Coach*, *CodeSentinel AI*, *Heart Disease Prediction*, and *SentimentIQ*.
+- **Responsive Layout**: Perfectly optimized for desktop, tablet, and mobile viewing.
 
-## Key portfolio sections
+## 🚀 Getting Started
 
-- **Hero & contact** — prominent branding, book-a-call CTA, and email/resume actions
-- **Projects** — visual case-study gallery covering AMR Warehouse Robot, TECHTRAP, FireX Robot, Computer Vision systems, IoT automation, and Robonexus
-- **Skills** — icon-based technical stack summary for languages, robotics, and AI/CV
-- **Services** — what's on offer (websites, automation, robotics, AI agents, custom apps), each with a request flow
-- **Availability** — a live calendar of open days for booking a call
-- **Certificates** — live access to PDF certificates in `/public/certificates`
-- **Experience** — current and past roles, leadership, technical support, and workshop mentoring
-- **AI chat agent** — a floating assistant that answers common questions and can jump visitors to booking
+To run this project locally, follow these steps:
 
-## Architecture and tech
-
-```
-portfolio-website/
-├── app/
-│   ├── page.jsx                          # Single-page portfolio layout and sections
-│   ├── layout.js                         # Global application shell
-│   ├── globals.css                       # Tailwind base, utilities, and animation styles
-│   └── components/ui/
-│       ├── intro-screen.jsx              # Play-once particle intro
-│       ├── particle-text-effect.jsx      # Canvas particle text used by the intro
-│       ├── tubes-cursor-background.jsx   # Animated 3D background (dark mode)
-│       ├── light-background.jsx          # Animated gradient background (light mode)
-│       ├── chat-agent.jsx                # FAQ chat widget
-│       ├── projects-gallery.jsx          # Visual project gallery + detail modal
-│       ├── skills-icons.jsx              # Icon-based skills grid
-│       ├── services-grid.jsx             # Services grid + request flow
-│       ├── availability-calendar.jsx     # Booking calendar
-│       └── request-modal.jsx             # Shared booking/service request form
-├── public/                               # Static assets and certificate files
-│   └── certificates/                     # PDF and image certificate proofs
-├── package.json
-└── README.md
+### 1. Clone the repository
+```bash
+git clone https://github.com/vaibhavv-labs/portfolio.git
+cd portfolio
 ```
 
-- Framework: Next.js 14
-- UI: Tailwind CSS
-- Icons: lucide-react, react-icons
-- Content model: single-page portfolio with focused, componentized sections
+### 2. Install dependencies
+```bash
+npm install
+```
 
-## Contact
+### 3. Set up Environment Variables
+Create a `.env.local` file in the root directory and add your Google Gemini API key:
+```env
+GEMINI_API_KEY=your_api_key_here
+```
 
-- Email: Abdallaelsiddig.m@gmail.com
-© 2026 Abdalla Elradi
+### 4. Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 👨‍💻 About Me
+I am a B.E. student in **Artificial Intelligence & Data Science** at SNJB College of Engineering (SPPU). I am deeply passionate about Deep Learning, NLP, Computer Vision, and LLMs. My ultimate goal is to build impactful AI products and eventually launch successful AI startups.
+
+- **Email**: vaibhavbhoyate976@gmail.com
+- **GitHub**: [@vaibhavv-labs](https://github.com/vaibhavv-labs)
+- **Location**: Nashik, India (20°16'38.2"N 74°14'52.5"E)
+
+---
+*Built with passion by Vaibhav.*
