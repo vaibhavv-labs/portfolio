@@ -156,6 +156,7 @@ const Portfolio = () => {
     { title: 'MongoDB & the Document Model', file: 'vaibhav-bhoyate-5866a860-f464-456c-ae99-a54318155005-certificate.pdf', type: 'pdf', icon: SiMongodb, color: '#47A248' },
     { title: 'Python Programming', file: 'python.pdf', type: 'pdf', icon: SiPython, color: '#FFD43B' },
     { title: 'Software Intern Certificate', file: 'Vaibhav Baban Bhoyate.pdf', type: 'pdf', icon: FaBuilding, color: '#a855f7' },
+    { title: 'FutureSkills PRIME Certificate', file: 'Bhoyate Vaibhav Baban.pdf', type: 'pdf', icon: FaAward, color: '#FF8C00' },
   ];
 
   const getCertificateBadgePath = (certificate) => {
