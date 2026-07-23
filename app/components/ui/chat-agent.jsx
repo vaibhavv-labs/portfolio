@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, X, Sparkles } from 'lucide-react';
+import { Send, X, Bot } from 'lucide-react';
 
 
 
@@ -83,7 +83,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
           className="ai-orb relative inline-flex items-center justify-center w-16 h-16 rounded-full text-white transition-transform hover:scale-105"
         >
           <span className="ai-orb-shine" aria-hidden="true" />
-          {open ? <X size={22} className="relative z-10" /> : <Sparkles size={22} className="relative z-10" />}
+          {open ? <X size={22} className="relative z-10" /> : <Bot size={22} className="relative z-10" />}
         </button>
       </div>
 
@@ -91,7 +91,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
         <div className={`fixed bottom-24 right-6 z-[60] w-[22rem] max-w-[calc(100vw-3rem)] h-[28rem] rounded-[1.75rem] shadow-2xl flex flex-col overflow-hidden ${themeClasses.card}`}>
           <div className={`px-5 py-4 flex items-center gap-3 border-b ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
             <div className="w-9 h-9 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-400">
-              <Sparkles size={18} />
+              <Bot size={18} />
             </div>
             <div>
               <p className={`text-sm font-black ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Ask about Vaibhav</p>
