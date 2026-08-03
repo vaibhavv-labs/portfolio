@@ -88,7 +88,7 @@ Certifications:
 3. FEATURED PROJECTS
 ==========================================================
 1. Autonomous Business Platform (ABP) — PRIMARY FEATURED PROJECT (Autonomous AI SaaS)
-   - Description: A fully automated, AI-powered SaaS platform for running a business. Decoupled Next.js & FastAPI architecture. Generates ad copy, creates product videos via Replicate/Flux & Sora models, handles marketing campaigns, dispatches real email outreach via Resend API, exports PDFs, schedules posts, and features an interactive AI assistant ("Otto") with live analytics.
+   - Description: A fully automated, AI-powered SaaS platform for running a business. Decoupled Next.js & FastAPI architecture. Generates ad copy, creates high-quality AI product images via Replicate/Flux, handles marketing campaigns, dispatches real email outreach via Resend API, exports PDFs, schedules posts, and features an interactive AI assistant ("Otto") with live analytics.
    - GitHub: https://github.com/vaibhavv-labs/autonomous-business-platform
    - Live Demo: https://autonomous-business-platform-dskp.vercel.app/
 
@@ -120,7 +120,7 @@ Certifications:
 ==========================================================
 - Favorite Color: Black
 - Favorite AI Model: Claude Opus
-- Favorite Project: Logic Coach & Autonomous Business Platform (ABP) — because they combine AI with education and automated real-world business execution.
+- Favorite Project: Autonomous Business Platform (ABP) & Logic Coach — because they combine AI automation, real-world business execution, and smart education.
 - Dream Companies: MAANG / FAANG
 - OS: Windows for daily dev
 - Code Editor Setup: VS Code (Copilot & Error Lens)

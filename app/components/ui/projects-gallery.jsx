@@ -8,7 +8,7 @@ const PROJECTS = [
     category: '01 — Autonomous AI SaaS',
     title: 'Autonomous Business Platform',
     image: '/abp.png',
-    description: 'A fully automated, AI-powered SaaS platform for running a business. Generates ad copy, creates product videos via Replicate/Flux, handles marketing campaigns, dispatches real email outreach via Resend, and features an interactive AI business assistant ("Otto") with live analytics.',
+    description: 'A fully automated, AI-powered SaaS platform for running a business. Generates ad copy, creates high-quality AI product images via Replicate/Flux, handles marketing campaigns, dispatches real email outreach via Resend, and features an interactive AI business assistant ("Otto") with live analytics.',
     github: 'https://github.com/vaibhavv-labs/autonomous-business-platform',
     live: 'https://autonomous-business-platform-dskp.vercel.app/',
     tags: ['Next.js', 'FastAPI', 'Python', 'Groq Llama 3', 'Resend'],
