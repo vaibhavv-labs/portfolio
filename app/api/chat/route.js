@@ -1,7 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { NextResponse } from "next/server";
-
-
 
 const VAIBHAV_CONTEXT = `
 You are an AI Assistant integrated into the portfolio website of Vaibhav Bhoyate, an AI & ML Engineer.
@@ -51,8 +49,6 @@ If the user asks a question unrelated to Vaibhav or his work, politely redirect 
 If you don't know the answer based on the context, say "I don't have that specific information, but you can email Vaibhav directly at vaibhavbhoyate976@gmail.com."
 `;
 
-export const runtime = 'edge';
-
 export async function POST(req) {
   try {
     const { messages } = await req.json();
@@ -61,29 +57,34 @@ export async function POST(req) {
       return NextResponse.json({ error: "Messages array is required." }, { status: 400 });
     }
     
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
-      return NextResponse.json({ error: "Missing GEMINI_API_KEY in Vercel." }, { status: 500 });
+      return NextResponse.json({ error: "Missing GROQ_API_KEY." }, { status: 500 });
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
-      systemInstruction: VAIBHAV_CONTEXT,
+    const groq = new Groq({ apiKey });
+
+    // Build messages array for Groq (OpenAI-compatible format)
+    const chatMessages = [
+      { role: "system", content: VAIBHAV_CONTEXT },
+      ...messages.map((m) => ({
+        role: m.role === "user" ? "user" : "assistant",
+        content: m.text,
+      })),
+    ];
+
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      messages: chatMessages,
+      temperature: 0.7,
+      max_tokens: 512,
     });
 
-    // Instead of startChat which crashes on Vercel if roles aren't perfectly alternating,
-    // we compile the conversation into a single robust prompt context.
-    const conversation = messages.map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.text}`).join('\n\n');
-    const finalPrompt = `Here is the conversation history:\n\n${conversation}\n\nContinue the conversation as the Assistant. Keep it short, friendly, and natural.`;
-
-    const result = await model.generateContent(finalPrompt);
-    const responseText = result.response.text();
+    const responseText = completion.choices[0]?.message?.content || "Sorry, I couldn't generate a response.";
 
     return NextResponse.json({ text: responseText });
   } catch (error) {
-    console.error("Gemini API Error:", error);
-    // Return the EXACT error message so the frontend can display it in the network tab
+    console.error("Groq API Error:", error);
     return NextResponse.json(
       { error: `API Error: ${error.message || "Unknown"}` },
       { status: 500 }
