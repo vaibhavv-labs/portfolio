@@ -7,10 +7,10 @@ import { Send, X, Bot } from 'lucide-react';
 const QUICK_REPLIES = ['What are your skills?', 'Tell me about your projects', 'What is your experience?', 'How can I contact you?'];
 
 const INSTANT_ANSWERS = {
-  'What are your skills?': "Vaibhav specializes in Machine Learning, NLP, and Data Engineering. His core stack includes Python, PyTorch, Scikit-Learn, TensorFlow, SQL, MongoDB, and Next.js.",
-  'Tell me about your projects': "Vaibhav's featured projects include CodeSentinel AI (vulnerability detection), a Heart Disease Prediction System, SentimentIQ, and a FaceID Attendance System. Scroll up to the Projects section to see them live!",
-  'What is your experience?': "Vaibhav worked as a Software Intern focusing on Python & ML at ATS, and as a Python Developer Intern at Let's Grow More. He holds a B.E. in Artificial Intelligence & Data Science from SPPU.",
-  'How can I contact you?': "You can email Vaibhav directly at vaibhavbhoyate976@gmail.com, or reach out via WhatsApp at +91 8830269849. You can also use the links in the Contact section at the bottom of the page!"
+  'What are your skills?': "Vaibhav's technical stack includes Python, Machine Learning, Scikit-Learn, NLP, Pandas, NumPy, Matplotlib, Seaborn, SQL, MongoDB, Git & GitHub, Streamlit, OpenCV, and HuggingFace.",
+  'Tell me about your projects': "Vaibhav's featured projects in order: 1. Autonomous Business Platform (ABP), 2. CodeSentinel AI, 3. Logic Coach, 4. SentimentIQ SaaS, 5. Heart Disease Predictor, and 6. FaceID Attendance System. Scroll up to explore them live!",
+  'What is your experience?': "Vaibhav worked as a Software Intern (Python & ML) at R3 Systems India Pvt. Ltd. and as a Python Developer Intern at Let's Grow More. He is currently pursuing his B.E. in AI & Data Science (CGPA 8.64) at SPPU.",
+  'How can I contact you?': "You can email Vaibhav directly at vaibhavbhoyate976@gmail.com, connect on LinkedIn, or message on WhatsApp at +91 8830269849!"
 };
 
 export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accentColor = '#10b981' }) {
