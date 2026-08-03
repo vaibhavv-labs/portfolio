@@ -9,7 +9,7 @@ const QUICK_REPLIES = ['What are your skills?', 'Tell me about your projects', '
 const INSTANT_ANSWERS = {
   'What are your skills?': "Vaibhav's technical stack includes Python, Machine Learning, Scikit-Learn, NLP, Pandas, NumPy, Matplotlib, Seaborn, SQL, MongoDB, Git & GitHub, Streamlit, OpenCV, and HuggingFace.",
   'Tell me about your projects': "Vaibhav's featured projects in order: 1. Autonomous Business Platform (ABP), 2. CodeSentinel AI, 3. Logic Coach, 4. SentimentIQ SaaS, 5. Heart Disease Predictor, and 6. FaceID Attendance System. Scroll up to explore them live!",
-  'What is your experience?': "Vaibhav worked as a Software Intern (Python & ML) at R3 Systems India Pvt. Ltd. and as a Python Developer Intern at Let's Grow More. He is currently pursuing his B.E. in AI & Data Science (CGPA 8.64) at SPPU.",
+  'What is your experience?': "Vaibhav worked as a Software Intern (Python & ML) at R3 Systems India Pvt. Ltd. (Jan–Feb 2026), working on real-world Python & ML application workflows and data pipelines. He is currently pursuing his B.E. in AI & Data Science (CGPA 8.64) at SPPU.",
   'How can I contact you?': "You can email Vaibhav directly at vaibhavbhoyate976@gmail.com, connect on LinkedIn, or message on WhatsApp at +91 8830269849!"
 };
 
