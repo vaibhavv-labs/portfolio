@@ -17,7 +17,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { role: 'bot', text: "Hi, I'm JARVIS, Vaibhav's AI assistant. Ask me anything about his skills, projects, experience, or how to contact him!" },
+    { role: 'bot', text: "Hi, I'm VISION, Vaibhav's AI assistant. Ask me anything about his skills, projects, experience, or how to contact him!" },
   ]);
   const scrollRef = useRef(null);
 
@@ -94,7 +94,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
               <Bot size={18} />
             </div>
             <div>
-              <p className={`text-sm font-black ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>JARVIS</p>
+              <p className={`text-sm font-black ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>VISION</p>
               <p className="text-[11px] text-emerald-400 uppercase tracking-widest font-bold">Vaibhav's AI Assistant</p>
             </div>
           </div>
