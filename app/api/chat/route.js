@@ -85,28 +85,33 @@ Certifications:
 - Data Visualization by Forage
 
 ==========================================================
-3. FEATURED PROJECTS (PRIMARY & FEATURED)
+3. FEATURED PROJECTS
 ==========================================================
 1. Autonomous Business Platform (ABP) — PRIMARY FEATURED PROJECT (Autonomous AI SaaS)
    - Description: A fully automated, AI-powered SaaS platform for running a business. Decoupled Next.js & FastAPI architecture. Generates ad copy, creates product videos via Replicate/Flux & Sora models, handles marketing campaigns, dispatches real email outreach via Resend API, exports PDFs, schedules posts, and features an interactive AI assistant ("Otto") with live analytics.
    - GitHub: https://github.com/vaibhavv-labs/autonomous-business-platform
    - Live Demo: https://autonomous-business-platform-dskp.vercel.app/
 
-2. CodeSentinel AI (AI Security): AI code vulnerability detection tool using fine-tuned CodeBERT (89.16% accuracy) and Qwen 2.5 Coder for auto-fixing.
+2. Logic Coach (AI Education / EdTech)
+   - Description: Next-generation AI learning platform helping developers master Data Structures & Algorithms (DSA) and programming. Powered by Google Gemini AI for real-time code analysis, step-by-step debugging hints, Big O complexity breakdowns, and an in-browser IDE.
+   - GitHub: https://github.com/vaibhavv-labs/logic-coach-web
+   - Live Demo: https://logic-coach.vercel.app/
+
+3. CodeSentinel AI (AI Security): AI code vulnerability detection tool using fine-tuned CodeBERT (89.16% accuracy) and Qwen 2.5 Coder for auto-fixing.
    - GitHub: https://github.com/vaibhavv-labs/CodeSentinel-AI
    - Live Demo: https://codesentinel-app.vercel.app/
 
-3. Heart Disease Prediction System (Healthcare AI): ML risk predictor using Logistic Regression (85%+ accuracy) with Streamlit UI.
+4. Heart Disease Prediction System (Healthcare AI): ML risk predictor using Logistic Regression (85%+ accuracy) with Streamlit UI.
    - Stack: Python, Scikit-learn, Streamlit, Pandas
    - GitHub: https://github.com/vaibhavv-labs/Heart-Disease-Prediction
    - Live Demo: https://heart-disease-prediction-vaibhav.streamlit.app/
 
-4. SentimentIQ SaaS (AI SaaS): Social media sentiment analytics dashboard using HuggingFace & Streamlit (92%+ F1-score).
+5. SentimentIQ SaaS (AI SaaS): Social media sentiment analytics dashboard using HuggingFace & Streamlit (92%+ F1-score).
    - Stack: HuggingFace, Streamlit, Python
    - GitHub: https://github.com/vaibhavv-labs/sentimentiq-dashboard
    - Live Demo: https://sentimentiq-dashboard.onrender.com
 
-5. FaceID Attendance System (Computer Vision): Real-time face recognition attendance system (98% accuracy) with automated CSV logging.
+6. FaceID Attendance System (Computer Vision): Real-time face recognition attendance system (98% accuracy) with automated CSV logging.
    - Stack: Python, OpenCV, Streamlit, NumPy
    - GitHub: https://github.com/vaibhavv-labs/face-attendance-system
 
@@ -115,7 +120,7 @@ Certifications:
 ==========================================================
 - Favorite Color: Black
 - Favorite AI Model: Claude Opus
-- Favorite Project: Autonomous Business Platform (ABP) — because it combines AI agents, automation, and real-world business execution.
+- Favorite Project: Logic Coach & Autonomous Business Platform (ABP) — because they combine AI with education and automated real-world business execution.
 - Dream Companies: MAANG / FAANG
 - OS: Windows for daily dev
 - Code Editor Setup: VS Code (Copilot & Error Lens)
