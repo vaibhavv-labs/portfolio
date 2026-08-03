@@ -4,8 +4,18 @@ import { X, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 
 const PROJECTS = [
   {
+    id: 'abp',
+    category: '01 — Autonomous AI SaaS',
+    title: 'Autonomous Business Platform',
+    image: '/abp.png',
+    description: 'A fully automated, AI-powered SaaS platform for running a business. Generates ad copy, creates product videos via Replicate/Flux, handles marketing campaigns, dispatches real email outreach via Resend, and features an interactive AI business assistant ("Otto") with live analytics.',
+    github: 'https://github.com/vaibhavv-labs/autonomous-business-platform',
+    live: 'https://autonomous-business-platform-dskp.vercel.app/',
+    tags: ['Next.js', 'FastAPI', 'Python', 'Groq Llama 3', 'Resend'],
+  },
+  {
     id: 'codesentinel',
-    category: '01 — AI Security',
+    category: '02 — AI Security',
     title: 'CodeSentinel AI',
     image: '/codesentinel.png',
     description: 'AI-driven code analysis tool. Fine-tuned CodeBERT model on CyberNative DPO dataset achieving 89.16% training accuracy. Detects 8 vulnerability classes with up to 99.92% confidence and auto-fixes using Qwen 2.5 Coder LLM.',
@@ -15,7 +25,7 @@ const PROJECTS = [
   },
   {
     id: 'heartdisease',
-    category: '02 — Healthcare AI',
+    category: '03 — Healthcare AI',
     title: 'Heart Disease Predictor',
     image: '/heart_disease.png',
     description: 'Predictive healthcare app estimating heart disease risk from patient vitals. Engineered a Logistic Regression pipeline achieving 85%+ validation accuracy. Built a real-time Streamlit UI for clinical predictive use.',
@@ -25,7 +35,7 @@ const PROJECTS = [
   },
   {
     id: 'sentimentiq',
-    category: '03 — AI SaaS Platform',
+    category: '04 — AI SaaS Platform',
     title: 'SentimentIQ SaaS',
     image: '/sentimentiq.png',
     description: 'Scalable AI SaaS platform processing thousands of social media data points. Leverages PyTorch and HuggingFace Transformers to deliver real-time actionable brand insights with a 92%+ sentiment classification F1-score.',
@@ -35,7 +45,7 @@ const PROJECTS = [
   },
   {
     id: 'faceid',
-    category: '04 — Computer Vision',
+    category: '05 — Computer Vision',
     title: 'FaceID Attendance System',
     image: '/faceid.png',
     description: 'Automated attendance system utilizing a real-time OpenCV webcam pipeline. Achieved 98% facial recognition accuracy under varying lighting conditions with automated CSV logging and exports.',
