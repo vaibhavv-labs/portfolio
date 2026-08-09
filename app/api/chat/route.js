@@ -68,7 +68,7 @@ Only mention the 14 skills listed above in a short list. Nothing more.
   * WhatsApp: +91 8830269849
   * LinkedIn: https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/
   * GitHub: https://github.com/vaibhavv-labs
-  * Instagram: https://www.instagram.com/va1bhav__09
+  * Instagram: https://www.instagram.com/__vaibhav.0x
   * Portfolio: https://portfolio-vaibhav13.vercel.app
 
 ==========================================================

@@ -517,7 +517,7 @@ const Portfolio = () => {
             <a href="https://github.com/vaibhavv-labs" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-white/10 hover:text-white' : 'border-neutral-200 text-neutral-500 hover:bg-neutral-200 hover:text-black'} shadow-sm`} title="GitHub">
               <Github size={24} />
             </a>
-            <a href="https://www.instagram.com/va1bhav__09?igsh=MWpjNHBkNWl0bHhoZw==" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-pink-500/20 hover:text-pink-400 hover:border-pink-500/30' : 'border-neutral-200 text-neutral-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200'} shadow-sm`} title="Instagram">
+            <a href="https://www.instagram.com/__vaibhav.0x" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-pink-500/20 hover:text-pink-400 hover:border-pink-500/30' : 'border-neutral-200 text-neutral-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200'} shadow-sm`} title="Instagram">
               <Instagram size={24} />
             </a>
           </div>
