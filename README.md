@@ -43,7 +43,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 👨‍💻 About Me
-I am a B.E. student in **Artificial Intelligence & Data Science** at SNJB College of Engineering (SPPU). I am deeply passionate about Deep Learning, NLP, Computer Vision, and LLMs. My ultimate goal is to build impactful AI products and eventually launch successful AI startups.
+I am a B.E. student in **Artificial Intelligence & Data Science** at SNJB College of Engineering (SPPU). I am deeply passionate about Deep Learning, NLP, Computer Vision, and LLMs. My ultimate goal is to build impactful AI products and eventually launch successful AI startups..
 
 - **Email**: vaibhavbhoyate976@gmail.com
 - **GitHub**: [@vaibhavv-labs](https://github.com/vaibhavv-labs)
