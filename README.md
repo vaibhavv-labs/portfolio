@@ -1,4 +1,4 @@
-# Vaibhav's AI & ML Portfolio
+# AI & ML Portfolio
 
 A highly interactive, sleek, and modern personal portfolio showcasing my journey in Artificial Intelligence, Machine Learning, and Data Science. Built from the ground up with a focus on premium aesthetics and dynamic user experiences, featuring an embedded AI assistant powered by Google's Gemini.
 
