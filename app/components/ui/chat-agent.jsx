@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, X, Sparkles } from 'lucide-react';
+import { Send, X, Bot } from 'lucide-react';
 
 const QUICK_REPLIES = [
   'What are your skills?',
@@ -139,7 +139,7 @@ export default function ChatAgent({
           className="ai-orb relative inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full text-white transition-transform hover:scale-105 active:scale-95 shadow-2xl"
         >
           <span className="ai-orb-shine" aria-hidden="true" />
-          {open ? <X size={22} className="relative z-10" /> : <Sparkles size={22} className="relative z-10" />}
+          {open ? <X size={22} className="relative z-10" /> : <Bot size={22} className="relative z-10" />}
         </button>
       </div>
 
@@ -162,7 +162,7 @@ export default function ChatAgent({
           {/* Header */}
           <div className={`px-5 py-4 flex items-center gap-3 border-b ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
             <div className="w-9 h-9 rounded-full bg-emerald-500/15 flex items-center justify-center text-emerald-400">
-              <Sparkles size={18} />
+              <Bot size={18} />
             </div>
             <div className="flex-1">
               <p className={`text-sm font-black ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>VISION AI</p>

@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   X, ChevronLeft, ArrowUpRight, Sun, Moon, Briefcase, Award,
   Github, Linkedin, Mail, FileText, Download, ExternalLink,
-  MapPin, Cpu, Brain, Quote, Send
+  MapPin, Cpu, Brain, Quote, Send, Bot
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { PROJECTS } from './projects-gallery';
@@ -602,8 +602,9 @@ export default function MobileApp({
 
         {/* Ask my AI Tile */}
         <Tile index={++i} ready={ready} label="Ask my AI assistant" onClick={onOpenChat} className={`h-[146px] p-4 flex flex-col ${tileGlass}`}>
-          <span style={{ '--orb-color': accentColor }} className="ai-orb relative w-11 h-11 rounded-full mb-auto">
+          <span style={{ '--orb-color': accentColor }} className="ai-orb relative w-11 h-11 rounded-full mb-auto flex items-center justify-center">
             <span className="ai-orb-shine" aria-hidden="true" />
+            <Bot size={18} className="relative z-10 text-white" />
           </span>
           <span className={`block text-base font-black leading-tight ${strong}`}>Ask VISION</span>
           <span className={`block text-[10px] font-black uppercase tracking-[0.22em] mt-1.5 ${soft}`}>Instant AI answers</span>
