@@ -53,7 +53,6 @@ STRICT ANTI-AI & NATURAL LANGUAGE RULES:
   * WhatsApp: +91 8830269849
   * LinkedIn: https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/
   * GitHub: https://github.com/vaibhavv-labs
-  * Instagram: https://www.instagram.com/__vaibhav.0x
   * Portfolio: https://portfolio-vaibhav13.vercel.app
 
 ==========================================================
