@@ -4,7 +4,7 @@ import {
   Github, Linkedin, Mail, MapPin, 
   Cpu, Brain, Trophy, MessageSquare, Menu,
   ArrowUpRight, BookOpen, Sparkles, Dribbble, X, ExternalLink, 
-  GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, Instagram, MessageCircle
+  GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, MessageCircle
 } from 'lucide-react';
 import { IntroScreen } from './components/ui/intro-screen';
 import TubesCursorBackground from './components/ui/tubes-cursor-background';
@@ -248,6 +248,70 @@ const Portfolio = () => {
         )}
       </nav>
 
+            {/* LEFT FLOATING SOCIAL DOCK */}
+      <aside
+        aria-label="Social links"
+        className={`fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 p-2 sm:p-2.5 rounded-full shadow-2xl backdrop-blur-2xl transition-all ${themeClasses.nav}`}
+      >
+        <a
+          href="https://github.com/vaibhavv-labs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`p-2.5 rounded-full transition-all ${
+            isDarkMode 
+              ? 'text-gray-400 hover:text-white hover:bg-white/10' 
+              : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-900/10'
+          }`}
+          title="GitHub"
+          aria-label="GitHub Profile"
+        >
+          <Github size={18} />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`p-2.5 rounded-full transition-all ${
+            isDarkMode 
+              ? 'text-gray-400 hover:text-[#0077b5] hover:bg-blue-500/10' 
+              : 'text-neutral-500 hover:text-[#0077b5] hover:bg-blue-50'
+          }`}
+          title="LinkedIn"
+          aria-label="LinkedIn Profile"
+        >
+          <Linkedin size={18} />
+        </a>
+
+        <a
+          href="https://wa.me/918830269849"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`p-2.5 rounded-full transition-all ${
+            isDarkMode 
+              ? 'text-gray-400 hover:text-[#25D366] hover:bg-[#25D366]/10' 
+              : 'text-neutral-500 hover:text-[#25D366] hover:bg-[#25D366]/10'
+          }`}
+          title="WhatsApp"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp size={18} />
+        </a>
+
+        <a
+          href="mailto:vaibhavbhoyate976@gmail.com"
+          className={`p-2.5 rounded-full transition-all ${
+            isDarkMode 
+              ? 'text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10' 
+              : 'text-neutral-500 hover:text-emerald-600 hover:bg-emerald-50'
+          }`}
+          title="Email"
+          aria-label="Send Email"
+        >
+          <Mail size={18} />
+        </a>
+      </aside>
+
       <main id="home" className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-20">
         
         {/* HERO GRID */}
@@ -474,60 +538,48 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+            {/* Contact Section */}
       <section id="contact" className="py-14 sm:py-20 px-4 sm:px-6 scroll-mt-28">
-        <div className={`max-w-7xl mx-auto rounded-[2.5rem] p-6 sm:p-10 text-center ${themeClasses.panel}`}>
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Let's Connect</h2>
-          <p className={`${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} mb-8 text-lg max-w-2xl mx-auto`}>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        <div className={`max-w-7xl mx-auto rounded-[2.5rem] p-6 sm:p-12 text-center ${themeClasses.panel}`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 uppercase tracking-wider ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>LET'S WORK TOGETHER</h2>
+          <p className={`${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} mb-8 text-sm md:text-base max-w-2xl mx-auto leading-relaxed`}>
+            Open to exciting opportunities in AI, computer vision, machine learning, and data science collaborations. Let's build the future together.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
               href="mailto:vaibhavbhoyate976@gmail.com" 
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 sm:px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20"
             >
-              <Mail size={20} /> Get In Touch
+              <Mail size={18} /> Get In Touch
             </a>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/10 hover:bg-white/20 text-white px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border border-white/10 shadow-lg shadow-white/10"
+              className={`px-8 sm:px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border transition-colors ${
+                isDarkMode 
+                  ? 'bg-white/5 hover:bg-white/10 text-white border-white/10' 
+                  : 'bg-neutral-900/5 hover:bg-neutral-900/10 text-neutral-900 border-neutral-300'
+              }`}
             >
-              <ExternalLink size={20} /> Review Resume
+              <ExternalLink size={18} /> Review Resume
             </a>
             <a
               href="/resume.pdf"
               download
-              className="bg-neutral-800 hover:bg-neutral-700 text-white px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border border-emerald-500/20 shadow-lg shadow-emerald-500/20"
+              className={`px-8 sm:px-10 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border transition-colors ${
+                isDarkMode 
+                  ? 'bg-neutral-800 hover:bg-neutral-700 text-white border-white/10' 
+                  : 'bg-neutral-800 hover:bg-neutral-700 text-white border-neutral-800'
+              }`}
             >
-              <FileText size={20} /> Download Resume
-            </a>
-          </div>
-          
-          {/* Social Links Block */}
-          <div className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="mailto:vaibhavbhoyate976@gmail.com" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-white/5 hover:text-white' : 'border-neutral-200 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900'} shadow-sm`} title="Email">
-              <Mail size={24} />
-            </a>
-            <a href="https://wa.me/918830269849" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-[#25D366]/20 hover:text-[#25D366] hover:border-[#25D366]/30' : 'border-neutral-200 text-neutral-500 hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/20'} shadow-sm`} title="WhatsApp">
-              <FaWhatsapp size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-blue-500/20 hover:text-blue-400 hover:border-blue-500/30' : 'border-neutral-200 text-neutral-500 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200'} shadow-sm`} title="LinkedIn">
-              <Linkedin size={24} />
-            </a>
-            <a href="https://github.com/vaibhavv-labs" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-white/10 hover:text-white' : 'border-neutral-200 text-neutral-500 hover:bg-neutral-200 hover:text-black'} shadow-sm`} title="GitHub">
-              <Github size={24} />
-            </a>
-            <a href="https://www.instagram.com/__vaibhav.0x" target="_blank" rel="noopener noreferrer" className={`p-4 rounded-full transition-all border ${isDarkMode ? 'border-white/10 text-gray-400 hover:bg-pink-500/20 hover:text-pink-400 hover:border-pink-500/30' : 'border-neutral-200 text-neutral-500 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200'} shadow-sm`} title="Instagram">
-              <Instagram size={24} />
+              <FileText size={18} /> Download Resume
             </a>
           </div>
 
-          <div className={`mt-12 pt-8 border-t ${isDarkMode ? 'border-white/5 text-gray-500' : 'border-neutral-200 text-neutral-500'} text-xs tracking-widest uppercase`}>
-            <div className="flex flex-col items-center gap-1 mb-4">
-              <p className="tracking-normal text-sm font-semibold">Chandwad, Maharashtra, India</p>
-              <p className="tracking-normal text-sm lowercase">vaibhavbhoyate976@gmail.com</p>
-            </div>
-            <p>© 2026 Vaibhav Bhoyate.</p>
+          <div className={`mt-14 pt-8 border-t ${isDarkMode ? 'border-white/5 text-gray-400' : 'border-neutral-200 text-neutral-600'} text-xs tracking-widest uppercase`}>
+            <p className="tracking-normal text-sm lowercase mb-2 font-medium">vaibhavbhoyate976@gmail.com</p>
+            <p className="text-[11px] font-semibold tracking-wider">© 2026 VAIBHAV BHOYATE.</p>
           </div>
         </div>
       </section>

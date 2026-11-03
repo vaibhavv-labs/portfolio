@@ -7,17 +7,17 @@ import { Send, X, Bot } from 'lucide-react';
 const QUICK_REPLIES = ['What are your skills?', 'Tell me about your projects', 'What is your experience?', 'How can I contact you?'];
 
 const INSTANT_ANSWERS = {
-  'What are your skills?': "Vaibhav's technical stack includes Python, Machine Learning, Scikit-Learn, NLP, Pandas, NumPy, Matplotlib, Seaborn, SQL, MongoDB, Git & GitHub, Streamlit, OpenCV, and HuggingFace.",
-  'Tell me about your projects': "Vaibhav's featured projects in order: 1. Autonomous Business Platform (ABP), 2. CodeSentinel AI, 3. Logic Coach, 4. SentimentIQ SaaS, 5. Heart Disease Predictor, and 6. FaceID Attendance System. Scroll up to explore them live!",
-  'What is your experience?': "Vaibhav worked as a Software Intern (Python & ML) at R3 Systems India Pvt. Ltd. (Jan–Feb 2026), working on real-world Python & ML application workflows and data pipelines. He is currently pursuing his B.E. in AI & Data Science (CGPA 8.64) at SPPU.",
-  'How can I contact you?': "You can email Vaibhav directly at vaibhavbhoyate976@gmail.com, connect on LinkedIn, or message on WhatsApp at +91 8830269849!"
+  'What are your skills?': "Vaibhav works primarily with Python, Machine Learning, Scikit-Learn, and NLP, backed by Pandas, NumPy, SQL, MongoDB, OpenCV, Streamlit, and Hugging Face.",
+  'Tell me about your projects': "His top projects are CodeSentinel AI for vulnerability scanning, the Autonomous Business Platform with automated agent workflows, Logic Coach for coding practice, and SentimentIQ for brand analytics. Live demos are ready to test right on this site.",
+  'What is your experience?': "Vaibhav worked as a Software Intern at R3 Systems India focusing on Python and ML pipelines. He is currently pursuing his B.E. in AI and Data Science at SPPU with an 8.6 CGPA.",
+  'How can I contact you?': "You can email him directly at vaibhavbhoyate976@gmail.com, reach out on LinkedIn, or message him on WhatsApp at +91 8830269849."
 };
 
 export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accentColor = '#10b981' }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { role: 'bot', text: "Hi, I'm VISION, Vaibhav's AI assistant. Ask me anything about his skills, projects, experience, or how to contact him!" },
+    { role: 'bot', text: "Hey! I'm VISION, Vaibhav's portfolio assistant. Feel free to ask about his engineering projects, technical stack, or background." },
   ]);
   const scrollRef = useRef(null);
 
@@ -56,7 +56,17 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
         throw new Error(data.error || "Failed to fetch");
       }
       
-      setMessages((prev) => [...prev, { role: 'bot', text: data.text }]);
+      const rawText = data.text || "Sorry, I couldn't generate a response.";
+      const cleanText = rawText
+        .replace(/^[\s]*[-*•]\s+/gm, '')
+        .replace(/\n+[-*•]\s+/g, ', ')
+        .replace(/\s*—\s*/g, ', ')
+        .replace(/\s*–\s*/g, ', ')
+        .replace(/\*\*(.*?)\*\*/g, '$1')
+        .replace(/\n{2,}/g, ' ')
+        .trim();
+
+      setMessages((prev) => [...prev, { role: 'bot', text: cleanText }]);
     } catch (error) {
       console.error("Chat Agent Error:", error.message);
       setMessages((prev) => [...prev, { role: 'bot', text: `System Error: ${error.message}` }]);
