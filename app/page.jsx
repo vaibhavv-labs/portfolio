@@ -14,6 +14,7 @@ import ServicesGrid from './components/ui/services-grid';
 import RequestModal from './components/ui/request-modal';
 import ProjectsGallery from './components/ui/projects-gallery';
 import SkillsIcons from './components/ui/skills-icons';
+import MobileApp, { useMobileSheet } from './components/ui/mobile-app';
 import { SiGooglecloud, SiMongodb, SiPython } from "react-icons/si";
 import { FaAward, FaSatellite, FaBuilding, FaWhatsapp } from "react-icons/fa";
 
@@ -23,6 +24,8 @@ const Portfolio = () => {
   const [mindsetIndex, setMindsetIndex] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showIntro, setShowIntro] = useState(true);
+  const mobileSheet = useMobileSheet();
+  const [chatOpen, setChatOpen] = useState(false);
   const [request, setRequest] = useState(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [bgAccentColor, setBgAccentColor] = useState('#10b981');
@@ -102,6 +105,54 @@ const Portfolio = () => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  // The background tubes follow pointer via body pointermove. Forward touchmove so it tracks touch on mobile.
+  useEffect(() => {
+    if (typeof PointerEvent === 'undefined' || !window.matchMedia('(hover: none)').matches) return undefined;
+    const forward = (event) => {
+      const touch = event.touches[0];
+      if (!touch) return;
+      document.body.dispatchEvent(
+        new PointerEvent('pointermove', { clientX: touch.clientX, clientY: touch.clientY, pointerType: 'touch' })
+      );
+    };
+    window.addEventListener('touchstart', forward, { passive: true });
+    window.addEventListener('touchmove', forward, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', forward);
+      window.removeEventListener('touchmove', forward);
+    };
+  }, []);
+
+  // Request form history entry for mobile so back button closes the form
+  const openRequest = (payload) => {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      const state = window.history.state || {};
+      window.history.pushState({ ...state, requestModal: true, depth: (state.depth || 0) + 1 }, '');
+    }
+    setRequest(payload);
+  };
+  const closeRequest = () => {
+    if (window.history.state?.requestModal) window.history.back();
+    else setRequest(null);
+  };
+  useEffect(() => {
+    const onPop = () => {
+      if (!window.history.state?.requestModal) setRequest(null);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // Chat actions scroll on desktop, open mobile sheet on phone
+  const handleChatNavigate = (sectionId) => {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      setChatOpen(false);
+      mobileSheet.open(sectionId === 'expertise' ? 'services' : sectionId);
+      return;
+    }
+    scrollToSection(sectionId);
   };
 
 
@@ -184,6 +235,25 @@ const Portfolio = () => {
       {/* BACKGROUND */}
       {isDarkMode ? <TubesCursorBackground onColorChange={setBgAccentColor} /> : <LightBackground />}
 
+      {/* PHONE — iOS-style home screen of bento tiles with sliding bottom sheets */}
+      <MobileApp
+        className="md:hidden"
+        ready={!showIntro}
+        isDarkMode={isDarkMode}
+        onToggleTheme={() => setIsDarkMode((current) => !current)}
+        themeClasses={themeClasses}
+        photo={photoSources[photoIndex]}
+        photoKey={photoIndex}
+        experiences={experiences}
+        certificateFiles={certificateFiles}
+        accentColor={isDarkMode ? bgAccentColor : '#10b981'}
+        sheetNav={mobileSheet}
+        onRequest={openRequest}
+        onOpenChat={() => setChatOpen(true)}
+      />
+
+      {/* DESKTOP & TABLET */}
+      <div className="hidden md:block">
       {/* FLOATING NAV — desktop */}
       <nav className={`hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50 items-center gap-2 p-1.5 backdrop-blur-2xl rounded-full shadow-2xl ${themeClasses.nav}`}>
         {['Home', 'Projects', 'Skills', 'Expertise', 'Certificates', 'Experience', 'Contact'].map((tab) => (
@@ -210,48 +280,10 @@ const Portfolio = () => {
         </button>
       </nav>
 
-      {/* MOBILE NAV */}
-      <nav className={`md:hidden fixed top-4 left-4 right-4 z-50 rounded-2xl shadow-2xl ${themeClasses.nav}`}>
-        <div className="flex items-center justify-between px-4 py-3">
-          <span className={`text-xs font-black uppercase tracking-[0.2em] ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>VB</span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsDarkMode((current) => !current)}
-              className={`inline-flex items-center justify-center rounded-full w-9 h-9 transition ${themeClasses.accentButton}`}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
-            </button>
-            <button
-              onClick={() => setMobileNavOpen((v) => !v)}
-              className={`inline-flex items-center justify-center rounded-full w-9 h-9 transition ${themeClasses.accentButton}`}
-              aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
-            >
-              {mobileNavOpen ? <X size={16} /> : <Menu size={16} />}
-            </button>
-          </div>
-        </div>
-        {mobileNavOpen && (
-          <div className={`px-3 pb-3 flex flex-col gap-1 border-t ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
-            {['Home', 'Projects', 'Skills', 'Expertise', 'Certificates', 'Experience', 'Contact'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleNavClick(tab)}
-                className={`text-left px-4 py-2.5 mt-1 text-xs font-black uppercase tracking-[0.15em] rounded-xl transition-all ${
-                  activeTab === tab ? 'bg-emerald-500/15 text-emerald-400' : themeClasses.navButtonText
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-        )}
-      </nav>
-
-            {/* LEFT FLOATING SOCIAL DOCK */}
+      {/* LEFT FLOATING SOCIAL DOCK — desktop only */}
       <aside
         aria-label="Social links"
-        className={`fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 p-2 sm:p-2.5 rounded-full shadow-2xl backdrop-blur-2xl transition-all ${themeClasses.nav}`}
+        className={`hidden md:flex fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3 p-2 sm:p-2.5 rounded-full shadow-2xl backdrop-blur-2xl transition-all ${themeClasses.nav}`}
       >
         <a
           href="https://github.com/vaibhavv-labs"
@@ -457,7 +489,7 @@ const Portfolio = () => {
           <ServicesGrid
             isDarkMode={isDarkMode}
             themeClasses={themeClasses}
-            onRequestService={(serviceName) => setRequest({ type: 'service', serviceName })}
+            onRequestService={(serviceName) => openRequest({ type: 'service', serviceName })}
           />
         </div>
       </section>
@@ -584,18 +616,22 @@ const Portfolio = () => {
         </div>
       </section>
     </main>
+      </div>
+
 
 
 
       <ChatAgent
         isDarkMode={isDarkMode}
         themeClasses={themeClasses}
-        onNavigate={scrollToSection}
+        onNavigate={handleChatNavigate}
         accentColor={isDarkMode ? bgAccentColor : '#10b981'}
+        isOpen={chatOpen}
+        onOpenChange={setChatOpen}
       />
       <RequestModal
         request={request}
-        onClose={() => setRequest(null)}
+        onClose={closeRequest}
         isDarkMode={isDarkMode}
         themeClasses={themeClasses}
       />

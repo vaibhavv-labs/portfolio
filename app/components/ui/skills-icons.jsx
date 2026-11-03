@@ -6,7 +6,7 @@ import {
 import { FaChartBar, FaChartLine } from "react-icons/fa";
 import { Workflow, CircuitBoard, BrainCircuit, Activity } from 'lucide-react';
 
-const SKILL_GROUPS = [
+export const SKILL_GROUPS = [
   {
     category: 'AI & Machine Learning',
     items: [

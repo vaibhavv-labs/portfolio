@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { X, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 
-const PROJECTS = [
+export const PROJECTS = [
   {
     id: 'abp',
     category: '01 — Autonomous AI SaaS',

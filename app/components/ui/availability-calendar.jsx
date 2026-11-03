@@ -21,7 +21,7 @@ function isAvailableDay(day, weekday) {
   return false;
 }
 
-function nextAvailableDate() {
+export function nextAvailableDate() {
   const cursor = new Date();
   for (let i = 0; i < 60; i++) {
     if (isAvailableDay(cursor.getDate(), cursor.getDay())) {
