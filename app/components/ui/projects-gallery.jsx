@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { X, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 
 export const PROJECTS = [
@@ -68,6 +68,49 @@ export const PROJECTS = [
   }
 ];
 
+function ProjectModalMedia({ active }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+  }, [active?.video]);
+
+  if (!active?.video) {
+    return (
+      <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
+        <img src={active?.image} alt={active?.title} className="w-full h-full object-cover" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
+      <video
+        ref={videoRef}
+        key={active.video}
+        src={active.video}
+        poster={active.image}
+        autoPlay
+        muted
+        defaultMuted
+        controls
+        playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        preload="auto"
+        className="w-full h-full object-contain"
+      />
+    </div>
+  );
+}
+
 export default function ProjectsGallery({ isDarkMode, themeClasses }) {
   const [active, setActive] = useState(null);
 
@@ -114,23 +157,7 @@ export default function ProjectsGallery({ isDarkMode, themeClasses }) {
             >
               <X size={18} />
             </button>
-            <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
-              {active.video ? (
-                <video
-                  key={active.video}
-                  src={active.video}
-                  poster={active.image}
-                  autoPlay
-                  muted
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-full object-contain"
-                />
-              ) : (
-                <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
-              )}
-            </div>
+            <ProjectModalMedia active={active} />
             <div className="p-6 md:p-8">
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-400 mb-2">{active.category}</p>
               <h3 className={`text-2xl md:text-3xl font-black mb-3 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>{active.title}</h3>

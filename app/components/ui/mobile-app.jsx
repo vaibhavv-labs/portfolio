@@ -258,30 +258,57 @@ export default function MobileApp({
     next: i === (projectIndex + 1) % count,
   })).filter((layer) => layer.current || layer.previous || layer.next);
 
+function MobileProjectMedia({ project }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+  }, [project?.video]);
+
+  if (!project?.video) {
+    return (
+      <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black/40 mb-4 border border-white/10 shadow-lg">
+        <img src={project?.image} alt={project?.title} className="w-full h-full object-cover" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black relative mb-4 border border-white/10 shadow-xl">
+      <video
+        ref={videoRef}
+        key={project.video}
+        src={project.video}
+        poster={project.image}
+        autoPlay
+        muted
+        defaultMuted
+        controls
+        playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        preload="auto"
+        className="w-full h-full object-contain"
+      />
+    </div>
+  );
+}
+
   const project = shownSheet?.startsWith('project:') ? PROJECTS.find((p) => `project:${p.id}` === shownSheet) : null;
   const currentExp = experiences?.[0];
 
   const renderSheet = () => {
     if (project) {
       return (
-        <article className="space-y-5">
-          <div className="aspect-video -mx-4 -mt-5 mb-5 bg-black overflow-hidden relative">
-            {project.video ? (
-              <video
-                key={project.video}
-                src={project.video}
-                poster={project.image}
-                autoPlay
-                muted
-                controls
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-            )}
-          </div>
+        <article className="space-y-4">
+          <MobileProjectMedia project={project} />
           <Eyebrow className="text-emerald-400">{project.category}</Eyebrow>
           <h3 className={`text-2xl font-black leading-tight ${strong}`}>{project.title}</h3>
           <p className={`${soft} text-sm leading-relaxed`}>{project.description}</p>
