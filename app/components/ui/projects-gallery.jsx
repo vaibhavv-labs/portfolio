@@ -94,10 +94,11 @@ function ProjectModalMedia({ active }) {
     <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
       <video
         ref={videoRef}
-        key={active.video}
+        key={active.id}
         src={active.video}
         poster={active.image}
         autoPlay
+        loop
         muted
         defaultMuted
         controls
