@@ -107,24 +107,6 @@ const Portfolio = () => {
     }
   };
 
-  // The background tubes follow pointer via body pointermove. Forward touchmove so it tracks touch on mobile.
-  useEffect(() => {
-    if (typeof PointerEvent === 'undefined' || !window.matchMedia('(hover: none)').matches) return undefined;
-    const forward = (event) => {
-      const touch = event.touches[0];
-      if (!touch) return;
-      document.body.dispatchEvent(
-        new PointerEvent('pointermove', { clientX: touch.clientX, clientY: touch.clientY, pointerType: 'touch' })
-      );
-    };
-    window.addEventListener('touchstart', forward, { passive: true });
-    window.addEventListener('touchmove', forward, { passive: true });
-    return () => {
-      window.removeEventListener('touchstart', forward);
-      window.removeEventListener('touchmove', forward);
-    };
-  }, []);
-
   // Request form history entry for mobile so back button closes the form
   const openRequest = (payload) => {
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -232,8 +214,13 @@ const Portfolio = () => {
     <>
       {showIntro && <IntroScreen onFinish={() => setShowIntro(false)} />}
       <div className={`min-h-screen ${themeClasses.root} font-sans selection:bg-emerald-500/30 overflow-x-hidden`}>
-      {/* BACKGROUND */}
-      {isDarkMode ? <TubesCursorBackground onColorChange={setBgAccentColor} /> : <LightBackground />}
+      {/* BACKGROUND — 3D cursor tubes strictly for desktop mouse; lightweight static background for mobile */}
+      <div className="hidden md:block">
+        {isDarkMode ? <TubesCursorBackground onColorChange={setBgAccentColor} /> : <LightBackground />}
+      </div>
+      <div className="md:hidden">
+        <div className={`fixed inset-0 z-0 pointer-events-none ${isDarkMode ? 'bg-[#080808]' : 'bg-neutral-50'}`} />
+      </div>
 
       {/* PHONE — iOS-style home screen of bento tiles with sliding bottom sheets */}
       <MobileApp

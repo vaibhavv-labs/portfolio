@@ -134,7 +134,7 @@ function SheetFrame({ open, title, contentKey, onClose, onBack, isDarkMode, chil
     <div ref={rootRef} className="fixed inset-0 z-[75]" role="dialog" aria-modal="true" aria-label={title}>
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-black/60 backdrop-blur-[2px] touch-none transition-opacity duration-300 ${shown ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 bg-black/75 touch-none transition-opacity duration-300 ${shown ? 'opacity-100' : 'opacity-0'}`}
       />
       <div
         style={{
