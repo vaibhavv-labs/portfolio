@@ -8,30 +8,33 @@ export const PROJECTS = [
     category: '01 — Autonomous AI SaaS',
     title: 'Autonomous Business Platform',
     image: '/abp.png',
+    video: '/ABP_Product_Video.mp4',
     description: 'A fully automated, AI-powered SaaS platform for running a business. Generates ad copy, creates high-quality AI product images via Replicate/Flux, handles marketing campaigns, dispatches real email outreach via Resend, and features an interactive AI business assistant ("Otto") with live analytics.',
     github: 'https://github.com/vaibhavv-labs/autonomous-business-platform',
     live: 'https://autonomous-business-platform-dskp.vercel.app/',
     tags: ['Next.js', 'FastAPI', 'Python', 'Groq Llama 3', 'Resend'],
   },
   {
-    id: 'codesentinel',
-    category: '02 — AI Security',
-    title: 'CodeSentinel AI',
-    image: '/codesentinel.png',
-    description: 'AI-driven code analysis tool. Fine-tuned CodeBERT model on CyberNative DPO dataset achieving 89.16% training accuracy. Detects 8 vulnerability classes with up to 99.92% confidence and auto-fixes using Qwen 2.5 Coder LLM.',
-    github: 'https://github.com/vaibhavv-labs/CodeSentinel-AI',
-    live: 'https://codesentinel-app.vercel.app/',
-    tags: ['CodeBERT', 'Gemini AI', 'Python'],
-  },
-  {
     id: 'logiccoach',
-    category: '03 — AI Education',
+    category: '02 — AI Education',
     title: 'Logic Coach',
     image: '/logic_coach.png',
+    video: '/Logic_Coach_Product_Launch.mp4',
     description: 'Next-gen AI learning platform helping developers master Data Structures, Algorithms, and programming. Integrates Google Gemini AI for real-time code analysis, step-by-step debugging, and Big O complexity analysis with an in-browser IDE.',
     github: 'https://github.com/vaibhavv-labs/logic-coach-web',
     live: 'https://logic-coach.vercel.app/',
     tags: ['Next.js', 'Gemini AI', 'Firebase', 'React'],
+  },
+  {
+    id: 'codesentinel',
+    category: '03 — AI Security',
+    title: 'CodeSentinel AI',
+    image: '/codesentinel.png',
+    video: '/CodeSentinel_Demo.mp4',
+    description: 'AI-driven code analysis tool. Fine-tuned CodeBERT model on CyberNative DPO dataset achieving 89.16% training accuracy. Detects 8 vulnerability classes with up to 99.92% confidence and auto-fixes using Qwen 2.5 Coder LLM.',
+    github: 'https://github.com/vaibhavv-labs/CodeSentinel-AI',
+    live: 'https://codesentinel-app.vercel.app/',
+    tags: ['CodeBERT', 'Gemini AI', 'Python'],
   },
   {
     id: 'sentimentiq',
@@ -75,19 +78,25 @@ export default function ProjectsGallery({ isDarkMode, themeClasses }) {
           <button
             key={project.id}
             onClick={() => setActive(project)}
-            className="group relative overflow-hidden rounded-[2rem] text-left aspect-[4/5]"
+            className="group relative overflow-hidden rounded-[2rem] text-left aspect-[4/5] bg-neutral-950 shadow-lg cursor-pointer"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-            <div className="absolute inset-0 p-6 flex flex-col justify-end">
+            {/* Crisp Static Project Thumbnail with Smooth Scale on Hover */}
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none" />
+
+            <div className="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none z-10">
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-400 mb-2">{project.category}</p>
               <h3 className="text-xl md:text-2xl font-black text-white leading-tight">{project.title}</h3>
             </div>
-            <div className="absolute top-5 right-5 w-9 h-9 rounded-full bg-black/40 backdrop-blur flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute top-5 right-5 w-9 h-9 rounded-full bg-black/40 backdrop-blur flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-10">
               <ArrowUpRight size={16} />
             </div>
           </button>
@@ -101,12 +110,26 @@ export default function ProjectsGallery({ isDarkMode, themeClasses }) {
             <button
               onClick={() => setActive(null)}
               aria-label="Close"
-              className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70"
+              className="absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 backdrop-blur"
             >
               <X size={18} />
             </button>
-            <div className="aspect-[21/9] sm:aspect-[16/9] max-h-[250px] w-full overflow-hidden relative">
-              <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
+            <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
+              {active.video ? (
+                <video
+                  key={active.video}
+                  src={active.video}
+                  poster={active.image}
+                  autoPlay
+                  muted
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
+              )}
             </div>
             <div className="p-6 md:p-8">
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-400 mb-2">{active.category}</p>

@@ -11,7 +11,7 @@ const QUICK_REPLIES = [
 
 const INSTANT_ANSWERS = {
   'What are your skills?': "Vaibhav works primarily with Python, Machine Learning, Scikit-Learn, and NLP, backed by Pandas, NumPy, SQL, MongoDB, OpenCV, Streamlit, and Hugging Face.",
-  'Tell me about your projects': "His top projects are CodeSentinel AI for vulnerability scanning, the Autonomous Business Platform with automated agent workflows, Logic Coach for coding practice, and SentimentIQ for brand analytics. Live demos are ready to test right on this site.",
+  'Tell me about your projects': "His top projects are the Autonomous Business Platform with automated agent workflows, Logic Coach for coding practice, CodeSentinel AI for vulnerability scanning, and SentimentIQ for brand analytics. Live demos are ready to test right on this site.",
   'What is your experience?': "Vaibhav worked as a Software Intern at R3 Systems India focusing on Python and ML pipelines. He is currently pursuing his B.E. in AI and Data Science at SPPU with an 8.6 CGPA.",
   'How can I contact you?': "You can email him directly at vaibhavbhoyate976@gmail.com, reach out on LinkedIn, or message him on WhatsApp at +91 8830269849."
 };

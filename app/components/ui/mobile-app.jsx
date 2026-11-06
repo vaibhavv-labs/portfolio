@@ -266,7 +266,21 @@ export default function MobileApp({
       return (
         <article className="space-y-5">
           <div className="aspect-video -mx-4 -mt-5 mb-5 bg-black overflow-hidden relative">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            {project.video ? (
+              <video
+                key={project.video}
+                src={project.video}
+                poster={project.image}
+                autoPlay
+                muted
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            )}
           </div>
           <Eyebrow className="text-emerald-400">{project.category}</Eyebrow>
           <h3 className={`text-2xl font-black leading-tight ${strong}`}>{project.title}</h3>
@@ -365,10 +379,10 @@ export default function MobileApp({
               <button
                 key={p.id}
                 onClick={() => open(`project:${p.id}`)}
-                className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden text-left active:scale-[0.97] transition-transform"
+                className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden text-left active:scale-[0.97] transition-transform bg-black"
               >
                 <img src={p.image} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                <span className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <span className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
                 <span className="absolute inset-x-0 bottom-0 p-3.5">
                   <span className="block text-[8px] font-black uppercase tracking-[0.2em] text-emerald-400 mb-1">
                     {p.category.replace(/^\d+\s*—\s*/, '')}
