@@ -68,7 +68,7 @@ export const PROJECTS = [
   }
 ];
 
-function ProjectModalMedia({ active }) {
+const ProjectModalMedia = React.memo(function ProjectModalMedia({ active }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ function ProjectModalMedia({ active }) {
     if (playPromise !== undefined) {
       playPromise.catch(() => {});
     }
-  }, [active?.video]);
+  }, [active?.id]);
 
   if (!active?.video) {
     return (
@@ -93,7 +93,13 @@ function ProjectModalMedia({ active }) {
   return (
     <div className="aspect-video w-full overflow-hidden relative bg-black rounded-t-[2rem]">
       <video
-        ref={videoRef}
+        ref={(el) => {
+          videoRef.current = el;
+          if (el) {
+            el.muted = true;
+            el.defaultMuted = true;
+          }
+        }}
         key={active.id}
         src={active.video}
         poster={active.image}
@@ -110,10 +116,24 @@ function ProjectModalMedia({ active }) {
       />
     </div>
   );
-}
+}, (prev, next) => prev.active?.id === next.active?.id);
 
 export default function ProjectsGallery({ isDarkMode, themeClasses }) {
   const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    if (!active) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => {
+      if (e.key === 'Escape') setActive(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [active]);
 
   return (
     <>

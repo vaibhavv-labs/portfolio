@@ -210,7 +210,7 @@ function Corner({ tone = 'light' }) {
   );
 }
 
-function MobileProjectMedia({ project }) {
+const MobileProjectMedia = React.memo(function MobileProjectMedia({ project }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -235,7 +235,13 @@ function MobileProjectMedia({ project }) {
   return (
     <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black relative mb-4 border border-white/10 shadow-xl">
       <video
-        ref={videoRef}
+        ref={(el) => {
+          videoRef.current = el;
+          if (el) {
+            el.muted = true;
+            el.defaultMuted = true;
+          }
+        }}
         key={project.id}
         src={project.video}
         poster={project.image}
@@ -252,7 +258,7 @@ function MobileProjectMedia({ project }) {
       />
     </div>
   );
-}
+}, (prev, next) => prev.project?.id === next.project?.id);
 
 export default function MobileApp({
   className = '',
