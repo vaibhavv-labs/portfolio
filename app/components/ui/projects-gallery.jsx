@@ -19,7 +19,7 @@ export const PROJECTS = [
     category: '02 — AI Education',
     title: 'Logic Coach',
     image: '/logic_coach.png',
-    video: '/Logic_Coach_Product_Launch.mp4',
+    video: '/Logic_Coach_Demo.mp4',
     description: 'Next-gen AI learning platform helping developers master Data Structures, Algorithms, and programming. Integrates Google Gemini AI for real-time code analysis, step-by-step debugging, and Big O complexity analysis with an in-browser IDE.',
     github: 'https://github.com/vaibhavv-labs/logic-coach-web',
     live: 'https://logic-coach.vercel.app/',
