@@ -101,7 +101,6 @@ const ProjectModalMedia = React.memo(function ProjectModalMedia({ active }) {
           }
         }}
         key={active.id}
-        src={active.video}
         poster={active.image}
         autoPlay
         loop
@@ -113,15 +112,19 @@ const ProjectModalMedia = React.memo(function ProjectModalMedia({ active }) {
         x5-playsinline="true"
         preload="auto"
         className="w-full h-full object-contain"
-      />
+        style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', willChange: 'transform' }}
+      >
+        <source src={active.video} type="video/mp4" />
+      </video>
     </div>
   );
 }, (prev, next) => prev.active?.id === next.active?.id);
 
-export default function ProjectsGallery({ isDarkMode, themeClasses }) {
+export default function ProjectsGallery({ isDarkMode, themeClasses, onActiveChange }) {
   const [active, setActive] = useState(null);
 
   useEffect(() => {
+    onActiveChange?.(Boolean(active));
     if (!active) return undefined;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -133,7 +136,7 @@ export default function ProjectsGallery({ isDarkMode, themeClasses }) {
       document.body.style.overflow = prev;
       window.removeEventListener('keydown', onKey);
     };
-  }, [active]);
+  }, [active, onActiveChange]);
 
   return (
     <>
@@ -169,12 +172,12 @@ export default function ProjectsGallery({ isDarkMode, themeClasses }) {
 
       {active && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center px-4">
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setActive(null)} />
-          <div className={`relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl ${themeClasses.card}`}>
+          <div className="absolute inset-0 bg-black/85 transition-opacity" onClick={() => setActive(null)} />
+          <div className={`relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl border ${isDarkMode ? 'bg-[#0e0e0e] border-white/10 text-white' : 'bg-white border-neutral-200 text-neutral-900'}`}>
             <button
               onClick={() => setActive(null)}
               aria-label="Close"
-              className="absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 backdrop-blur"
+              className="absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors"
             >
               <X size={18} />
             </button>

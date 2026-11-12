@@ -25,6 +25,7 @@ const Portfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showIntro, setShowIntro] = useState(true);
   const mobileSheet = useMobileSheet();
+  const [projectModalActive, setProjectModalActive] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [request, setRequest] = useState(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -53,18 +54,20 @@ const Portfolio = () => {
   };
 
   useEffect(() => {
+    if (mobileSheet.sheet || projectModalActive) return undefined;
     const intervalId = window.setInterval(() => {
       setPhotoIndex((current) => (current + 1) % photoSources.length);
     }, 5000);
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [mobileSheet.sheet, projectModalActive, photoSources.length]);
 
   useEffect(() => {
+    if (mobileSheet.sheet || projectModalActive) return undefined;
     const mindsetInterval = window.setInterval(() => {
       setMindsetIndex((current) => (current + 1) % mindsetQuotes.length);
     }, 4000);
     return () => window.clearInterval(mindsetInterval);
-  }, [mindsetQuotes.length]);
+  }, [mindsetQuotes.length, mobileSheet.sheet, projectModalActive]);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem('portfolio-theme');
@@ -215,7 +218,7 @@ const Portfolio = () => {
       {showIntro && <IntroScreen onFinish={() => setShowIntro(false)} />}
       <div className={`min-h-screen ${themeClasses.root} font-sans selection:bg-emerald-500/30 overflow-x-hidden`}>
       {/* BACKGROUND — 3D cursor tubes strictly for desktop mouse; lightweight static background for mobile */}
-      <div className="hidden md:block">
+      <div className={`hidden md:block transition-opacity duration-300 ${projectModalActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         {isDarkMode ? <TubesCursorBackground onColorChange={setBgAccentColor} /> : <LightBackground />}
       </div>
       <div className="md:hidden">
@@ -455,7 +458,7 @@ const Portfolio = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">Featured <span className="text-emerald-500">projects</span></h2>
           </div>
 
-          <ProjectsGallery isDarkMode={isDarkMode} themeClasses={themeClasses} />
+          <ProjectsGallery isDarkMode={isDarkMode} themeClasses={themeClasses} onActiveChange={setProjectModalActive} />
         </section>
 
       {/* Skills Section */}

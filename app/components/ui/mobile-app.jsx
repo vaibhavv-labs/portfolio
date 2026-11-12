@@ -218,10 +218,16 @@ const MobileProjectMedia = React.memo(function MobileProjectMedia({ project }) {
     if (!video) return;
     video.muted = true;
     video.defaultMuted = true;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
-    }
+    // 120ms delay ensures sheet slide animation settles before video decoding begins
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+    }, 120);
+    return () => clearTimeout(timer);
   }, [project?.id]);
 
   if (!project?.video) {
@@ -243,7 +249,6 @@ const MobileProjectMedia = React.memo(function MobileProjectMedia({ project }) {
           }
         }}
         key={project.id}
-        src={project.video}
         poster={project.image}
         autoPlay
         loop
@@ -255,7 +260,10 @@ const MobileProjectMedia = React.memo(function MobileProjectMedia({ project }) {
         x5-playsinline="true"
         preload="auto"
         className="w-full h-full object-contain"
-      />
+        style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', willChange: 'transform' }}
+      >
+        <source src={project.video} type="video/mp4" />
+      </video>
     </div>
   );
 }, (prev, next) => prev.project?.id === next.project?.id);
