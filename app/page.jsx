@@ -15,7 +15,7 @@ import RequestModal from './components/ui/request-modal';
 import ProjectsGallery from './components/ui/projects-gallery';
 import SkillsIcons from './components/ui/skills-icons';
 import MobileApp, { useMobileSheet } from './components/ui/mobile-app';
-import { SiGooglecloud, SiMongodb, SiPython } from "react-icons/si";
+import { SiAnthropic, SiPython } from "react-icons/si";
 import { FaAward, FaSatellite, FaBuilding, FaWhatsapp } from "react-icons/fa";
 
 const Portfolio = () => {
@@ -143,6 +143,17 @@ const Portfolio = () => {
 
   const experiences = [
     {
+      title: 'AIML Intern',
+      company: '3Skill Training',
+      period: 'Sep 2026 – Nov 2026',
+      badge: 'Internship',
+      highlights: [
+        'Completed intensive 2-month internship focusing on practical AI and Machine Learning engineering.',
+        'Developed project-based deep learning, computer vision, and NLP pipelines aligned with industry expectations.',
+        'Applied production ML practices, data workflows, and robust model evaluation methodologies.'
+      ],
+    },
+    {
       title: 'Software Intern – Python & ML',
       company: 'R3 Systems India Pvt. Ltd.',
       period: 'Jan 2026 – Feb 2026',
@@ -185,14 +196,14 @@ const Portfolio = () => {
   ];
 
   const certificateFiles = [
-    { title: 'Fundamentals of Remote Sensing', file: 'Fundamentals of Remote Sensing.pdf', type: 'pdf', icon: FaSatellite, color: '#0b3d91' },
-    { title: 'GenAI Powered Data Analytics', file: 'completion_certificate.pdf', type: 'pdf', icon: FaAward, color: '#00a0e3' },
-    { title: 'Intro to Generative AI Studio', file: 'Generative AI certificate.pdf', type: 'pdf', icon: SiGooglecloud, color: '#4285F4' },
-    { title: 'Intro to Large Language Models', file: 'https://www.skills.google/public_profiles/bab33e78-8495-41fb-9ef7-b2c1b54b0e39/badges/23306522?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share', type: 'link', icon: SiGooglecloud, color: '#34A853' },
-    { title: 'MongoDB & the Document Model', file: 'vaibhav-bhoyate-5866a860-f464-456c-ae99-a54318155005-certificate.pdf', type: 'pdf', icon: SiMongodb, color: '#47A248' },
+    { title: 'AIML Internship – 3Skill Training', file: 'Certificate_INTERN264087_Vaibhav Bhoyate.pdf', type: 'pdf', icon: FaBuilding, color: '#10b981' },
+    { title: 'AI Fluency: Framework and foundations', file: 'https://academy.claude.com/verify/338a596bfd9143e1a01999bf94144d10', type: 'link', icon: SiAnthropic, color: '#cc785c' },
+    { title: 'Machine Learning – NPTEL', file: 'NPTEL certificate.pdf', type: 'pdf', icon: FaAward, color: '#f59e0b' },
+    { title: 'AI/ML for Geodata Analytics – ISRO', file: 'ISRO_ML_Certificate.pdf', type: 'pdf', icon: FaSatellite, color: '#0284c7' },
+    { title: 'Bharatiya Antariksh Hackathon 2026 – ISRO', file: 'ISRO_HAckthon.pdf', type: 'pdf', icon: FaSatellite, color: '#f97316' },
+    { title: 'Fundamentals of Remote Sensing – NASA ARSET', file: 'Fundamentals of Remote Sensing.pdf', type: 'pdf', icon: FaSatellite, color: '#0b3d91' },
     { title: 'Python Programming', file: 'python.pdf', type: 'pdf', icon: SiPython, color: '#FFD43B' },
-    { title: 'Software Intern Certificate', file: 'Vaibhav Baban Bhoyate.pdf', type: 'pdf', icon: FaBuilding, color: '#a855f7' },
-    { title: 'Data Visualization by Forage', file: 'forage_data_viz.pdf', type: 'pdf', icon: FaAward, color: '#FF8C00' },
+    { title: 'Software Intern – R3 Systems', file: 'Vaibhav Baban Bhoyate.pdf', type: 'pdf', icon: FaBuilding, color: '#a855f7' },
   ];
 
   const getCertificateBadgePath = (certificate) => {
@@ -518,7 +529,7 @@ const Portfolio = () => {
                       : 'Click to open or download the certificate.'}
                   </p>
                   <a
-                    href={certificate.type === 'link' ? certificate.file : `/certificates/${certificate.file}`}
+                    href={certificate.type === 'link' ? certificate.file : `/certificates/${encodeURIComponent(certificate.file)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400 hover:text-emerald-300"

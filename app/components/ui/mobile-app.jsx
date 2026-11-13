@@ -617,8 +617,8 @@ export default function MobileApp({
           <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.22em] text-emerald-400 mb-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Now
           </span>
-          <span className={`block text-[15px] font-black leading-tight ${strong}`}>{currentExp?.title || 'Software Intern'}</span>
-          <span className={`block text-[11px] font-semibold mt-1 truncate ${soft}`}>{currentExp?.company || 'R3 Systems'}</span>
+          <span className={`block text-[15px] font-black leading-tight ${strong}`}>{currentExp?.title || 'AIML Intern'}</span>
+          <span className={`block text-[11px] font-semibold mt-1 truncate ${soft}`}>{currentExp?.company || '3Skill Training'}</span>
         </Tile>
 
         {/* Skills Tile */}
