@@ -477,137 +477,125 @@ const Portfolio = () => {
         {/* VENTURES & STARTUPS SECTION */}
         <section id="ventures" className="mb-32 scroll-mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-14 md:mb-16">
               <p className={`text-[10px] font-black uppercase tracking-[0.5em] ${themeClasses.mutedText}`}>
-                FOUNDER &amp; CONSULTANCY
+                VENTURE &amp; FOUNDERSHIP
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">
                 Ventures &amp; <span className="text-emerald-500">Startups</span>
               </h2>
               <p className={`${isDarkMode ? 'text-gray-400' : 'text-neutral-600'} mt-4 max-w-2xl mx-auto text-sm sm:text-base`}>
-                Commercial software platforms, AI consultancies, and digital agencies founded and engineered from the ground up.
+                Commercial tech ventures, AI studios, and autonomous software platforms founded and engineered by Vaibhav Bhoyate.
               </p>
             </div>
 
-            <div className={`relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border ${themeClasses.card} shadow-[0_20px_70px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-emerald-500/30 group`}>
-              {/* Ambient background glow */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none -mr-20 -mt-20 group-hover:bg-emerald-500/15 transition-all duration-700" />
-              <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 blur-[90px] rounded-full pointer-events-none -ml-10 -mb-10" />
+            <div className={`relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border ${themeClasses.card} shadow-[0_25px_80px_rgba(0,0,0,0.45)] transition-all duration-300 hover:border-emerald-500/30 group`}>
+              {/* Ambient lighting glows */}
+              <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -mt-32 group-hover:bg-emerald-500/15 transition-all duration-700" />
+              <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none -mb-16" />
 
-              <div className="relative z-10">
-                {/* Header row: Status badges & Category */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* LEFT COLUMN: Startup Identity, Mission & Business Value (lg:col-span-6) */}
+                <div className="lg:col-span-6 flex flex-col justify-center">
+                  {/* Status Badges */}
+                  <div className="flex flex-wrap items-center gap-2.5 mb-5">
+                    <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.25)]">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       Founder &amp; Active Venture
                     </span>
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300' : 'text-neutral-700'}`}>
-                      <Rocket size={13} className="text-emerald-400" /> Live Platform
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} border border-white/5`}>
+                      <Rocket size={13} className="text-emerald-400" /> Commercial Platform
                     </span>
                   </div>
 
-                  <span className={`text-[11px] font-bold uppercase tracking-widest ${themeClasses.mutedText}`}>
-                    Full-Stack AI Studio
-                  </span>
-                </div>
-
-                {/* Title & Role */}
-                <div className="mb-4">
-                  <h3 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight ${isDarkMode ? 'text-white' : 'text-neutral-900'} leading-none`}>
+                  {/* Title & Role */}
+                  <h3 className={`text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight ${isDarkMode ? 'text-white' : 'text-neutral-900'} leading-none`}>
                     Kryva Technologies
                   </h3>
                   <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400 mt-3">
-                    Founder &amp; Full-Stack / AI Engineer • AI Automation &amp; Custom Software Consultancy
+                    Founder &amp; Lead AI Engineer • AI Automation Agency &amp; Software Studio
                   </p>
-                </div>
 
-                {/* Brief Description */}
-                <p className={`${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} text-sm sm:text-base leading-relaxed max-w-3xl font-medium mb-8`}>
-                  An end-to-end software studio and AI consultancy delivering production-grade intelligent workflows, custom WhatsApp booking agents, background automation, and operational intelligence dashboards for modern digital-first businesses.
-                </p>
+                  {/* High-Impact Executive Description */}
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} text-sm sm:text-base leading-relaxed mt-5 font-normal`}>
+                    Founded as a modern digital consultancy to architect high-throughput autonomous systems. Kryva engineers custom WhatsApp conversational agents, background workflow automation, document intelligence (OCR), and bespoke operational platforms for modern businesses.
+                  </p>
 
-                {/* Key Highlights Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-                  {/* Highlight 1 */}
-                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                        <Layers size={16} />
-                      </span>
-                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>End-to-End Software Studio</h4>
-                    </div>
-                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
-                      Founded and engineered a modern digital consultancy platform delivering WhatsApp chatbots, background AI workflow automation, document processing (OCR), and operational forecasting dashboards.
-                    </p>
-                  </div>
-
-                  {/* Highlight 2 */}
-                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                  {/* Key Capabilities / Focus Areas */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 mb-8">
+                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                      <div className="flex items-center gap-2 mb-1.5 text-emerald-400">
                         <Bot size={16} />
-                      </span>
-                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>In-Browser Bot Simulator</h4>
+                        <span className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>WhatsApp AI Agents</span>
+                      </div>
+                      <p className={`${themeClasses.mutedText} text-xs leading-snug`}>
+                        Real-time conversational booking &amp; sales engines with natural intent parsing.
+                      </p>
                     </div>
-                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
-                      Built a real-time interactive WhatsApp booking simulator with natural intent parsing, simulated latency, and mobile touch-passthrough.
-                    </p>
+
+                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                      <div className="flex items-center gap-2 mb-1.5 text-emerald-400">
+                        <Layers size={16} />
+                        <span className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Workflow Automation</span>
+                      </div>
+                      <p className={`${themeClasses.mutedText} text-xs leading-snug`}>
+                        Automated multi-agent background pipelines, OCR, and operational dashboards.
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Highlight 3 */}
-                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                        <Cpu size={16} />
-                      </span>
-                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Hardware-Accelerated UI &amp; Micro-interactions</h4>
-                    </div>
-                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
-                      Implemented custom frosted-glass optical blur page transitions, 9:16 mobile chassis video player, and 100% responsive zero-layout-shift architecture.
-                    </p>
-                  </div>
-
-                  {/* Highlight 4 */}
-                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                        <ShieldCheck size={16} />
-                      </span>
-                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Production Ready</h4>
-                    </div>
-                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
-                      Built with Next.js 14 App Router, dynamic JSON-LD SEO schemas, and enterprise honeypot lead protection.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Footer row: Tech stack pills & CTA buttons */}
-                <div className="pt-6 border-t border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                  <div>
-                    <p className={`text-[10px] font-black uppercase tracking-[0.25em] ${themeClasses.mutedText} mb-3`}>
-                      Technologies &amp; Architecture
-                    </p>
+                  {/* Tech Stack & CTA */}
+                  <div className="space-y-5 pt-2">
                     <div className="flex flex-wrap gap-2">
-                      {['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'Framer Motion'].map((tech) => (
-                        <span key={tech} className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-200' : 'text-neutral-700'} border border-white/5`}>
+                      {['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'PostgreSQL', 'Framer Motion'].map((tech) => (
+                        <span key={tech} className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} border border-white/5`}>
                           {tech}
                         </span>
                       ))}
                     </div>
+
+                    <div className="pt-2">
+                      <a
+                        href="https://kryva-technologies.netlify.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
+                      >
+                        Visit Kryva Technologies
+                        <ArrowUpRight size={14} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT COLUMN: Cinematic Video Showcase with Poster (lg:col-span-6) */}
+                <div className="lg:col-span-6 flex flex-col items-center">
+                  <div className="relative w-full aspect-video rounded-[1.75rem] overflow-hidden bg-black border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] group/video">
+                    <video
+                      poster="/Kryva_ Futuristic AI Automation Hero.png"
+                      autoPlay
+                      loop
+                      muted
+                      defaultMuted
+                      playsInline
+                      webkit-playsinline="true"
+                      controls
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    >
+                      <source src="/kryva-whatsapp-automation-hero.mp4" type="video/mp4" />
+                    </video>
+
+                    {/* Floating pill badge */}
+                    <div className="absolute top-4 left-4 pointer-events-none flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-black uppercase tracking-wider text-emerald-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Platform Demo Reel
+                    </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 shrink-0">
-                    <a
-                      href="https://kryva-technologies.netlify.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
-                    >
-                      Visit Live Site
-                      <ArrowUpRight size={14} />
-                    </a>
-                  </div>
+                  <p className={`text-[11px] font-medium ${themeClasses.mutedText} mt-3 text-center`}>
+                    Watch the live WhatsApp automation engine and conversational simulator in action.
+                  </p>
                 </div>
               </div>
             </div>

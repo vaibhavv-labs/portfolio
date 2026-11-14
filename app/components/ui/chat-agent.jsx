@@ -12,7 +12,7 @@ const QUICK_REPLIES = [
 
 const INSTANT_ANSWERS = {
   'What are your skills?': "Vaibhav works primarily with Python, Machine Learning, Scikit-Learn, and NLP, backed by Pandas, NumPy, SQL, MongoDB, OpenCV, Streamlit, and Hugging Face.",
-  'Tell me about your projects': "His top projects are the Autonomous Business Platform with automated agent workflows, Logic Coach for coding practice, CodeSentinel AI for vulnerability scanning, and SentimentIQ for brand analytics. Live demos are ready to test right on this site.",
+  'Tell me about your projects': "His top projects are the Autonomous Business Platform with automated agent workflows, Logic Coach for coding practice, and CodeSentinel AI for vulnerability scanning. Live demos are ready to test right on this site.",
   'Tell me about your ventures': "Vaibhav is the Founder of Kryva Technologies, an AI automation and custom software consultancy delivering WhatsApp chatbots, background AI workflows, and digital products.",
   'What is your experience?': "Vaibhav worked as an AIML Intern at 3Skill Training and as a Software Intern at R3 Systems India focusing on Python and ML pipelines. He is currently pursuing his B.E. in AI and Data Science at SPPU with an 8.6 CGPA.",
   'How can I contact you?': "You can email him directly at vaibhavbhoyate976@gmail.com, reach out on LinkedIn, or message him on WhatsApp at +91 8830269849."

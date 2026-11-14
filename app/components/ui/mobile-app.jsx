@@ -440,20 +440,38 @@ export default function MobileApp({
       case 'ventures':
         return (
           <article className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
+            {/* Cinematic Video Player at top of mobile sheet */}
+            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-white/10 shadow-lg">
+              <video
+                poster="/Kryva_ Futuristic AI Automation Hero.png"
+                autoPlay
+                loop
+                muted
+                defaultMuted
+                playsInline
+                webkit-playsinline="true"
+                controls
+                preload="metadata"
+                className="w-full h-full object-cover"
+              >
+                <source src="/kryva-whatsapp-automation-hero.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 Founder &amp; Active Venture
               </span>
               <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${soft}`}>
-                <Rocket size={11} className="text-emerald-400" /> Live Platform
+                <Rocket size={11} className="text-emerald-400" /> Commercial Studio
               </span>
             </div>
 
             <div>
               <h3 className={`text-2xl font-black leading-tight ${strong}`}>Kryva Technologies</h3>
               <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mt-1">
-                Founder &amp; Full-Stack / AI Engineer
+                Founder &amp; Lead AI Engineer
               </p>
               <p className={`text-xs font-medium ${soft} mt-0.5`}>
                 AI Automation &amp; Custom Software Consultancy
@@ -461,55 +479,27 @@ export default function MobileApp({
             </div>
 
             <p className={`${soft} text-sm leading-relaxed`}>
-              An end-to-end software studio and AI consultancy delivering production-grade intelligent workflows, custom WhatsApp booking agents, background automation, and operational intelligence dashboards.
+              Founded as a modern digital studio to architect high-throughput autonomous systems. Kryva engineers custom WhatsApp conversational agents, background workflow automation, document intelligence (OCR), and bespoke operational platforms for modern businesses.
             </p>
 
-            <div className="space-y-2.5 pt-1">
-              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                    <Layers size={13} />
-                  </span>
-                  <h4 className={`text-xs font-bold ${strong}`}>End-to-End Software Studio</h4>
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <div className={`p-3 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-1.5 mb-1 text-emerald-400">
+                  <Bot size={13} />
+                  <span className={`text-xs font-bold ${strong}`}>WhatsApp AI</span>
                 </div>
-                <p className={`${soft} text-[11px] leading-relaxed`}>
-                  Founded and engineered a digital consultancy platform delivering WhatsApp chatbots, background AI workflow automation, document processing (OCR), and forecasting dashboards.
+                <p className={`${soft} text-[10px] leading-snug`}>
+                  Real-time conversational booking &amp; sales engines.
                 </p>
               </div>
 
-              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                    <Bot size={13} />
-                  </span>
-                  <h4 className={`text-xs font-bold ${strong}`}>In-Browser Bot Simulator</h4>
+              <div className={`p-3 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-1.5 mb-1 text-emerald-400">
+                  <Layers size={13} />
+                  <span className={`text-xs font-bold ${strong}`}>Workflows</span>
                 </div>
-                <p className={`${soft} text-[11px] leading-relaxed`}>
-                  Built a real-time interactive WhatsApp booking simulator with natural intent parsing, simulated latency, and mobile touch-passthrough.
-                </p>
-              </div>
-
-              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                    <Cpu size={13} />
-                  </span>
-                  <h4 className={`text-xs font-bold ${strong}`}>Hardware-Accelerated UI</h4>
-                </div>
-                <p className={`${soft} text-[11px] leading-relaxed`}>
-                  Custom frosted-glass optical blur page transitions, 9:16 mobile chassis video player, and 100% responsive architecture.
-                </p>
-              </div>
-
-              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                    <ShieldCheck size={13} />
-                  </span>
-                  <h4 className={`text-xs font-bold ${strong}`}>Production Ready</h4>
-                </div>
-                <p className={`${soft} text-[11px] leading-relaxed`}>
-                  Next.js 14 App Router, dynamic JSON-LD SEO schemas, and enterprise honeypot lead protection.
+                <p className={`${soft} text-[10px] leading-snug`}>
+                  Automated background pipelines &amp; document OCR.
                 </p>
               </div>
             </div>
@@ -517,7 +507,7 @@ export default function MobileApp({
             <div className="pt-2">
               <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${soft} mb-2`}>Technologies</p>
               <div className="flex flex-wrap gap-1.5">
-                {['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'Framer Motion'].map((tech) => (
+                {['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'PostgreSQL', 'Framer Motion'].map((tech) => (
                   <span key={tech} className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${themeClasses.subCard} ${soft}`}>
                     {tech}
                   </span>
@@ -525,14 +515,14 @@ export default function MobileApp({
               </div>
             </div>
 
-            <div className="flex flex-col gap-2.5 pt-3">
+            <div className="pt-3">
               <a
                 href="https://kryva-technologies.netlify.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-emerald-500 text-black font-black text-sm active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(16,185,129,0.3)]"
               >
-                <ArrowUpRight size={16} /> Visit Live Site
+                <ArrowUpRight size={16} /> Visit Kryva Technologies
               </a>
             </div>
           </article>
