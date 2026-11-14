@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   X, ChevronLeft, ArrowUpRight, Sun, Moon, Briefcase, Award,
   Github, Linkedin, Mail, FileText, Download, ExternalLink,
-  MapPin, Cpu, Brain, Quote, Send, Bot
+  MapPin, Cpu, Brain, Quote, Send, Bot, Rocket, Layers, ShieldCheck
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { PROJECTS } from './projects-gallery';
@@ -26,6 +26,7 @@ const TILE_SKILLS = ['Python', 'Scikit-Learn', 'Pandas', 'NumPy']
 const SHEET_TITLES = {
   about: 'About',
   projects: 'Projects',
+  ventures: 'Ventures & Startups',
   experience: 'Experience & Education',
   skills: 'Technical Skills',
   services: 'Areas of Expertise',
@@ -436,6 +437,115 @@ export default function MobileApp({
           </div>
         );
 
+      case 'ventures':
+        return (
+          <article className="space-y-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Founder &amp; Active Venture
+              </span>
+              <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${soft}`}>
+                <Rocket size={11} className="text-emerald-400" /> Live Platform
+              </span>
+            </div>
+
+            <div>
+              <h3 className={`text-2xl font-black leading-tight ${strong}`}>Kryva Technologies</h3>
+              <p className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mt-1">
+                Founder &amp; Full-Stack / AI Engineer
+              </p>
+              <p className={`text-xs font-medium ${soft} mt-0.5`}>
+                AI Automation &amp; Custom Software Consultancy
+              </p>
+            </div>
+
+            <p className={`${soft} text-sm leading-relaxed`}>
+              An end-to-end software studio and AI consultancy delivering production-grade intelligent workflows, custom WhatsApp booking agents, background automation, and operational intelligence dashboards.
+            </p>
+
+            <div className="space-y-2.5 pt-1">
+              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                    <Layers size={13} />
+                  </span>
+                  <h4 className={`text-xs font-bold ${strong}`}>End-to-End Software Studio</h4>
+                </div>
+                <p className={`${soft} text-[11px] leading-relaxed`}>
+                  Founded and engineered a digital consultancy platform delivering WhatsApp chatbots, background AI workflow automation, document processing (OCR), and forecasting dashboards.
+                </p>
+              </div>
+
+              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                    <Bot size={13} />
+                  </span>
+                  <h4 className={`text-xs font-bold ${strong}`}>In-Browser Bot Simulator</h4>
+                </div>
+                <p className={`${soft} text-[11px] leading-relaxed`}>
+                  Built a real-time interactive WhatsApp booking simulator with natural intent parsing, simulated latency, and mobile touch-passthrough.
+                </p>
+              </div>
+
+              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                    <Cpu size={13} />
+                  </span>
+                  <h4 className={`text-xs font-bold ${strong}`}>Hardware-Accelerated UI</h4>
+                </div>
+                <p className={`${soft} text-[11px] leading-relaxed`}>
+                  Custom frosted-glass optical blur page transitions, 9:16 mobile chassis video player, and 100% responsive architecture.
+                </p>
+              </div>
+
+              <div className={`p-3.5 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                    <ShieldCheck size={13} />
+                  </span>
+                  <h4 className={`text-xs font-bold ${strong}`}>Production Ready</h4>
+                </div>
+                <p className={`${soft} text-[11px] leading-relaxed`}>
+                  Next.js 14 App Router, dynamic JSON-LD SEO schemas, and enterprise honeypot lead protection.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${soft} mb-2`}>Technologies</p>
+              <div className="flex flex-wrap gap-1.5">
+                {['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'Framer Motion'].map((tech) => (
+                  <span key={tech} className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${themeClasses.subCard} ${soft}`}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2.5 pt-3">
+              <a
+                href="https://kryva-technologies.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-emerald-500 text-black font-black text-sm active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+              >
+                <ArrowUpRight size={16} /> Visit Live Site
+              </a>
+              <a
+                href="https://github.com/vaibhavv-labs/kryva-technologies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl border text-sm font-bold ${themeClasses.subCard} ${strong} active:scale-[0.98] transition-transform`}
+              >
+                <Github size={16} /> View GitHub
+              </a>
+            </div>
+          </article>
+        );
+
       case 'experience':
         return (
           <ol className={`relative ml-2 border-l ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
@@ -584,6 +694,28 @@ export default function MobileApp({
               AI · ML · Deep Learning
             </span>
           </span>
+        </Tile>
+
+        {/* Ventures Tile — High impact Founder banner */}
+        <Tile index={++i} ready={ready} span label="Ventures & Startups" onClick={() => open('ventures')} className={`p-4 sm:p-5 flex flex-col justify-between ${tileGlass}`}>
+          <div className="flex items-center justify-between mb-2">
+            <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.22em] text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Founder &amp; Active Venture
+            </span>
+            <span className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+              <Rocket size={13} />
+            </span>
+          </div>
+          <div>
+            <span className={`block text-xl font-black leading-tight ${strong}`}>Kryva Technologies</span>
+            <span className={`block text-[11px] font-semibold mt-1 ${soft}`}>AI Automation &amp; Custom Software Studio</span>
+          </div>
+          <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-white/5">
+            <span className={`text-[10px] font-bold ${soft}`}>Next.js 14 · FastAPI · WhatsApp Bots</span>
+            <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.18em] text-emerald-400">
+              Explore <ArrowUpRight size={10} />
+            </span>
+          </div>
         </Tile>
 
         {/* Projects Widget Tile — auto cycles like iOS photo widget */}

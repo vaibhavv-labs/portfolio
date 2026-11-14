@@ -4,7 +4,8 @@ import {
   Github, Linkedin, Mail, MapPin, 
   Cpu, Brain, Trophy, MessageSquare, Menu,
   ArrowUpRight, BookOpen, Sparkles, Dribbble, X, ExternalLink, 
-  GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, MessageCircle
+  GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, MessageCircle,
+  Rocket, Layers, Bot, ShieldCheck
 } from 'lucide-react';
 import { IntroScreen } from './components/ui/intro-screen';
 import TubesCursorBackground from './components/ui/tubes-cursor-background';
@@ -41,6 +42,7 @@ const Portfolio = () => {
   const sectionIds = {
     Home: 'home',
     Projects: 'projects',
+    Ventures: 'ventures',
     Skills: 'skills',
     Expertise: 'expertise',
     Certificates: 'certificates',
@@ -256,12 +258,12 @@ const Portfolio = () => {
       {/* DESKTOP & TABLET */}
       <div className="hidden md:block">
       {/* FLOATING NAV — desktop */}
-      <nav className={`hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50 items-center gap-2 p-1.5 backdrop-blur-2xl rounded-full shadow-2xl ${themeClasses.nav}`}>
-        {['Home', 'Projects', 'Skills', 'Expertise', 'Certificates', 'Experience', 'Contact'].map((tab) => (
+      <nav className={`hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50 items-center gap-1.5 p-1.5 backdrop-blur-2xl rounded-full shadow-2xl ${themeClasses.nav}`}>
+        {['Home', 'Projects', 'Ventures', 'Skills', 'Expertise', 'Certificates', 'Experience', 'Contact'].map((tab) => (
           <button
             key={tab}
             onClick={() => handleNavClick(tab)}
-            className={`px-5 lg:px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-full transition-all whitespace-nowrap ${
+            className={`px-4 lg:px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-full transition-all whitespace-nowrap ${
               activeTab === tab
                 ? isDarkMode
                   ? 'bg-white/10 text-white shadow-inner'
@@ -470,6 +472,159 @@ const Portfolio = () => {
           </div>
 
           <ProjectsGallery isDarkMode={isDarkMode} themeClasses={themeClasses} onActiveChange={setProjectModalActive} />
+        </section>
+
+        {/* VENTURES & STARTUPS SECTION */}
+        <section id="ventures" className="mb-32 scroll-mt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-16">
+              <p className={`text-[10px] font-black uppercase tracking-[0.5em] ${themeClasses.mutedText}`}>
+                FOUNDER &amp; CONSULTANCY
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">
+                Ventures &amp; <span className="text-emerald-500">Startups</span>
+              </h2>
+              <p className={`${isDarkMode ? 'text-gray-400' : 'text-neutral-600'} mt-4 max-w-2xl mx-auto text-sm sm:text-base`}>
+                Commercial software platforms, AI consultancies, and digital agencies founded and engineered from the ground up.
+              </p>
+            </div>
+
+            <div className={`relative overflow-hidden rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border ${themeClasses.card} shadow-[0_20px_70px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-emerald-500/30 group`}>
+              {/* Ambient background glow */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none -mr-20 -mt-20 group-hover:bg-emerald-500/15 transition-all duration-700" />
+              <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 blur-[90px] rounded-full pointer-events-none -ml-10 -mb-10" />
+
+              <div className="relative z-10">
+                {/* Header row: Status badges & Category */}
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      Founder &amp; Active Venture
+                    </span>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300' : 'text-neutral-700'}`}>
+                      <Rocket size={13} className="text-emerald-400" /> Live Platform
+                    </span>
+                  </div>
+
+                  <span className={`text-[11px] font-bold uppercase tracking-widest ${themeClasses.mutedText}`}>
+                    Full-Stack AI Studio
+                  </span>
+                </div>
+
+                {/* Title & Role */}
+                <div className="mb-4">
+                  <h3 className={`text-3xl sm:text-4xl md:text-5xl font-black tracking-tight ${isDarkMode ? 'text-white' : 'text-neutral-900'} leading-none`}>
+                    Kryva Technologies
+                  </h3>
+                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400 mt-3">
+                    Founder &amp; Full-Stack / AI Engineer • AI Automation &amp; Custom Software Consultancy
+                  </p>
+                </div>
+
+                {/* Brief Description */}
+                <p className={`${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} text-sm sm:text-base leading-relaxed max-w-3xl font-medium mb-8`}>
+                  An end-to-end software studio and AI consultancy delivering production-grade intelligent workflows, custom WhatsApp booking agents, background automation, and operational intelligence dashboards for modern digital-first businesses.
+                </p>
+
+                {/* Key Highlights Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+                  {/* Highlight 1 */}
+                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                        <Layers size={16} />
+                      </span>
+                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>End-to-End Software Studio</h4>
+                    </div>
+                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
+                      Founded and engineered a modern digital consultancy platform delivering WhatsApp chatbots, background AI workflow automation, document processing (OCR), and operational forecasting dashboards.
+                    </p>
+                  </div>
+
+                  {/* Highlight 2 */}
+                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                        <Bot size={16} />
+                      </span>
+                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>In-Browser Bot Simulator</h4>
+                    </div>
+                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
+                      Built a real-time interactive WhatsApp booking simulator with natural intent parsing, simulated latency, and mobile touch-passthrough.
+                    </p>
+                  </div>
+
+                  {/* Highlight 3 */}
+                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                        <Cpu size={16} />
+                      </span>
+                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Hardware-Accelerated UI &amp; Micro-interactions</h4>
+                    </div>
+                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
+                      Implemented custom frosted-glass optical blur page transitions, 9:16 mobile chassis video player, and 100% responsive zero-layout-shift architecture.
+                    </p>
+                  </div>
+
+                  {/* Highlight 4 */}
+                  <div className={`p-5 rounded-2xl ${themeClasses.subCard} border border-white/5 hover:border-emerald-500/20 transition-colors`}>
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                        <ShieldCheck size={16} />
+                      </span>
+                      <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Production Ready</h4>
+                    </div>
+                    <p className={`${themeClasses.mutedText} text-xs leading-relaxed`}>
+                      Built with Next.js 14 App Router, dynamic JSON-LD SEO schemas, and enterprise honeypot lead protection.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Footer row: Tech stack pills & CTA buttons */}
+                <div className="pt-6 border-t border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <div>
+                    <p className={`text-[10px] font-black uppercase tracking-[0.25em] ${themeClasses.mutedText} mb-3`}>
+                      Technologies &amp; Architecture
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'Framer Motion'].map((tech) => (
+                        <span key={tech} className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-200' : 'text-neutral-700'} border border-white/5`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 shrink-0">
+                    <a
+                      href="https://kryva-technologies.netlify.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
+                    >
+                      Visit Live Site
+                      <ArrowUpRight size={14} />
+                    </a>
+                    <a
+                      href="https://github.com/vaibhavv-labs/kryva-technologies"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider border transition-all active:scale-95 ${
+                        isDarkMode 
+                          ? 'bg-white/5 hover:bg-white/10 text-white border-white/15' 
+                          : 'bg-neutral-900/5 hover:bg-neutral-900/10 text-neutral-900 border-neutral-300'
+                      }`}
+                    >
+                      <Github size={14} />
+                      View GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
       {/* Skills Section */}
