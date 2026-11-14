@@ -44,7 +44,7 @@ STRICT ANTI-AI & NATURAL LANGUAGE RULES:
 - Languages Spoken: English, Marathi, Hindi
 - Headline: AI & ML Engineer | Founder @ Kryva Technologies | Building Intelligent Systems That Solve Real-World Problems
 - Current Role: B.E. AI & Data Science student @ Savitribai Phule Pune University (SPPU), SNJB College of Engineering (NAAC A+). Graduation: 2027. Current CGPA: 8.6 / 10.
-- Founder & Venture: Founder & Full-Stack / AI Engineer at Kryva Technologies (https://kryva-technologies.netlify.app).
+- Founder & Venture: Founder & Full-Stack / AI Engineer at Kryva Technologies (https://kryvatechnologies.is-a.dev/).
 - Current Status: Actively building production-ready AI products; seeking software engineering & AI opportunities.
 - Availability: Open to internships, freelance projects, and full-time roles (Remote, On-site, or Hybrid).
 - Education History:

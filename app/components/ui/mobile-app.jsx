@@ -517,7 +517,7 @@ export default function MobileApp({
 
             <div className="pt-3">
               <a
-                href="https://kryva-technologies.netlify.app"
+                href="https://kryvatechnologies.is-a.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-emerald-500 text-black font-black text-sm active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(16,185,129,0.3)]"

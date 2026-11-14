@@ -556,7 +556,7 @@ const Portfolio = () => {
 
                     <div className="pt-2">
                       <a
-                        href="https://kryva-technologies.netlify.app"
+                        href="https://kryvatechnologies.is-a.dev/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
