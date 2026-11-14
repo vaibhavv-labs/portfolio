@@ -145,6 +145,10 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="https://vaibhavv.is-a.dev/profile.png" />
         <link rel="help" href="/llms.txt" />
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MJG9T9Z145"
+          strategy="afterInteractive"
+        />
+        <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-NGBPXRJZ"
           strategy="afterInteractive"
         />
@@ -153,6 +157,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            gtag('config', 'G-MJG9T9Z145');
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
