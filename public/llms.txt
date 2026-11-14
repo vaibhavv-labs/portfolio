@@ -1,0 +1,46 @@
+# Vaibhav Bhoyate
+
+> AI & ML Engineer | Founder @ Kryva Technologies | Building Intelligent Systems That Solve Real-World Problems
+
+Personal portfolio and technical profile of Vaibhav Bhoyate. Specializing in Machine Learning, Autonomous AI Agents, Deep Learning, and Full-Stack Engineering.
+
+## Core Information
+- Name: Vaibhav Baban Bhoyate
+- Title: AI & ML Engineer / Founder
+- Location: Chandwad, Maharashtra, India
+- Education: B.E. in Artificial Intelligence & Data Science, Savitribai Phule Pune University (SPPU), SNJB College of Engineering (Graduation: 2027, CGPA: 8.6/10)
+- Portfolio Website: https://vaibhavv.is-a.dev
+- Founded Venture: Kryva Technologies (https://kryvatechnologies.is-a.dev/)
+- Email: vaibhavbhoyate976@gmail.com
+- Phone / WhatsApp: +91 8830269849
+- LinkedIn: https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/
+- GitHub: https://github.com/vaibhavv-labs
+
+## Key Technical Skills
+- Core ML & AI: Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, Scikit-Learn, PyTorch, Hugging Face, OpenCV
+- LLM & Agents: Multi-Agent Systems, LangChain, Groq Llama 3, Google Gemini, CodeBERT, Prompt Engineering, RAG
+- Software & Full-Stack: Python, Next.js 14, TypeScript, FastAPI, React, Tailwind CSS, PostgreSQL, MongoDB, Git
+
+## Founded Venture
+- **Kryva Technologies** (https://kryvatechnologies.is-a.dev/)
+  - Role: Founder & Lead AI Engineer
+  - Description: Digital consultancy and AI studio architecting autonomous WhatsApp conversational agents, background workflow automation, document OCR pipelines, and bespoke operational platforms for modern businesses.
+
+## Featured Projects
+- **Autonomous Business Platform (ABP)**
+  - Live: https://autonomous-business-platform-dskp.vercel.app/
+  - GitHub: https://github.com/vaibhavv-labs/autonomous-business-platform
+  - Summary: Autonomous AI-powered SaaS platform for running business marketing, ad-copy generation, Replicate/Flux AI product image synthesis, Resend email outreach, and live interactive AI business assistant ("Otto").
+  - Tech Stack: Next.js, FastAPI, Python, Groq Llama 3, Resend
+
+- **Logic Coach**
+  - Live: https://logic-coach.vercel.app/
+  - GitHub: https://github.com/vaibhavv-labs/logic-coach-web
+  - Summary: Next-gen AI platform for mastering Data Structures, Algorithms, and programming. Features real-time code analysis, step-by-step debugging, and Big-O complexity analysis with Google Gemini AI.
+  - Tech Stack: Next.js, Gemini AI, Firebase, React
+
+- **CodeSentinel AI**
+  - Live: https://codesentinel-app.vercel.app/
+  - GitHub: https://github.com/vaibhavv-labs/CodeSentinel-AI
+  - Summary: AI code vulnerability detection tool using a fine-tuned CodeBERT model (89.16% accuracy) across 8 vulnerability classes with up to 99.92% confidence and auto-fixing via Qwen 2.5 Coder.
+  - Tech Stack: CodeBERT, Gemini AI, Python

@@ -132,6 +132,17 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/icon.png" sizes="any" />
         <meta name="google-site-verification" content="zr4JLgAcJmy5LBDCtiO-yiV-mjT51cBVsmCCWE6LSd0" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vaibhavv.is-a.dev/" />
+        <meta property="og:title" content="Vaibhav Bhoyate | AI & ML Engineer | Founder @ Kryva Technologies" />
+        <meta property="og:description" content="Official portfolio of Vaibhav Bhoyate — AI & ML Engineer, Founder of Kryva Technologies. Specializing in Machine Learning, Autonomous AI Systems, and Full-Stack Engineering." />
+        <meta property="og:image" content="https://vaibhavv.is-a.dev/profile.png" />
+        <meta property="og:site_name" content="Vaibhav Bhoyate Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vaibhav Bhoyate | AI & ML Engineer | Founder @ Kryva Technologies" />
+        <meta name="twitter:description" content="Official portfolio of Vaibhav Bhoyate — AI & ML Engineer, Founder of Kryva Technologies." />
+        <meta name="twitter:image" content="https://vaibhavv.is-a.dev/profile.png" />
+        <link rel="help" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
