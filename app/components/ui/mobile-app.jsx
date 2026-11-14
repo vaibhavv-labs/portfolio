@@ -534,14 +534,6 @@ export default function MobileApp({
               >
                 <ArrowUpRight size={16} /> Visit Live Site
               </a>
-              <a
-                href="https://github.com/vaibhavv-labs/kryva-technologies"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl border text-sm font-bold ${themeClasses.subCard} ${strong} active:scale-[0.98] transition-transform`}
-              >
-                <Github size={16} /> View GitHub
-              </a>
             </div>
           </article>
         );

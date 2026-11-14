@@ -602,23 +602,10 @@ const Portfolio = () => {
                       href="https://kryva-technologies.netlify.app"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-black transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] active:scale-95"
                     >
                       Visit Live Site
                       <ArrowUpRight size={14} />
-                    </a>
-                    <a
-                      href="https://github.com/vaibhavv-labs/kryva-technologies"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-black uppercase tracking-wider border transition-all active:scale-95 ${
-                        isDarkMode 
-                          ? 'bg-white/5 hover:bg-white/10 text-white border-white/15' 
-                          : 'bg-neutral-900/5 hover:bg-neutral-900/10 text-neutral-900 border-neutral-300'
-                      }`}
-                    >
-                      <Github size={14} />
-                      View GitHub
                     </a>
                   </div>
                 </div>
