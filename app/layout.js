@@ -5,6 +5,7 @@ const baseUrl = 'https://vaibhavv.is-a.dev'
 
 export const metadata = {
   metadataBase: new URL(baseUrl),
+  applicationName: 'Vaibhav Bhoyate Portfolio',
   title: {
     default: 'Vaibhav Bhoyate | AI & ML Engineer | Founder @ Kryva Technologies',
     template: '%s | Vaibhav Bhoyate',
@@ -124,6 +125,7 @@ const jsonLd = {
       '@id': `${baseUrl}/#website`,
       url: baseUrl,
       name: 'Vaibhav Bhoyate Portfolio',
+      alternateName: ['Vaibhav Bhoyate', 'Portfolio', 'Vaibhav Bhoyate Portfolio', 'vaibhavv.is-a.dev'],
       description:
         'Official portfolio of Vaibhav Bhoyate — AI & ML Engineer and Founder of Kryva Technologies.',
       publisher: {
@@ -150,6 +152,7 @@ export default function RootLayout({ children }) {
         <meta property="og:description" content="Official portfolio of Vaibhav Bhoyate — AI & ML Engineer, Founder of Kryva Technologies. Specializing in Machine Learning, Autonomous AI Systems, and Full-Stack Engineering." />
         <meta property="og:image" content="https://vaibhavv.is-a.dev/profile.png" />
         <meta property="og:site_name" content="Vaibhav Bhoyate Portfolio" />
+        <meta name="application-name" content="Vaibhav Bhoyate Portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vaibhav Bhoyate | AI & ML Engineer | Founder @ Kryva Technologies" />
         <meta name="twitter:description" content="Official portfolio of Vaibhav Bhoyate — AI & ML Engineer, Founder of Kryva Technologies." />
