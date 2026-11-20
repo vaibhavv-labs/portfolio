@@ -84,54 +84,46 @@ export const metadata = {
   },
 }
 
-const jsonLd = {
+const websiteJsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Person',
-      '@id': `${baseUrl}/#person`,
-      name: 'Vaibhav Bhoyate',
-      alternateName: ['Vaibhav Baban Bhoyate', 'vaibhavv-labs'],
-      url: baseUrl,
-      image: `${baseUrl}/profile.png`,
-      jobTitle: 'AI & Machine Learning Engineer',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Kryva Technologies',
-        url: 'https://kryvatechnologies.is-a.dev/',
-      },
-      alumniOf: {
-        '@type': 'CollegeOrUniversity',
-        name: 'Savitribai Phule Pune University',
-      },
-      sameAs: [
-        'https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/',
-        'https://github.com/vaibhavv-labs',
-        'https://kryvatechnologies.is-a.dev/',
-      ],
-      knowsAbout: [
-        'Artificial Intelligence',
-        'Machine Learning',
-        'Deep Learning',
-        'Natural Language Processing',
-        'Computer Vision',
-        'Python',
-        'Next.js',
-        'FastAPI',
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${baseUrl}/#website`,
-      url: baseUrl,
-      name: 'Vaibhav Bhoyate Portfolio',
-      alternateName: ['Vaibhav Bhoyate', 'Portfolio', 'Vaibhav Bhoyate Portfolio', 'vaibhavv.is-a.dev'],
-      description:
-        'Official portfolio of Vaibhav Bhoyate — AI & ML Engineer and Founder of Kryva Technologies.',
-      publisher: {
-        '@id': `${baseUrl}/#person`,
-      },
-    },
+  '@type': 'WebSite',
+  name: 'Vaibhav Bhoyate Portfolio',
+  alternateName: ['Vaibhav Bhoyate', 'Portfolio', 'vaibhavv.is-a.dev'],
+  url: 'https://vaibhavv.is-a.dev/',
+}
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${baseUrl}/#person`,
+  name: 'Vaibhav Bhoyate',
+  alternateName: ['Vaibhav Baban Bhoyate', 'vaibhavv-labs'],
+  url: `${baseUrl}/`,
+  image: `${baseUrl}/profile.png`,
+  jobTitle: 'AI & Machine Learning Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Kryva Technologies',
+    url: 'https://kryvatechnologies.is-a.dev/',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Savitribai Phule Pune University',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/',
+    'https://github.com/vaibhavv-labs',
+    'https://kryvatechnologies.is-a.dev/',
+  ],
+  knowsAbout: [
+    'Artificial Intelligence',
+    'Machine Learning',
+    'Deep Learning',
+    'Natural Language Processing',
+    'Computer Vision',
+    'Python',
+    'Next.js',
+    'FastAPI',
   ],
 }
 
@@ -181,7 +173,11 @@ export default function RootLayout({ children }) {
         </Script>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
       <body>
