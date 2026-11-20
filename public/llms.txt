@@ -7,7 +7,7 @@ Personal portfolio and technical profile of Vaibhav Bhoyate. Specializing in Mac
 ## Core Information
 - Name: Vaibhav Baban Bhoyate
 - Title: AI & ML Engineer / Founder
-- Location: Chandwad, Maharashtra, India
+- Location: Nashik, Maharashtra, India
 - Education: B.E. in Artificial Intelligence & Data Science, Savitribai Phule Pune University (SPPU), SNJB College of Engineering (Graduation: 2027, CGPA: 8.6/10)
 - Portfolio Website: https://vaibhavv.is-a.dev
 - Founded Venture: Kryva Technologies (https://kryvatechnologies.is-a.dev/)

@@ -3,12 +3,14 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   X, ChevronLeft, ArrowUpRight, Sun, Moon, Briefcase, Award,
   Github, Linkedin, Mail, FileText, Download, ExternalLink,
-  MapPin, Cpu, Brain, Quote, Send, Bot, Rocket, Layers, ShieldCheck
+  MapPin, Cpu, Brain, Quote, Send, Bot, Rocket, Layers, ShieldCheck,
+  Terminal, Flame
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { PROJECTS } from './projects-gallery';
 import SkillsIcons, { SKILL_GROUPS } from './skills-icons';
 import ServicesGrid, { SERVICES } from './services-grid';
+import GitHubActivity from './github-activity';
 
 const EMAIL = 'vaibhavbhoyate976@gmail.com';
 const RESUME = '/resume.pdf';
@@ -31,6 +33,7 @@ const SHEET_TITLES = {
   skills: 'Technical Skills',
   services: 'Areas of Expertise',
   certificates: 'Certifications',
+  activity: 'GitHub Activity & Streak',
   contact: 'Contact',
 };
 
@@ -283,6 +286,8 @@ export default function MobileApp({
   sheetNav,
   onRequest,
   onOpenChat,
+  liveTime,
+  liveStatus,
 }) {
   const internalSheet = useMobileSheet();
   const { sheet, open, back, close } = sheetNav ?? internalSheet;
@@ -405,11 +410,29 @@ export default function MobileApp({
             <section className={`relative overflow-hidden rounded-[1.75rem] p-5 ${themeClasses.card}`}>
               <img src="/manama.png" alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-15" />
               <div className="relative">
-                <p className={`flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] mb-2 ${soft}`}>
-                  <MapPin size={14} className="text-emerald-400" /> Location
+                <div className="flex items-center justify-between mb-3">
+                  <p className={`flex items-center gap-2 text-[9px] uppercase tracking-[0.3em] ${soft}`}>
+                    <MapPin size={14} className="text-emerald-400" /> Location
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    IST (UTC+5:30)
+                  </span>
+                </div>
+                <p className={`text-2xl font-black uppercase tracking-tight ${strong}`}>
+                  Nashik<br /><span className="text-neutral-400 text-base">Maharashtra, India</span>
                 </p>
-                <p className={`text-2xl font-black uppercase tracking-tight ${strong}`}>Nashik, India</p>
-                <p className={`text-[10px] font-semibold uppercase tracking-[0.2em] mt-1.5 ${soft}`}>20.00°N, 73.78°E</p>
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-400 block">Live Clock</span>
+                    <span className="text-sm font-mono font-black text-emerald-400">
+                      {liveTime || '10:15:00 PM'}
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-neutral-400 text-right">
+                    {liveStatus || 'IST UTC+5:30'}
+                  </span>
+                </div>
               </div>
             </section>
           </div>
@@ -631,6 +654,20 @@ export default function MobileApp({
           </div>
         );
 
+      case 'activity':
+        return (
+          <div className="space-y-4 pb-4">
+            <p className={`${soft} text-xs leading-relaxed`}>
+              Verified live contributions, streak records, and repositories from GitHub (<span className={`${strong} font-semibold`}>@vaibhavv-labs</span>).
+            </p>
+            <GitHubActivity
+              isDarkMode={isDarkMode}
+              themeClasses={themeClasses}
+              bgAccentColor={accentColor}
+            />
+          </div>
+        );
+
       default:
         return null;
     }
@@ -640,7 +677,7 @@ export default function MobileApp({
   let i = 0;
 
   return (
-    <div className={`relative z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-10 ${className}`}>
+    <div className={`relative z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-10 max-w-full overflow-x-hidden ${className}`}>
       {/* Mobile Top Header */}
       <header className={`flex items-center justify-between h-16 mb-2 ${ready ? 'tile-in' : 'opacity-0'}`} style={{ '--i': 0 }}>
         <span role="img" aria-label="Vaibhav Bhoyate" className={`sig-mark h-11 w-36 ${strong}`} />
@@ -656,7 +693,7 @@ export default function MobileApp({
       {/* Bento Tiles Grid */}
       <div className="grid grid-cols-2 gap-3">
         {/* Identity Tile */}
-        <Tile index={++i} ready={ready} span label="About Vaibhav" onClick={() => open('about')} className="h-[35svh] min-h-[270px] max-h-[350px]">
+        <Tile index={++i} ready={ready} span label="About Vaibhav" onClick={() => open('about')} className="h-[36svh] min-h-[280px] max-h-[360px]">
           <img
             key={photoKey}
             src={photo || '/profile.png'}
@@ -666,15 +703,27 @@ export default function MobileApp({
           <span className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
           <Corner />
           <span className="absolute inset-x-0 bottom-0 p-5">
-            <span className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.28em] text-emerald-400 mb-2.5">
+            <span className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.28em] text-emerald-400 mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> AI & ML Engineer
             </span>
-            <span className="block text-[2.6rem] font-black uppercase tracking-tighter leading-[0.85] text-white">
+            <span className="block text-[2.5rem] font-black uppercase tracking-tighter leading-[0.85] text-white">
               Vaibhav<br /><span className="text-gray-400">Bhoyate</span>
             </span>
-            <span className="block mt-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-300">
+            <span className="block mt-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-300">
               AI · ML · Deep Learning
             </span>
+            
+            {/* Live Location & IST Badge */}
+            <div className="flex items-center justify-between gap-2 mt-3 pt-2.5 border-t border-white/15 text-gray-300">
+              <span className="inline-flex items-center gap-1 text-[9px] font-mono">
+                <MapPin size={10} className="text-emerald-400" />
+                <span>Nashik, India</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[9px] font-mono text-emerald-400 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <span>{liveTime || 'IST UTC+5:30'}</span>
+              </span>
+            </div>
           </span>
         </Tile>
 
@@ -778,6 +827,45 @@ export default function MobileApp({
           </span>
           <span className={`block text-base font-black leading-tight ${strong}`}>Ask VISION</span>
           <span className={`block text-[10px] font-black uppercase tracking-[0.22em] mt-1.5 ${soft}`}>Instant AI answers</span>
+        </Tile>
+
+        {/* Live GitHub Activity Tile */}
+        <Tile
+          index={++i}
+          ready={ready}
+          span
+          label="Live GitHub Activity and Heatmap"
+          onClick={() => open('activity')}
+          className={`p-4 sm:p-5 flex flex-col justify-between ${tileGlass}`}
+        >
+          <div className="flex items-center justify-between mb-2">
+            <span className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.22em] text-emerald-400">
+              <Flame size={13} className="text-amber-400 animate-pulse" /> Live GitHub Activity
+            </span>
+            <span className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+              <Github size={13} />
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 my-1.5">
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
+              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Commits</span>
+              <span className="text-sm sm:text-base font-black text-emerald-400">1,254+</span>
+            </div>
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
+              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Max Streak</span>
+              <span className="text-sm sm:text-base font-black text-purple-400">67 Days</span>
+            </div>
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
+              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Repos</span>
+              <span className="text-sm sm:text-base font-black text-cyan-400">34</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+            <span className={`text-[10px] font-mono ${soft}`}>@vaibhavv-labs · 430 Followers</span>
+            <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.18em] text-emerald-400">
+              View Heatmap <ArrowUpRight size={10} />
+            </span>
+          </div>
         </Tile>
 
         {/* Contact Tile */}

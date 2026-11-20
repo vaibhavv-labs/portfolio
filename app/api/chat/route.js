@@ -39,7 +39,7 @@ STRICT ANTI-AI & NATURAL LANGUAGE RULES:
 - Full Name: Vaibhav Baban Bhoyate (Preferred Name: Vaibhav Bhoyate)
 - DOB: October 7, 2005
 - Nationality: Indian
-- Location: Chandwad, Maharashtra, India
+- Location: Nashik, Maharashtra, India
 - Time Zone: IST (GMT+5:30)
 - Languages Spoken: English, Marathi, Hindi
 - Headline: AI & ML Engineer | Founder @ Kryva Technologies | Building Intelligent Systems That Solve Real-World Problems

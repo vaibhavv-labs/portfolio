@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { 
   Github, Linkedin, Mail, MapPin, 
   Cpu, Brain, Trophy, MessageSquare, Menu,
   ArrowUpRight, BookOpen, Sparkles, Dribbble, X, ExternalLink, 
   GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, MessageCircle,
-  Rocket, Layers, Bot, ShieldCheck
+  Rocket, Layers, Bot, ShieldCheck, Palette, Terminal
 } from 'lucide-react';
 import { IntroScreen } from './components/ui/intro-screen';
 import TubesCursorBackground from './components/ui/tubes-cursor-background';
@@ -16,6 +16,9 @@ import RequestModal from './components/ui/request-modal';
 import ProjectsGallery from './components/ui/projects-gallery';
 import SkillsIcons from './components/ui/skills-icons';
 import MobileApp, { useMobileSheet } from './components/ui/mobile-app';
+import CommandPalette from './components/ui/command-palette';
+import RecruiterModal from './components/ui/recruiter-modal';
+import GitHubActivity from './components/ui/github-activity';
 import { SiAnthropic, SiPython } from "react-icons/si";
 import { FaAward, FaSatellite, FaBuilding, FaWhatsapp } from "react-icons/fa";
 
@@ -31,6 +34,11 @@ const Portfolio = () => {
   const [request, setRequest] = useState(null);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [bgAccentColor, setBgAccentColor] = useState('#10b981');
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+  const [recruiterModeOpen, setRecruiterModeOpen] = useState(false);
+  const [liveTime, setLiveTime] = useState('');
+  const [liveStatus, setLiveStatus] = useState('IST (UTC+5:30)');
+  const tubesRef = useRef(null);
 
   const photoSources = ['/profile.png', '/p1.jpeg', '/p2.jpeg'];
   const mindsetQuotes = [
@@ -103,10 +111,81 @@ const Portfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        setCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      });
+      setLiveTime(timeStr);
+
+      const istHour = parseInt(
+        new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: 'numeric',
+          hour12: false,
+        }).format(now),
+        10
+      );
+
+      if (istHour >= 9 && istHour < 19) {
+        setLiveStatus('Active & Available');
+      } else if (istHour >= 19 || istHour < 2) {
+        setLiveStatus('Deep Work & AI Engineering');
+      } else {
+        setLiveStatus('Offline / Recharging');
+      }
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleNavClick = (tab) => {
     setActiveTab(tab);
     setMobileNavOpen(false);
-    const target = document.getElementById(sectionIds[tab]);
+
+    // On mobile screens (<768px), desktop sections are hidden, so route to mobile sheets
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      const sheetMap = {
+        Home: null,
+        Projects: 'projects',
+        Ventures: 'ventures',
+        Skills: 'skills',
+        Expertise: 'services',
+        Certificates: 'certificates',
+        Experience: 'experience',
+        Contact: 'contact',
+        Activity: 'activity',
+        activity: 'activity',
+      };
+      const sheetTarget = sheetMap[tab];
+      if (sheetTarget) {
+        mobileSheet.open(sheetTarget);
+      } else if (tab === 'Home') {
+        mobileSheet.close();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    const target = document.getElementById(sectionIds[tab] || tab);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -232,7 +311,7 @@ const Portfolio = () => {
       <div className={`min-h-screen ${themeClasses.root} font-sans selection:bg-emerald-500/30 overflow-x-hidden`}>
       {/* BACKGROUND — 3D cursor tubes strictly for desktop mouse; lightweight static background for mobile */}
       <div className={`hidden md:block transition-opacity duration-300 ${projectModalActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        {isDarkMode ? <TubesCursorBackground onColorChange={setBgAccentColor} /> : <LightBackground />}
+        {isDarkMode ? <TubesCursorBackground ref={tubesRef} onColorChange={setBgAccentColor} /> : <LightBackground />}
       </div>
       <div className="md:hidden">
         <div className={`fixed inset-0 z-0 pointer-events-none ${isDarkMode ? 'bg-[#080808]' : 'bg-neutral-50'}`} />
@@ -253,17 +332,20 @@ const Portfolio = () => {
         sheetNav={mobileSheet}
         onRequest={openRequest}
         onOpenChat={() => setChatOpen(true)}
+        liveTime={liveTime}
+        liveStatus={liveStatus}
       />
 
       {/* DESKTOP & TABLET */}
       <div className="hidden md:block">
-      {/* FLOATING NAV — desktop */}
+      {/* FLOATING MAIN NAV — unified centered capsule with segmented tools */}
       <nav className={`hidden md:flex fixed top-8 left-1/2 -translate-x-1/2 z-50 items-center gap-1.5 p-1.5 backdrop-blur-2xl rounded-full shadow-2xl ${themeClasses.nav}`}>
+        {/* SECTIONS NAVIGATION */}
         {['Home', 'Projects', 'Ventures', 'Skills', 'Expertise', 'Certificates', 'Experience', 'Contact'].map((tab) => (
           <button
             key={tab}
             onClick={() => handleNavClick(tab)}
-            className={`px-4 lg:px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-full transition-all whitespace-nowrap ${
+            className={`px-3.5 lg:px-4.5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-full transition-all whitespace-nowrap ${
               activeTab === tab
                 ? isDarkMode
                   ? 'bg-white/10 text-white shadow-inner'
@@ -274,10 +356,50 @@ const Portfolio = () => {
             {tab}
           </button>
         ))}
+
+        {/* ELEGANT VERTICAL DIVIDER */}
+        <div className={`h-4 w-[1px] mx-1 shrink-0 ${isDarkMode ? 'bg-white/15' : 'bg-neutral-300'}`} />
+
+        {/* QUICK SHORTCUT TOOLS (RECRUITER WITH NAME + COMPACT ICONS) */}
+        <button
+          onClick={() => setRecruiterModeOpen(true)}
+          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-bold tracking-wider transition active:scale-95 ${
+            isDarkMode 
+              ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25' 
+              : 'bg-emerald-100 text-emerald-700 border border-emerald-300 hover:bg-emerald-200'
+          }`}
+          title="Recruiter Mode (60-sec Executive Snapshot)"
+          aria-label="Open Recruiter Mode"
+        >
+          <Briefcase size={12} />
+          <span>Recruiter</span>
+        </button>
+
+        <button
+          onClick={() => setCommandPaletteOpen(true)}
+          className={`inline-flex items-center justify-center rounded-full p-2.5 transition active:scale-90 ${themeClasses.accentButton}`}
+          title="Developer Command Palette (Ctrl + K / ⌘K)"
+          aria-label="Open Command Palette"
+        >
+          <Terminal size={14} style={{ color: bgAccentColor }} />
+        </button>
+
+        {isDarkMode && (
+          <button
+            onClick={() => tubesRef.current?.cycleColors()}
+            className={`inline-flex items-center justify-center rounded-full p-2.5 transition active:scale-90 ${themeClasses.accentButton}`}
+            aria-label="Cycle 3D cursor color theme"
+            title="Cycle Neon Theme (3D Cursor)"
+          >
+            <Palette size={14} style={{ color: bgAccentColor }} />
+          </button>
+        )}
+
         <button
           onClick={() => setIsDarkMode((current) => !current)}
-          className={`inline-flex items-center justify-center rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition ${themeClasses.accentButton}`}
+          className={`inline-flex items-center justify-center rounded-full p-2.5 transition active:scale-90 ${themeClasses.accentButton}`}
           aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         >
           {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
         </button>
@@ -445,22 +567,38 @@ const Portfolio = () => {
             </p>
           </div>
 
-          {/* LOCATION */}
+          {/* LOCATION & LIVE TIME ZONE */}
           <div className={`md:col-span-4 md:col-start-9 md:row-start-2 min-h-[170px] rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-[0_0_35px_rgba(255,_255,_255,_0.05)] ${themeClasses.card}`}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full -mr-10 -mt-10"></div>
             <img src="/manama.png" alt="Manama" className="absolute inset-0 w-full h-full object-cover opacity-15" />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6">
-                <MapPin className="text-emerald-400" size={22} />
-                <span className={`text-[10px] uppercase tracking-[0.35em] ${themeClasses.mutedText}`}>Location</span>
+            <div className="relative z-10 flex flex-col justify-between h-full">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="text-emerald-400" size={18} />
+                    <span className={`text-[10px] uppercase tracking-[0.35em] ${themeClasses.mutedText}`}>Location</span>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    IST (UTC+5:30)
+                  </span>
+                </div>
+                <h3 className={`text-2xl md:text-3xl font-black uppercase tracking-tight leading-[0.95] mb-2 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
+                  Nashik<br />
+                  <span className="text-gray-400">Maharashtra, India</span>
+                </h3>
               </div>
-              <h3 className={`text-2xl md:text-3xl font-black uppercase tracking-tight leading-[0.95] mb-3 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
-                Nashik<br />
-                <span className="text-gray-400">India</span>
-              </h3>
-              <p className={`${isDarkMode ? 'text-gray-400' : 'text-neutral-600'} text-[12px] md:text-[13px] uppercase font-semibold tracking-[0.25em]`}>
-                20°16'38.2"N 74°14'52.5"E
-              </p>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">Live Time</span>
+                  <span className="text-sm font-mono font-black text-emerald-400 tracking-wider">
+                    {liveTime || '10:15:00 PM'}
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono text-neutral-400 text-right">
+                  {liveStatus}
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -607,6 +745,13 @@ const Portfolio = () => {
         <div className={`max-w-7xl mx-auto rounded-[2.5rem] p-6 sm:p-10 ${themeClasses.panel}`}>
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-black mb-8 md:mb-12 uppercase tracking-wide ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Technical Skills</h2>
           <SkillsIcons isDarkMode={isDarkMode} themeClasses={themeClasses} />
+        </div>
+      </section>
+
+      {/* Live GitHub Contributions & Streak Widget */}
+      <section id="activity" className="py-10 sm:py-16 px-4 sm:px-6 scroll-mt-28">
+        <div className="max-w-7xl mx-auto">
+          <GitHubActivity isDarkMode={isDarkMode} themeClasses={themeClasses} bgAccentColor={bgAccentColor} />
         </div>
       </section>
 
@@ -765,6 +910,24 @@ const Portfolio = () => {
         onClose={closeRequest}
         isDarkMode={isDarkMode}
         themeClasses={themeClasses}
+      />
+      <CommandPalette
+        isOpen={commandPaletteOpen}
+        onClose={() => setCommandPaletteOpen(false)}
+        isDarkMode={isDarkMode}
+        onToggleTheme={() => setIsDarkMode((current) => !current)}
+        onCycleColors={() => tubesRef.current?.cycleColors()}
+        onNavigate={handleNavClick}
+        onOpenChat={() => setChatOpen(true)}
+        onOpenRequest={openRequest}
+        onOpenRecruiterMode={() => setRecruiterModeOpen(true)}
+        bgAccentColor={isDarkMode ? bgAccentColor : '#10b981'}
+      />
+      <RecruiterModal
+        isOpen={recruiterModeOpen}
+        onClose={() => setRecruiterModeOpen(false)}
+        isDarkMode={isDarkMode}
+        bgAccentColor={isDarkMode ? bgAccentColor : '#10b981'}
       />
       </div>
     </>

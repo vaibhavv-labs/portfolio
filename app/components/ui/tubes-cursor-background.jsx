@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 
 const randomColors = (count) => {
   return new Array(count)
@@ -7,9 +7,31 @@ const randomColors = (count) => {
     .map(() => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
 };
 
-export default function TubesCursorBackground({ onColorChange }) {
+const TubesCursorBackground = forwardRef(function TubesCursorBackground({ onColorChange }, ref) {
   const canvasRef = useRef(null);
   const appRef = useRef(null);
+
+  const cycleColors = () => {
+    if (appRef.current) {
+      const newTubeColors = randomColors(3);
+      appRef.current.tubes.setColors(newTubeColors);
+      appRef.current.tubes.setLightsColors(randomColors(4));
+      onColorChange?.(newTubeColors[0]);
+    }
+  };
+
+  const setPalette = (colors, lights) => {
+    if (appRef.current && Array.isArray(colors)) {
+      appRef.current.tubes.setColors(colors);
+      if (lights) appRef.current.tubes.setLightsColors(lights);
+      onColorChange?.(colors[0]);
+    }
+  };
+
+  useImperativeHandle(ref, () => ({
+    cycleColors,
+    setPalette,
+  }));
 
   useEffect(() => {
     // Delaying init lets the canvas settle to its final size first —
@@ -35,7 +57,7 @@ export default function TubesCursorBackground({ onColorChange }) {
         .catch((err) => console.error('Failed to load TubesCursor module:', err));
     }, 100);
 
-    return () => {
+  return () => {
       clearTimeout(initTimer);
       if (appRef.current && typeof appRef.current.dispose === 'function') {
         appRef.current.dispose();
@@ -43,18 +65,11 @@ export default function TubesCursorBackground({ onColorChange }) {
     };
   }, [onColorChange]);
 
-  const handleClick = () => {
-    if (appRef.current) {
-      const newTubeColors = randomColors(3);
-      appRef.current.tubes.setColors(newTubeColors);
-      appRef.current.tubes.setLightsColors(randomColors(4));
-      onColorChange?.(newTubeColors[0]);
-    }
-  };
-
   return (
-    <div onClick={handleClick} className="fixed inset-0 z-0 bg-black cursor-pointer">
+    <div onClick={cycleColors} className="fixed inset-0 z-0 bg-black cursor-pointer">
       <canvas ref={canvasRef} className="fixed inset-0" />
     </div>
   );
-}
+});
+
+export default TubesCursorBackground;
