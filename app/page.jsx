@@ -5,7 +5,7 @@ import {
   Cpu, Brain, Trophy, MessageSquare, Menu,
   ArrowUpRight, BookOpen, Sparkles, Dribbble, X, ExternalLink, 
   GraduationCap,  Briefcase, Folder, Award, ChevronRight, FileText, Quote, Sun, Moon, MessageCircle,
-  Rocket, Layers, Bot, ShieldCheck, Palette, Terminal
+  Rocket, Layers, Bot, ShieldCheck, Palette, Terminal, Link2
 } from 'lucide-react';
 import { IntroScreen } from './components/ui/intro-screen';
 import TubesCursorBackground from './components/ui/tubes-cursor-background';
@@ -19,7 +19,7 @@ import MobileApp, { useMobileSheet } from './components/ui/mobile-app';
 import CommandPalette from './components/ui/command-palette';
 import RecruiterModal from './components/ui/recruiter-modal';
 import GitHubActivity from './components/ui/github-activity';
-import { SiAnthropic, SiPython, SiLinktree } from "react-icons/si";
+import { SiAnthropic, SiPython } from "react-icons/si";
 import { FaAward, FaSatellite, FaBuilding, FaWhatsapp } from "react-icons/fa";
 
 const Portfolio = () => {
@@ -446,13 +446,13 @@ const Portfolio = () => {
           rel="noopener noreferrer"
           className={`p-2.5 rounded-full transition-all ${
             isDarkMode 
-              ? 'text-gray-400 hover:text-[#43E660] hover:bg-[#43E660]/10' 
-              : 'text-neutral-500 hover:text-[#28b146] hover:bg-[#43E660]/10'
+              ? 'text-gray-400 hover:text-[#39E09B] hover:bg-[#39E09B]/10' 
+              : 'text-neutral-500 hover:text-[#0fa968] hover:bg-[#39E09B]/10'
           }`}
-          title="Linktree"
+          title="Linktree (All Links)"
           aria-label="Linktree Profile"
         >
-          <SiLinktree size={18} />
+          <Link2 size={18} />
         </a>
 
         <a

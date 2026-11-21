@@ -23,10 +23,10 @@ import {
   Briefcase,
   ShieldCheck,
   Sparkles,
+  Link2,
   X
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { SiLinktree } from 'react-icons/si';
 
 export default function CommandPalette({
   isOpen,
@@ -256,8 +256,8 @@ export default function CommandPalette({
         category: 'Links & Documents',
         title: 'Linktree Profile',
         subtitle: 'linktr.ee/vaibhav_bhoyate_',
-        icon: SiLinktree,
-        keywords: ['linktree', 'links', 'bio', 'social', 'tree'],
+        icon: Link2,
+        keywords: ['linktree', 'links', 'bio', 'social', 'tree', 'all links'],
         action: () => window.open('https://linktr.ee/vaibhav_bhoyate_', '_blank'),
       },
       {
