@@ -420,16 +420,16 @@ export default function MobileApp({
                   </span>
                 </div>
                 <p className={`text-2xl font-black uppercase tracking-tight ${strong}`}>
-                  Nashik<br /><span className="text-neutral-400 text-base">Maharashtra, India</span>
+                  Nashik<br /><span className={`text-base ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-semibold'}`}>Maharashtra, India</span>
                 </p>
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                <div className={`mt-4 pt-3 border-t flex items-center justify-between ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
                   <div>
-                    <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-400 block">Live Clock</span>
+                    <span className={`text-[9px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>Live Clock</span>
                     <span className="text-sm font-mono font-black text-emerald-400">
                       {liveTime || '10:15:00 PM'}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-neutral-400 text-right">
+                  <span className={`text-[10px] font-mono text-right ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-semibold'}`}>
                     {liveStatus || 'IST UTC+5:30'}
                   </span>
                 </div>
@@ -847,20 +847,20 @@ export default function MobileApp({
             </span>
           </div>
           <div className="grid grid-cols-3 gap-2 my-1.5">
-            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
-              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Commits</span>
-              <span className="text-sm sm:text-base font-black text-emerald-400">1,254+</span>
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100 border border-neutral-200'}`}>
+              <span className={`text-[9px] font-mono uppercase block ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>Commits</span>
+              <span className="text-sm sm:text-base font-black text-emerald-500">1,254+</span>
             </div>
-            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
-              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Max Streak</span>
-              <span className="text-sm sm:text-base font-black text-purple-400">67 Days</span>
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100 border border-neutral-200'}`}>
+              <span className={`text-[9px] font-mono uppercase block ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>Max Streak</span>
+              <span className="text-sm sm:text-base font-black text-purple-500">67 Days</span>
             </div>
-            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100'}`}>
-              <span className="text-[9px] font-mono text-neutral-400 uppercase block">Repos</span>
-              <span className="text-sm sm:text-base font-black text-cyan-400">34</span>
+            <div className={`p-2 rounded-xl text-center ${isDarkMode ? 'bg-white/5' : 'bg-neutral-100 border border-neutral-200'}`}>
+              <span className={`text-[9px] font-mono uppercase block ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>Repos</span>
+              <span className="text-sm sm:text-base font-black text-cyan-500">34</span>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+          <div className={`flex items-center justify-between mt-2 pt-2 border-t ${isDarkMode ? 'border-white/5' : 'border-neutral-200'}`}>
             <span className={`text-[10px] font-mono ${soft}`}>@vaibhavv-labs · 430 Followers</span>
             <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-[0.18em] text-emerald-400">
               View Heatmap <ArrowUpRight size={10} />

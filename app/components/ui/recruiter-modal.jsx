@@ -191,12 +191,12 @@ export default function RecruiterModal({
                   Seeking Roles &amp; Internships
                 </span>
               </div>
-              <p className="text-xs text-neutral-400 mt-1 flex items-center gap-2.5 flex-wrap">
-                <span className="font-bold text-white">Vaibhav Bhoyate</span>
+              <p className={`text-xs mt-1 flex items-center gap-2.5 flex-wrap ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Vaibhav Bhoyate</span>
                 <span>•</span>
                 <span>AI &amp; ML Engineer</span>
                 <span>•</span>
-                <span className="text-emerald-400 font-semibold">Founder @ Kryva Technologies</span>
+                <span className="text-emerald-500 font-semibold">Founder @ Kryva Technologies</span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
                   <MapPin size={11} /> Nashik, Maharashtra, India (IST UTC+5:30)
@@ -217,41 +217,43 @@ export default function RecruiterModal({
         </div>
 
         {/* STATS BENTO ROW — 100% REAL PORTFOLIO DATA */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 p-3 sm:p-5 border-b shrink-0 border-white/5 bg-white/[0.01]">
-          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
-            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">Academics</span>
+        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 p-3 sm:p-5 border-b shrink-0 ${
+          isDarkMode ? 'border-white/5 bg-white/[0.01]' : 'border-neutral-200 bg-neutral-50/50'
+        }`}>
+          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-white border-neutral-200 shadow-sm'}`}>
+            <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-bold'}`}>Academics</span>
             <div className="flex items-baseline gap-1 mt-0.5">
-              <span className="text-lg sm:text-xl font-black text-emerald-400">8.6</span>
-              <span className="text-[10px] text-neutral-500">/ 10 CGPA</span>
+              <span className="text-lg sm:text-xl font-black text-emerald-500">8.6</span>
+              <span className={`text-[10px] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>/ 10 CGPA</span>
             </div>
-            <span className="text-[10px] sm:text-[11px] text-neutral-400 block truncate mt-0.5">B.E. AI &amp; DS @ SPPU</span>
+            <span className={`text-[10px] sm:text-[11px] block truncate mt-0.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>B.E. AI &amp; DS @ SPPU</span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
-            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">Internships</span>
+          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-white border-neutral-200 shadow-sm'}`}>
+            <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-bold'}`}>Internships</span>
             <div className="flex items-baseline gap-1 mt-0.5">
-              <span className="text-lg sm:text-xl font-black text-cyan-400">2</span>
-              <span className="text-[10px] text-neutral-500">Technical</span>
+              <span className="text-lg sm:text-xl font-black text-cyan-500">2</span>
+              <span className={`text-[10px] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>Technical</span>
             </div>
-            <span className="text-[10px] sm:text-[11px] text-neutral-400 block truncate mt-0.5">3Skill &amp; R3 Systems</span>
+            <span className={`text-[10px] sm:text-[11px] block truncate mt-0.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>3Skill &amp; R3 Systems</span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
-            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">Venture</span>
+          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-white border-neutral-200 shadow-sm'}`}>
+            <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-bold'}`}>Venture</span>
             <div className="flex items-baseline gap-1 mt-0.5">
-              <span className="text-lg sm:text-xl font-black text-purple-400">Kryva</span>
-              <span className="text-[10px] text-neutral-500">Tech</span>
+              <span className="text-lg sm:text-xl font-black text-purple-500">Kryva</span>
+              <span className={`text-[10px] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>Tech</span>
             </div>
-            <span className="text-[10px] sm:text-[11px] text-neutral-400 block truncate mt-0.5">Founder &amp; Lead AI Eng.</span>
+            <span className={`text-[10px] sm:text-[11px] block truncate mt-0.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>Founder &amp; Lead AI Eng.</span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
-            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">Credentials</span>
+          <div className={`p-2.5 sm:p-3 rounded-2xl border ${isDarkMode ? 'bg-[#181818]/70 border-white/5' : 'bg-white border-neutral-200 shadow-sm'}`}>
+            <span className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-bold'}`}>Credentials</span>
             <div className="flex items-baseline gap-1 mt-0.5">
-              <span className="text-lg sm:text-xl font-black text-amber-400">ISRO</span>
-              <span className="text-[10px] text-neutral-500">&amp; NASA</span>
+              <span className="text-lg sm:text-xl font-black text-amber-500">ISRO</span>
+              <span className={`text-[10px] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>&amp; NASA</span>
             </div>
-            <span className="text-[10px] sm:text-[11px] text-neutral-400 block truncate mt-0.5">Hackathon &amp; NPTEL</span>
+            <span className={`text-[10px] sm:text-[11px] block truncate mt-0.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-700 font-medium'}`}>Hackathon &amp; NPTEL</span>
           </div>
         </div>
 
@@ -269,8 +271,10 @@ export default function RecruiterModal({
                 activeTab === tab.id
                   ? isDarkMode
                     ? 'border-emerald-400 text-white'
-                    : 'border-emerald-600 text-neutral-900'
-                  : 'border-transparent text-neutral-500 hover:text-neutral-300'
+                    : 'border-emerald-600 text-emerald-700'
+                  : isDarkMode
+                  ? 'border-transparent text-neutral-500 hover:text-neutral-300'
+                  : 'border-transparent text-neutral-600 hover:text-neutral-900'
               }`}
             >
               {tab.label}
@@ -285,7 +289,7 @@ export default function RecruiterModal({
               {/* FOUNDER & VENTURE SPOTLIGHT */}
               <div className={`p-4 rounded-2xl border ${isDarkMode ? 'bg-[#161616]/70 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xs font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                  <h3 className="text-xs font-black uppercase tracking-wider text-emerald-500 flex items-center gap-1.5">
                     <Rocket size={14} />
                     Founder &amp; Lead AI Engineer @ Kryva Technologies
                   </h3>
@@ -293,20 +297,20 @@ export default function RecruiterModal({
                     href="https://kryvatechnologies.is-a.dev/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] font-mono text-emerald-400 hover:underline flex items-center gap-1"
+                    className="text-[11px] font-mono text-emerald-500 hover:underline flex items-center gap-1"
                   >
                     <span>Visit Studio</span>
                     <ExternalLink size={11} />
                   </a>
                 </div>
-                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                <p className={`text-xs sm:text-sm leading-relaxed ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
                   Founded Kryva Technologies as a modern software studio and AI consultancy. Architecting custom WhatsApp conversational agents, background workflow automation, document intelligence (OCR), and bespoke high-throughput operational software for businesses.
                 </p>
               </div>
 
               {/* SKILLS - DIRECT FROM SKILLS_ICONS */}
               <div>
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-1.5">
+                <h3 className={`text-xs font-black uppercase tracking-wider mb-3 flex items-center gap-1.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-800'}`}>
                   <Layers size={14} style={{ color: bgAccentColor }} />
                   Core Technical Skills (From Portfolio)
                 </h3>
@@ -316,7 +320,7 @@ export default function RecruiterModal({
                       key={group.category}
                       className={`p-3.5 rounded-xl border ${isDarkMode ? 'bg-[#181818]/60 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}
                     >
-                      <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-emerald-400 block mb-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-emerald-500 block mb-2">
                         {group.category}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
@@ -325,9 +329,11 @@ export default function RecruiterModal({
                           return (
                             <span
                               key={item.name}
-                              className="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-200"
+                              className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-md border ${
+                                isDarkMode ? 'bg-white/5 border-white/10 text-neutral-200' : 'bg-white border-neutral-200 text-neutral-800 shadow-xs'
+                              }`}
                             >
-                              <Icon size={12} className="text-neutral-400" />
+                              <Icon size={12} className={isDarkMode ? 'text-neutral-400' : 'text-neutral-600'} />
                               <span>{item.name}</span>
                             </span>
                           );
@@ -340,7 +346,7 @@ export default function RecruiterModal({
 
               {/* EXPERTISE SERVICES - DIRECT FROM SERVICES_GRID */}
               <div>
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-400 mb-2.5 flex items-center gap-1.5">
+                <h3 className={`text-xs font-black uppercase tracking-wider mb-2.5 flex items-center gap-1.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-800'}`}>
                   <Bot size={14} style={{ color: bgAccentColor }} />
                   Core Areas of Expertise
                 </h3>
@@ -350,9 +356,11 @@ export default function RecruiterModal({
                     return (
                       <span
                         key={srv.name}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-neutral-200"
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium ${
+                          isDarkMode ? 'bg-white/5 border-white/10 text-neutral-200' : 'bg-white border-neutral-200 text-neutral-800 shadow-xs'
+                        }`}
                       >
-                        <Icon size={13} className="text-emerald-400" />
+                        <Icon size={13} className="text-emerald-500" />
                         <span>{srv.name}</span>
                       </span>
                     );
@@ -361,14 +369,16 @@ export default function RecruiterModal({
               </div>
 
               {/* AVAILABILITY BANNER */}
-              <div className="flex items-center justify-between p-3.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-xs text-neutral-300">
+              <div className={`flex items-center justify-between p-3.5 rounded-xl border ${
+                isDarkMode ? 'border-emerald-500/20 bg-emerald-500/5 text-neutral-300' : 'border-emerald-500/30 bg-emerald-50 text-neutral-800'
+              }`}>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                  <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                   <span>Open for <strong>AI/ML &amp; Software Engineering Internships / Roles</strong> (Graduation: 2027)</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="font-mono text-[11px] text-emerald-400 hover:underline flex items-center gap-1 shrink-0"
+                  className="font-mono text-[11px] text-emerald-500 hover:underline flex items-center gap-1 shrink-0 font-bold"
                 >
                   {copied ? <Check size={12} /> : <Copy size={12} />}
                   <span>{copied ? 'Copied' : 'vaibhavbhoyate976@gmail.com'}</span>
@@ -386,16 +396,18 @@ export default function RecruiterModal({
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <span className="text-[10px] font-mono uppercase text-emerald-400 tracking-wider font-bold block">
+                      <span className="text-[10px] font-mono uppercase text-emerald-500 tracking-wider font-bold block">
                         {proj.category}
                       </span>
-                      <h4 className="text-sm font-bold text-white mt-0.5">{proj.title}</h4>
-                      <p className="text-xs text-neutral-300 mt-1 leading-relaxed">
+                      <h4 className={`text-sm font-bold mt-0.5 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>{proj.title}</h4>
+                      <p className={`text-xs mt-1 leading-relaxed ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
                         {proj.description}
                       </p>
                       <div className="flex flex-wrap gap-1.5 mt-2.5">
                         {proj.tags?.map((t) => (
-                          <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-neutral-300 border border-white/5">
+                          <span key={t} className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                            isDarkMode ? 'bg-white/5 text-neutral-300 border-white/5' : 'bg-white text-neutral-700 border-neutral-200'
+                          }`}>
                             {t}
                           </span>
                         ))}
@@ -407,7 +419,9 @@ export default function RecruiterModal({
                           href={proj.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-white flex items-center gap-1 transition"
+                          className={`px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 transition ${
+                            isDarkMode ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-neutral-900 hover:bg-neutral-800 text-white'
+                          }`}
                         >
                           <ExternalLink size={12} /> Live
                         </a>
@@ -417,7 +431,9 @@ export default function RecruiterModal({
                           href={proj.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 rounded-lg text-neutral-400 hover:text-white transition"
+                          className={`p-1.5 rounded-lg transition ${
+                            isDarkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
+                          }`}
                           title="View on GitHub"
                         >
                           <Github size={16} />
@@ -434,7 +450,7 @@ export default function RecruiterModal({
             <div className="space-y-4 animate-in fade-in duration-150">
               {/* EXPERIENCES & INTERNSHIPS (ALL 5 EXACT ITEMS FROM PAGE) */}
               <div>
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-1.5">
+                <h3 className={`text-xs font-black uppercase tracking-wider mb-3 flex items-center gap-1.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-800'}`}>
                   <Briefcase size={14} style={{ color: bgAccentColor }} />
                   Experience &amp; Education History
                 </h3>
@@ -446,22 +462,24 @@ export default function RecruiterModal({
                     >
                       <div className="flex items-center justify-between gap-2 flex-wrap">
                         <div className="flex items-center gap-2">
-                          <h4 className="text-sm font-bold text-white">{exp.title}</h4>
+                          <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>{exp.title}</h4>
                           <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                             exp.badge === 'Internship'
-                              ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10'
-                              : 'border-white/10 text-neutral-400 bg-white/5'
+                              ? 'border-emerald-500/30 text-emerald-500 bg-emerald-500/10'
+                              : isDarkMode
+                              ? 'border-white/10 text-neutral-400 bg-white/5'
+                              : 'border-neutral-200 text-neutral-700 bg-neutral-100'
                           }`}>
                             {exp.badge}
                           </span>
                         </div>
-                        <span className="text-[11px] font-mono text-neutral-500">{exp.period}</span>
+                        <span className={`text-[11px] font-mono ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-semibold'}`}>{exp.period}</span>
                       </div>
-                      <p className="text-xs text-neutral-400 mt-0.5 font-medium">{exp.company}</p>
+                      <p className={`text-xs mt-0.5 font-medium ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>{exp.company}</p>
                       <ul className="mt-2 space-y-1">
                         {exp.highlights?.map((h, i) => (
-                          <li key={i} className="text-xs text-neutral-300 flex items-start gap-2">
-                            <span className="text-emerald-400 mt-1">•</span>
+                          <li key={i} className={`text-xs flex items-start gap-2 ${isDarkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                            <span className="text-emerald-500 mt-1">•</span>
                             <span>{h}</span>
                           </li>
                         ))}
@@ -473,8 +491,8 @@ export default function RecruiterModal({
 
               {/* CERTIFICATIONS (EXACT 8 FROM PORTFOLIO) */}
               <div className="pt-2">
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-1.5">
-                  <Award size={14} className="text-amber-400" />
+                <h3 className={`text-xs font-black uppercase tracking-wider mb-3 flex items-center gap-1.5 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-800'}`}>
+                  <Award size={14} className="text-amber-500" />
                   Verified Certifications ({EXACT_CERTIFICATES.length})
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -491,7 +509,7 @@ export default function RecruiterModal({
                         className={`group flex items-center justify-between p-3 rounded-xl border transition-all ${
                           isDarkMode
                             ? 'bg-[#181818]/60 border-white/5 hover:border-white/20 hover:bg-white/10'
-                            : 'bg-neutral-50 border-neutral-200 hover:border-neutral-400 hover:bg-neutral-100'
+                            : 'bg-white border-neutral-200 hover:border-neutral-400 hover:bg-neutral-50 shadow-xs'
                         }`}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
@@ -501,11 +519,11 @@ export default function RecruiterModal({
                           >
                             <Icon size={14} />
                           </div>
-                          <span className="text-xs font-medium text-neutral-300 group-hover:text-white truncate">
+                          <span className={`text-xs font-medium truncate ${isDarkMode ? 'text-neutral-300 group-hover:text-white' : 'text-neutral-800 group-hover:text-neutral-950 font-semibold'}`}>
                             {cert.title}
                           </span>
                         </div>
-                        <ExternalLink size={12} className="text-neutral-500 group-hover:text-white shrink-0 ml-2" />
+                        <ExternalLink size={12} className={`shrink-0 ml-2 ${isDarkMode ? 'text-neutral-500 group-hover:text-white' : 'text-neutral-400 group-hover:text-neutral-900'}`} />
                       </a>
                     );
                   })}
@@ -524,7 +542,9 @@ export default function RecruiterModal({
           <div className="flex items-center gap-2">
             <button
               onClick={handleDownloadResume}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-white text-black hover:bg-neutral-200 transition shadow"
+              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition shadow ${
+                isDarkMode ? 'bg-white text-black hover:bg-neutral-200' : 'bg-neutral-900 text-white hover:bg-neutral-800'
+              }`}
             >
               <Download size={14} />
               <span>Download Resume</span>
@@ -533,7 +553,9 @@ export default function RecruiterModal({
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border border-white/10 hover:bg-white/10 text-white transition"
+              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition ${
+                isDarkMode ? 'border-white/10 hover:bg-white/10 text-white' : 'border-neutral-300 hover:bg-neutral-200 text-neutral-800'
+              }`}
             >
               <ExternalLink size={14} />
               <span className="hidden sm:inline">Review PDF</span>
@@ -543,10 +565,12 @@ export default function RecruiterModal({
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono border border-white/10 hover:bg-white/10 text-neutral-300 hover:text-white transition"
+              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono border transition ${
+                isDarkMode ? 'border-white/10 hover:bg-white/10 text-neutral-300 hover:text-white' : 'border-neutral-300 hover:bg-neutral-200 text-neutral-700 hover:text-neutral-900'
+              }`}
               title="Copy Email Address"
             >
-              {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+              {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
               <span>{copied ? 'Copied!' : 'Copy Email'}</span>
             </button>
 
@@ -554,7 +578,9 @@ export default function RecruiterModal({
               href="https://wa.me/918830269849"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl border border-white/10 hover:bg-[#25D366]/20 text-neutral-300 hover:text-[#25D366] transition"
+              className={`p-2 rounded-xl border transition ${
+                isDarkMode ? 'border-white/10 hover:bg-[#25D366]/20 text-neutral-300 hover:text-[#25D366]' : 'border-neutral-300 hover:bg-[#25D366]/20 text-neutral-700 hover:text-[#25D366]'
+              }`}
               title="Chat on WhatsApp"
             >
               <FaWhatsapp size={16} />
@@ -564,7 +590,9 @@ export default function RecruiterModal({
               href="https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl border border-white/10 hover:bg-[#0077b5]/20 text-neutral-300 hover:text-[#0077b5] transition"
+              className={`p-2 rounded-xl border transition ${
+                isDarkMode ? 'border-white/10 hover:bg-[#0077b5]/20 text-neutral-300 hover:text-[#0077b5]' : 'border-neutral-300 hover:bg-[#0077b5]/20 text-neutral-700 hover:text-[#0077b5]'
+              }`}
               title="LinkedIn Profile"
             >
               <Linkedin size={16} />

@@ -203,7 +203,11 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
           href="https://github.com/vaibhavv-labs"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm shrink-0 border border-white/10 hover:border-emerald-500/40 hover:bg-emerald-500/10 text-white"
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm shrink-0 border ${
+            isDarkMode
+              ? 'border-white/10 hover:border-emerald-500/40 hover:bg-emerald-500/10 text-white'
+              : 'border-neutral-300 hover:border-emerald-500/60 hover:bg-emerald-50 text-neutral-800'
+          }`}
         >
           <Github size={15} style={{ color: bgAccentColor }} />
           <span>Follow @vaibhavv-labs</span>
@@ -216,53 +220,61 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
         {/* TOTAL CONTRIBUTIONS */}
         <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${themeClasses.card}`}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Total Year Commits</span>
+            <span className={`text-[10px] font-mono uppercase tracking-wider ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>
+              Total Year Commits
+            </span>
             <GitCommit size={16} className="text-emerald-400" />
           </div>
-          <div className="text-2xl sm:text-3xl font-black text-white flex items-baseline gap-1">
+          <div className={`text-2xl sm:text-3xl font-black flex items-baseline gap-1 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
             <span>{stats.total.toLocaleString()}</span>
-            <span className="text-xs font-semibold text-emerald-400 font-mono">+</span>
+            <span className="text-xs font-semibold text-emerald-500 font-mono">+</span>
           </div>
-          <p className="text-[11px] text-neutral-400 mt-1">Across 365 days</p>
+          <p className={`text-[11px] mt-1 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'}`}>Across 365 days</p>
         </div>
 
         {/* CURRENT STREAK */}
         <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${themeClasses.card}`}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Current Streak</span>
-            <Flame size={16} className="text-amber-400 animate-pulse" />
+            <span className={`text-[10px] font-mono uppercase tracking-wider ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>
+              Current Streak
+            </span>
+            <Flame size={16} className="text-amber-500 animate-pulse" />
           </div>
-          <div className="text-2xl sm:text-3xl font-black text-amber-400 flex items-baseline gap-1">
+          <div className="text-2xl sm:text-3xl font-black text-amber-500 flex items-baseline gap-1">
             <span>{stats.currentStreak}</span>
-            <span className="text-xs font-semibold text-neutral-400 font-mono">Days</span>
+            <span className={`text-xs font-semibold font-mono ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Days</span>
           </div>
-          <p className="text-[11px] text-neutral-400 mt-1">Continuous active commits</p>
+          <p className={`text-[11px] mt-1 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'}`}>Continuous active commits</p>
         </div>
 
         {/* LONGEST STREAK */}
         <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${themeClasses.card}`}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Longest Streak</span>
-            <Trophy size={16} className="text-purple-400" />
+            <span className={`text-[10px] font-mono uppercase tracking-wider ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>
+              Longest Streak
+            </span>
+            <Trophy size={16} className="text-purple-500" />
           </div>
-          <div className="text-2xl sm:text-3xl font-black text-purple-400 flex items-baseline gap-1">
+          <div className="text-2xl sm:text-3xl font-black text-purple-500 flex items-baseline gap-1">
             <span>{stats.maxStreak}</span>
-            <span className="text-xs font-semibold text-neutral-400 font-mono">Days</span>
+            <span className={`text-xs font-semibold font-mono ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Days</span>
           </div>
-          <p className="text-[11px] text-neutral-400 mt-1">Personal record streak</p>
+          <p className={`text-[11px] mt-1 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'}`}>Personal record streak</p>
         </div>
 
         {/* PUBLIC REPOSITORIES & FOLLOWERS */}
         <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${themeClasses.card}`}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Repositories</span>
-            <Code2 size={16} className="text-cyan-400" />
+            <span className={`text-[10px] font-mono uppercase tracking-wider ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>
+              Repositories
+            </span>
+            <Code2 size={16} className="text-cyan-500" />
           </div>
-          <div className="text-2xl sm:text-3xl font-black text-cyan-400 flex items-baseline gap-1">
+          <div className="text-2xl sm:text-3xl font-black text-cyan-500 flex items-baseline gap-1">
             <span>{stats.repos}</span>
-            <span className="text-xs font-semibold text-neutral-400 font-mono">Repos</span>
+            <span className={`text-xs font-semibold font-mono ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>Repos</span>
           </div>
-          <p className="text-[11px] text-neutral-400 mt-1">{stats.followers} GitHub Followers</p>
+          <p className={`text-[11px] mt-1 ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'}`}>{stats.followers} GitHub Followers</p>
         </div>
       </div>
 
@@ -271,20 +283,20 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <Calendar size={14} style={{ color: bgAccentColor }} />
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-300">
+            <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-neutral-300' : 'text-neutral-800'}`}>
               Contribution Heatmap (Last 12 Months)
             </span>
           </div>
 
           {/* ACTIVE HOVER TOOLTIP DISPLAY */}
-          <div className="text-xs font-mono text-emerald-400 min-h-[1.25rem] flex items-center gap-1.5">
+          <div className="text-xs font-mono text-emerald-500 min-h-[1.25rem] flex items-center gap-1.5">
             {hoveredDay ? (
               <>
-                <span className="font-bold text-white">{hoveredDay.count} contribution{hoveredDay.count === 1 ? '' : 's'}</span>
-                <span className="text-neutral-400">on {hoveredDay.date}</span>
+                <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>{hoveredDay.count} contribution{hoveredDay.count === 1 ? '' : 's'}</span>
+                <span className={isDarkMode ? 'text-neutral-400' : 'text-neutral-600'}>on {hoveredDay.date}</span>
               </>
             ) : (
-              <span className="text-neutral-500 text-[11px]">Hover over any cell to see daily commits</span>
+              <span className={`text-[11px] ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>Hover over any cell to see daily commits</span>
             )}
           </div>
         </div>
@@ -293,7 +305,7 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
         <div className="overflow-x-auto pb-2 scrollbar-thin">
           <div className="min-w-[760px]">
             {/* MONTH HEADER */}
-            <div className="flex text-[10px] font-mono text-neutral-500 mb-1 pl-6">
+            <div className={`flex text-[10px] font-mono mb-1 pl-6 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-semibold'}`}>
               {MONTH_NAMES.map((m, idx) => (
                 <div key={idx} className="flex-1 text-left">
                   {m}
@@ -304,7 +316,7 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
             {/* WEEKS & DAYS GRID */}
             <div className="flex gap-[3.5px]">
               {/* DAY OF WEEK LABELS */}
-              <div className="flex flex-col gap-[3.5px] pr-2 text-[9px] font-mono text-neutral-500 select-none">
+              <div className={`flex flex-col gap-[3.5px] pr-2 text-[9px] font-mono select-none ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-semibold'}`}>
                 {DAY_LABELS.map((lbl, idx) => (
                   <div key={idx} className="h-[12px] flex items-center justify-end">
                     {lbl}
@@ -339,20 +351,22 @@ export default function GitHubActivity({ isDarkMode, themeClasses, bgAccentColor
         </div>
 
         {/* HEATMAP FOOTER LEGEND */}
-        <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-neutral-400 flex-wrap gap-2">
+        <div className={`mt-4 pt-3 border-t flex items-center justify-between text-[11px] flex-wrap gap-2 ${
+          isDarkMode ? 'border-white/5 text-neutral-400' : 'border-neutral-200 text-neutral-600'
+        }`}>
           <span className="flex items-center gap-1.5 font-mono text-[10px]">
-            <CheckCircle2 size={12} className="text-emerald-400" />
+            <CheckCircle2 size={12} className="text-emerald-500" />
             <span>Synced automatically with GitHub profile commits</span>
           </span>
 
           <div className="flex items-center gap-2 font-mono text-[10px] select-none">
-            <span className="text-neutral-500">Less</span>
-            <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-white/[0.06]' : 'bg-neutral-200'}`} />
-            <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-emerald-950/80 border border-emerald-800/40' : 'bg-emerald-200'}`} />
+            <span className={isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-semibold'}>Less</span>
+            <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-white/[0.06]' : 'bg-neutral-200 border border-neutral-300'}`} />
+            <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-emerald-950/80 border border-emerald-800/40' : 'bg-emerald-200 border border-emerald-300'}`} />
             <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-emerald-700/80' : 'bg-emerald-400'}`} />
             <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-emerald-500' : 'bg-emerald-500'}`} />
             <div className={`w-[10px] h-[10px] rounded-[2px] ${isDarkMode ? 'bg-emerald-400' : 'bg-emerald-600'}`} />
-            <span className="text-neutral-500">More</span>
+            <span className={isDarkMode ? 'text-neutral-500' : 'text-neutral-600 font-semibold'}>More</span>
           </div>
         </div>
       </div>

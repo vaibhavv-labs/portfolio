@@ -294,13 +294,13 @@ const Portfolio = () => {
 
   const themeClasses = {
     root: isDarkMode ? 'bg-[#0a0a0a] text-white' : 'bg-neutral-50 text-neutral-900',
-    nav: isDarkMode ? 'bg-[#121212]/70 backdrop-blur-xl border border-white/5 text-white' : 'bg-white/70 backdrop-blur-xl border border-neutral-200/70 text-neutral-900',
-    card: isDarkMode ? 'bg-[#111111]/60 backdrop-blur-xl border border-white/10 text-white' : 'bg-white/70 backdrop-blur-xl border border-neutral-200/70 text-neutral-900',
-    panel: isDarkMode ? 'bg-[#161616]/60 backdrop-blur-xl border border-white/5 text-white' : 'bg-white/50 backdrop-blur-xl border border-neutral-200/70 text-neutral-900',
+    nav: isDarkMode ? 'bg-[#121212]/70 backdrop-blur-xl border border-white/5 text-white' : 'bg-white/85 backdrop-blur-xl border border-neutral-200/80 text-neutral-900 shadow-sm',
+    card: isDarkMode ? 'bg-[#111111]/60 backdrop-blur-xl border border-white/10 text-white' : 'bg-white/90 backdrop-blur-xl border border-neutral-200 text-neutral-900 shadow-sm',
+    panel: isDarkMode ? 'bg-[#161616]/60 backdrop-blur-xl border border-white/5 text-white' : 'bg-white/75 backdrop-blur-xl border border-neutral-200 text-neutral-900 shadow-sm',
     accentText: isDarkMode ? 'text-emerald-400' : 'text-emerald-600',
     mutedText: isDarkMode ? 'text-gray-400' : 'text-neutral-600',
-    subCard: isDarkMode ? 'bg-[#1c1c1c]/60 backdrop-blur-md border border-white/10' : 'bg-neutral-100/70 backdrop-blur-md border border-neutral-300/70',
-    navButtonText: isDarkMode ? 'text-gray-500 hover:text-gray-300' : 'text-neutral-500 hover:text-neutral-700',
+    subCard: isDarkMode ? 'bg-[#1c1c1c]/60 backdrop-blur-md border border-white/10' : 'bg-neutral-100/90 backdrop-blur-md border border-neutral-300',
+    navButtonText: isDarkMode ? 'text-gray-500 hover:text-gray-300' : 'text-neutral-600 hover:text-neutral-900',
     accentButton: isDarkMode ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-neutral-900/10 hover:bg-neutral-800/10 text-neutral-900',
   };
 
@@ -486,7 +486,7 @@ const Portfolio = () => {
               </span>
               <h1 className={`text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[0.95] ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                 VAIBHAV<br />
-                <span className="text-gray-400">BHOYATE</span>
+                <span className={isDarkMode ? 'text-gray-400' : 'text-neutral-500'}>BHOYATE</span>
               </h1>
             </div>
             
@@ -585,17 +585,17 @@ const Portfolio = () => {
                 </div>
                 <h3 className={`text-2xl md:text-3xl font-black uppercase tracking-tight leading-[0.95] mb-2 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                   Nashik<br />
-                  <span className="text-gray-400">Maharashtra, India</span>
+                  <span className={isDarkMode ? 'text-gray-400' : 'text-neutral-500'}>Maharashtra, India</span>
                 </h3>
               </div>
-              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+              <div className={`mt-4 pt-3 border-t flex items-center justify-between ${isDarkMode ? 'border-white/10' : 'border-neutral-200'}`}>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">Live Time</span>
-                  <span className="text-sm font-mono font-black text-emerald-400 tracking-wider">
+                  <span className={`text-[10px] font-mono uppercase tracking-wider block ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-bold'}`}>Live Time</span>
+                  <span className="text-sm font-mono font-black text-emerald-500 tracking-wider">
                     {liveTime || '10:15:00 PM'}
                   </span>
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 text-right">
+                <span className={`text-[10px] font-mono text-right ${isDarkMode ? 'text-neutral-400' : 'text-neutral-600 font-semibold'}`}>
                   {liveStatus}
                 </span>
               </div>
@@ -606,7 +606,7 @@ const Portfolio = () => {
         <section id="projects" className="mb-32 scroll-mt-28">
           <div className="text-center mb-16">
             <p className={`text-[10px] font-black uppercase tracking-[0.5em] ${themeClasses.mutedText}`}>PORTFOLIO</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">Featured <span className="text-emerald-500">projects</span></h2>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mt-4 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Featured <span className="text-emerald-500">projects</span></h2>
           </div>
 
           <ProjectsGallery isDarkMode={isDarkMode} themeClasses={themeClasses} onActiveChange={setProjectModalActive} />
@@ -619,7 +619,7 @@ const Portfolio = () => {
               <p className={`text-[10px] font-black uppercase tracking-[0.5em] ${themeClasses.mutedText}`}>
                 VENTURE &amp; FOUNDERSHIP
               </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mt-4 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>
                 Ventures &amp; <span className="text-emerald-500">Startups</span>
               </h2>
               <p className={`${isDarkMode ? 'text-gray-400' : 'text-neutral-600'} mt-4 max-w-2xl mx-auto text-sm sm:text-base`}>
@@ -661,7 +661,7 @@ const Portfolio = () => {
 
                   {/* Key Capabilities / Focus Areas */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 mb-8">
-                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} ${isDarkMode ? 'border border-white/5' : 'border border-neutral-200 shadow-xs'}`}>
                       <div className="flex items-center gap-2 mb-1.5 text-emerald-400">
                         <Bot size={16} />
                         <span className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>WhatsApp AI Agents</span>
@@ -671,7 +671,7 @@ const Portfolio = () => {
                       </p>
                     </div>
 
-                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} border border-white/5`}>
+                    <div className={`p-4 rounded-2xl ${themeClasses.subCard} ${isDarkMode ? 'border border-white/5' : 'border border-neutral-200 shadow-xs'}`}>
                       <div className="flex items-center gap-2 mb-1.5 text-emerald-400">
                         <Layers size={16} />
                         <span className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Workflow Automation</span>
@@ -686,7 +686,7 @@ const Portfolio = () => {
                   <div className="space-y-5 pt-2">
                     <div className="flex flex-wrap gap-2">
                       {['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'PostgreSQL', 'Framer Motion'].map((tech) => (
-                        <span key={tech} className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300' : 'text-neutral-700'} border border-white/5`}>
+                        <span key={tech} className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${themeClasses.subCard} ${isDarkMode ? 'text-gray-300 border border-white/5' : 'text-neutral-800 border border-neutral-200 shadow-xs'}`}>
                           {tech}
                         </span>
                       ))}
@@ -760,7 +760,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className={`text-[10px] font-black uppercase tracking-[0.5em] ${themeClasses.mutedText}`}>AREAS OF EXPERTISE</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-4">Technical <span className="text-emerald-500">Expertise</span></h2>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mt-4 ${isDarkMode ? 'text-white' : 'text-neutral-900'}`}>Technical <span className="text-emerald-500">Expertise</span></h2>
           </div>
           <ServicesGrid
             isDarkMode={isDarkMode}
@@ -807,7 +807,7 @@ const Portfolio = () => {
                     href={certificate.type === 'link' ? certificate.file : `/certificates/${encodeURIComponent(certificate.file)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400 hover:text-emerald-300"
+                    className={`mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] ${isDarkMode ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'}`}
                   >
                     View Certificate
                     <ArrowUpRight size={12} />
