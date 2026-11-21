@@ -19,7 +19,7 @@ import MobileApp, { useMobileSheet } from './components/ui/mobile-app';
 import CommandPalette from './components/ui/command-palette';
 import RecruiterModal from './components/ui/recruiter-modal';
 import GitHubActivity from './components/ui/github-activity';
-import { SiAnthropic, SiPython } from "react-icons/si";
+import { SiAnthropic, SiPython, SiLinktree } from "react-icons/si";
 import { FaAward, FaSatellite, FaBuilding, FaWhatsapp } from "react-icons/fa";
 
 const Portfolio = () => {
@@ -438,6 +438,21 @@ const Portfolio = () => {
           aria-label="LinkedIn Profile"
         >
           <Linkedin size={18} />
+        </a>
+
+        <a
+          href="https://linktr.ee/vaibhav_bhoyate_"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`p-2.5 rounded-full transition-all ${
+            isDarkMode 
+              ? 'text-gray-400 hover:text-[#43E660] hover:bg-[#43E660]/10' 
+              : 'text-neutral-500 hover:text-[#28b146] hover:bg-[#43E660]/10'
+          }`}
+          title="Linktree"
+          aria-label="Linktree Profile"
+        >
+          <SiLinktree size={18} />
         </a>
 
         <a

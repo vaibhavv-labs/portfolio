@@ -7,6 +7,7 @@ import {
   Terminal, Flame
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { SiLinktree } from 'react-icons/si';
 import { PROJECTS } from './projects-gallery';
 import SkillsIcons, { SKILL_GROUPS } from './skills-icons';
 import ServicesGrid, { SERVICES } from './services-grid';
@@ -17,6 +18,7 @@ const RESUME = '/resume.pdf';
 const SOCIALS = [
   { href: 'https://github.com/vaibhavv-labs', label: 'GitHub', Icon: Github },
   { href: 'https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/', label: 'LinkedIn', Icon: Linkedin },
+  { href: 'https://linktr.ee/vaibhav_bhoyate_', label: 'Linktree', Icon: SiLinktree },
   { href: 'https://wa.me/918830269849', label: 'WhatsApp', Icon: FaWhatsapp },
 ];
 
@@ -879,7 +881,7 @@ export default function MobileApp({
               <ArrowUpRight size={18} />
             </span>
           </button>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-4 gap-2">
             {SOCIALS.map(({ href, label, Icon }) => (
               <a
                 key={label}

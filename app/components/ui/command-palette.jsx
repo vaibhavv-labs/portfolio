@@ -26,6 +26,7 @@ import {
   X
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { SiLinktree } from 'react-icons/si';
 
 export default function CommandPalette({
   isOpen,
@@ -249,6 +250,15 @@ export default function CommandPalette({
         icon: Linkedin,
         keywords: ['linkedin', 'social', 'network', 'connect'],
         action: () => window.open('https://www.linkedin.com/in/vaibhav-bhoyate-6328802a9/', '_blank'),
+      },
+      {
+        id: 'link-linktree',
+        category: 'Links & Documents',
+        title: 'Linktree Profile',
+        subtitle: 'linktr.ee/vaibhav_bhoyate_',
+        icon: SiLinktree,
+        keywords: ['linktree', 'links', 'bio', 'social', 'tree'],
+        action: () => window.open('https://linktr.ee/vaibhav_bhoyate_', '_blank'),
       },
       {
         id: 'link-whatsapp',
